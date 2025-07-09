@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
+
 package my.arcadeApp;
+
 
 /**
  *
@@ -1691,7 +1693,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         int id = 0;
         //check the machinetype 
         if(machineType.equals("Arcade Cabinet")){
-            ArcadeMachine CabinetGame = new CabinetGame(id,machineName, year, );
+            //ArcadeMachine CabinetGame = new CabinetGame(id,machineName, year, );
         }
             
         
