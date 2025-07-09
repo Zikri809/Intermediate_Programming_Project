@@ -326,14 +326,21 @@ public class ArcadeManager {
         int mediumcount = 0;
         int highcount = 0;
         for (int i = 0; i <repairLogList.size(); i++){
-            if(repairLogList.get(i).getPriority().equals("Low priority")){
+            System.out.println("search looping start");
+            if(repairLogList.get(i).getPriority().equals("Low Priority")){
                 lowcount++;
+                System.out.println("found 1 low");
             }
-            else if(repairLogList.get(i).getPriority().equals("Medium priority")){
+            else if(repairLogList.get(i).getPriority().equals("Medium Priority")){
                 mediumcount++;
+                System.out.println("found 1 mdeium");
             }
-            else if(repairLogList.get(i).getPriority().equals("High priority")){
+            else if(repairLogList.get(i).getPriority().equals("High Priority")){
                 highcount++;
+                System.out.println("found 1 high");
+            }
+            else{
+                System.out.println("not found");
             }
         }
         //0-low 1-med 2-high
