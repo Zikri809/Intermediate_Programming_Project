@@ -7,6 +7,7 @@ package my.arcadeApp;
 
 
 import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.util.Arrays;
 import java.util.List;
 
@@ -26,10 +27,13 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         //making the combo box dynamic
         machinesCB.setModel(machineName_Model);
         technicianCB.setModel(technicianName_Model);
+        repairLogTb.setModel(repairLogmodel);
+
 
     }
     DefaultComboBoxModel<String> machineName_Model = new DefaultComboBoxModel<>();
     DefaultComboBoxModel<String> technicianName_Model = new DefaultComboBoxModel<>();
+    DefaultTableModel repairLogmodel = new DefaultTableModel();
     int id = 0;
     int technicianID = 0;
 
@@ -141,7 +145,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         lowTF = new javax.swing.JTextField();
         lowPriorityTable = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        repairLogTb = new javax.swing.JTable();
         addTechnicianPanel = new javax.swing.JPanel();
         addTechLayerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
@@ -1182,18 +1186,23 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
         repairLogsPanel.add(completedPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, 150, 120));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        repairLogTb.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
+                {null, null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "Machine Name", "Technician", "Description", "Priority", "Notes"
             }
-        ));
-        jScrollPane1.setViewportView(jTable1);
+        ) {
+            Class[] types = new Class [] {
+                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
+            };
+
+            public Class getColumnClass(int columnIndex) {
+                return types [columnIndex];
+            }
+        });
+        jScrollPane1.setViewportView(repairLogTb);
 
         repairLogsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 730, 270));
 
@@ -1591,12 +1600,17 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         if (repairLogList == null) return;
         totalLogTF.setText(String.valueOf(repairLogList.size()));
         int [] logCount = main_manager.getPrioritylogCount();
-
         highTF.setText(String.valueOf(logCount[2]));
         lowTF.setText(String.valueOf(logCount[1]));
         mediumTF.setText(String.valueOf(logCount[0]));
+        for (int i =0; i<repairLogList.size(); i++){
+            RepairLog log = repairLogList.get(i);
+            String [] stringarr = {log.getMachine().getNAME(), log.getTechnician().getNAME(),log.getDescription(), log.getNotes(), log.getPriority() };
+            repairLogmodel.addRow(stringarr);
+        }
 
-        System.out.println("Total Log TF: when click log " + Arrays.toString(logCount));
+
+        //System.out.println("Total Log TF: when click log " + Arrays.toString(logCount));
 
         
     }//GEN-LAST:event_logsBtnActionPerformed
@@ -1623,14 +1637,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         Technician technician = main_manager.findTechnicianInList(technicianName);
         RepairLog log = new RepairLog (machine,technician,note,issuesDesc,priorityLevel);
         main_manager.addRepairLog(log);
-        System.out.println(machine.toString());
-        System.out.println(technician.toString());
-        int [] logCount = main_manager.getPrioritylogCount();
-        highTF.setText(String.valueOf(logCount[2]));
-        lowTF.setText(String.valueOf(logCount[1]));
-        mediumTF.setText(String.valueOf(logCount[0]));
 
-        System.out.println("Total Log TF when click add log " + Arrays.toString(logCount));
     }//GEN-LAST:event_confirmNewLogBtnActionPerformed
 
     private void backTab5BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTab5BtnActionPerformed
@@ -1903,7 +1910,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
+<<<<<<< Updated upstream
     private javax.swing.JTable jTable1;
+=======
+    private javax.swing.JTable jTable2;
+>>>>>>> Stashed changes
     private javax.swing.JTable jTable3;
     private javax.swing.JLabel layerHeaderTab2Label;
     private javax.swing.JPanel layerTab2Panel;
@@ -1947,6 +1958,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel qtyLabel;
     private javax.swing.JButton registerBtn;
     private javax.swing.JLabel repairLabel;
+    private javax.swing.JTable repairLogTb;
     private javax.swing.JPanel repairLogsPanel;
     private javax.swing.JLabel requireLabel;
     private javax.swing.JButton resetTab5Btn;
