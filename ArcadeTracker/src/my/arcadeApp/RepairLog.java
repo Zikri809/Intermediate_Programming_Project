@@ -3,7 +3,7 @@ package my.arcadeApp;
 import java.time.LocalDate;
 
 public class RepairLog {
-/*
+
     private ArcadeMachine machine;
     private Technician technician;
     private LocalDate repairDate;

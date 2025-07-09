@@ -1,13 +1,12 @@
 package my.arcadeApp;
 
 import java.time.LocalDate;
-import java.util.Arrays;
 import java.util.List;
 
 public class ArcadeManager {
-    /*
+
     //the <> specifies the type of element going to be inside the list
-    //list used as it is flexible compared to array
+    // used as it is flexible compared to array
     //the length can increase dynamically as more object is added
     private List <ArcadeMachine> machinesList;
     private List<Technician> technicianList;
@@ -26,8 +25,8 @@ public class ArcadeManager {
     public void assignTechnician( int machineID, int technicianId){
 
         for (int i = 0; i <repairLogList.size(); i++){
-            if(repairLogList.get(i).getMachine().getId() == machineID ){
-                Technician technician = findTechnicianInList(technicianId)
+            if(repairLogList.get(i).getMachine().getID() == machineID ){
+                Technician technician = findTechnicianInList(technicianId);
                 repairLogList.get(i).setTechnician(technician);
             }
         }
@@ -46,16 +45,18 @@ public class ArcadeManager {
     }
     public ArcadeMachine findMachineInList(int machineId){
         for (int i = 0; i <machinesList.size(); i++){
-            if(machinesList.get(i).getId() == machineId){
+            if(machinesList.get(i).getID() == machineId){
                 return machinesList.get(i);
             }
         }
+        return null;
     }
     public Technician findTechnicianInList (int technicianId){
         for (int i = 0; i <technicianList.size(); i++){
-            if(technicianList.get(i).getId() == technicianId){
+            if(technicianList.get(i).getID() == technicianId){
                 return technicianList.get(i);
             }
         }
+        return null;
     }
 }
