@@ -13,12 +13,17 @@ public class Technician {
     private int id;
     private String name;
     private String specialty;
+    private double experience;
+    private String certification;
     
-        public Technician (int ID, String NAME, String SPECIALTY){
+        public Technician (int ID, String NAME, String SPECIALTY,double EXPERIENCE,String CERTIFICATION){
         this.id = ID;   
         this.name = NAME;
-        this.specialty = SPECIALTY;        
-                
+        this.specialty = SPECIALTY;
+        this.experience = EXPERIENCE;
+        this.certification = CERTIFICATION;
+
+
         }
     
             public void setID(int id){
@@ -38,6 +43,12 @@ public class Technician {
             this.specialty=specialty;
 
             }
+            public void setEXPERIENCE(double experience){
+                this.experience=experience;
+            }
+            public void setCERTIFICATION(String certification){
+                this.certification=certification;
+            }
 
             public int getID(){
 
@@ -55,6 +66,12 @@ public class Technician {
 
             return specialty;
 
+            }
+            public double getEXPERIENCE(){
+                return experience;
+            }
+            public String getCERTIFICATION(){
+                return certification;
             }
 
                 public String toString(){

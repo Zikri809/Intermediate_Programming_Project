@@ -19,6 +19,15 @@ public class ArcadeManager {
     public void addMachine(ArcadeMachine machine){
         machinesList.add(machine);
     }
+    public void removeMachine(ArcadeMachine machine){
+        machinesList.remove(machine);
+    }
+    public void addTechnician(Technician technician){
+        technicianList.add(technician);
+    }
+    public void removeTechnician(Technician technician){
+        technicianList.remove(technician);
+    }
     public void updateMachineStatus ( int machineID , boolean isWorking){
         //we iterate through the list and find the object that has the
         //required id then we changes the its working status

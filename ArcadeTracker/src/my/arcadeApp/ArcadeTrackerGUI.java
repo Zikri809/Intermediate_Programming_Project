@@ -19,7 +19,8 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         initComponents();
     }
     ArcadeManager main_manager = new ArcadeManager();
-    int id = 0;       
+    int id = 0;
+    int technicianID = 0;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -1591,10 +1592,23 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void resetTab5BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetTab5BtnActionPerformed
         // TODO add your handling code here:
+         nameTF.setText("");
+        specialityTF.setText("");
+        experienceTF.setText("");
+        certTF.setText("");
     }//GEN-LAST:event_resetTab5BtnActionPerformed
 
     private void confirmAddTechBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmAddTechBtnActionPerformed
         // TODO add your handling code here:
+        //int ID, String NAME, String SPECIALTY
+        String name = nameTF.getText();
+        String specialty = specialityTF.getText();
+        double experience = Double.parseDouble(experienceTF.getText());
+        String certification = certTF.getText();
+        Technician tech1 = new Technician(id,name,specialty,experience,certification);
+        main_manager.addTechnician(tech1);
+        technicianID++;
+        
     }//GEN-LAST:event_confirmAddTechBtnActionPerformed
 
     private void certTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_certTFActionPerformed
@@ -1696,18 +1710,16 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             //int ID, String NAME, int YEARMADE, boolean IsWorking, String SCREENTYPE, String MANUFACTURER
             ArcadeMachine arcadeCabinet = new CabinetGame(id,machineName,year,true ,"200px",manufacturer);
             main_manager.addMachine(arcadeCabinet);
+            id++;
         }
         else{
             //int ID, String NAME, int YEARMADE, boolean IsWorking, int FlippersNum,String MANUFACTURER
             ArcadeMachine pinballMachine = new PinballMachine(id,machineName,year,true ,2,manufacturer);
             main_manager.addMachine(pinballMachine);
+            id++;
         }
         
-        int id = 0;
-        //check the machinetype 
-        if(machineType.equals("Arcade Cabinet")){
-            //ArcadeMachine CabinetGame = new CabinetGame(id,machineName, year, );
-        }
+      
             
         
     }//GEN-LAST:event_registerBtnActionPerformed
