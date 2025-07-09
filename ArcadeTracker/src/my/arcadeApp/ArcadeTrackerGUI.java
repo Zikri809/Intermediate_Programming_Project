@@ -139,7 +139,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         experienceTF = new javax.swing.JTextField();
         certTF = new javax.swing.JTextField();
         confirmAddTechBtn = new javax.swing.JButton();
-        cancelTab5Btn = new javax.swing.JButton();
+        resetTab5Btn = new javax.swing.JButton();
         backTab5Btn = new javax.swing.JButton();
         newRepairLogPanel = new javax.swing.JPanel();
         newLogLayerPanel = new javax.swing.JPanel();
@@ -153,7 +153,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         issueDesLabel = new javax.swing.JLabel();
         notesLabel = new javax.swing.JLabel();
         confirmNewLogBtn = new javax.swing.JButton();
-        cancelTab6Btn = new javax.swing.JButton();
+        resetTab6Btn = new javax.swing.JButton();
         issueDescTF = new javax.swing.JTextField();
         notesTF = new javax.swing.JTextField();
         backTab6Btn = new javax.swing.JButton();
@@ -1258,11 +1258,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             }
         });
 
-        cancelTab5Btn.setFont(new java.awt.Font("Krungthep", 0, 13)); // NOI18N
-        cancelTab5Btn.setText("CANCEL");
-        cancelTab5Btn.addActionListener(new java.awt.event.ActionListener() {
+        resetTab5Btn.setFont(new java.awt.Font("Krungthep", 0, 13)); // NOI18N
+        resetTab5Btn.setText("RESET");
+        resetTab5Btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelTab5BtnActionPerformed(evt);
+                resetTab5BtnActionPerformed(evt);
             }
         });
 
@@ -1287,7 +1287,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                     .addGroup(addTechLayerPanelLayout.createSequentialGroup()
                         .addGroup(addTechLayerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(experienceTF, javax.swing.GroupLayout.PREFERRED_SIZE, 320, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(cancelTab5Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(resetTab5Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addGroup(addTechLayerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(certTF)
@@ -1319,7 +1319,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                     .addComponent(certTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 60, Short.MAX_VALUE)
                 .addGroup(addTechLayerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(cancelTab5Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(resetTab5Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(confirmAddTechBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(42, 42, 42))
         );
@@ -1416,11 +1416,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             }
         });
 
-        cancelTab6Btn.setFont(new java.awt.Font("Krungthep", 0, 13)); // NOI18N
-        cancelTab6Btn.setText("CANCEL");
-        cancelTab6Btn.addActionListener(new java.awt.event.ActionListener() {
+        resetTab6Btn.setFont(new java.awt.Font("Krungthep", 0, 13)); // NOI18N
+        resetTab6Btn.setText("RESET");
+        resetTab6Btn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                cancelTab6BtnActionPerformed(evt);
+                resetTab6BtnActionPerformed(evt);
             }
         });
 
@@ -1451,7 +1451,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                         .addGroup(newLogLayerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(newLogLayerPanelLayout.createSequentialGroup()
                                 .addGap(195, 195, 195)
-                                .addComponent(cancelTab6Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(resetTab6Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(47, 47, 47)
                                 .addComponent(confirmNewLogBtn))
                             .addComponent(headerTab6Label)
@@ -1496,7 +1496,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(newLogLayerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirmNewLogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cancelTab6Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(resetTab6Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(22, 22, 22))
         );
 
@@ -1516,20 +1516,21 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         newRepairLogPanelLayout.setHorizontalGroup(
             newRepairLogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(newRepairLogPanelLayout.createSequentialGroup()
-                .addGap(26, 26, 26)
                 .addGroup(newRepairLogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(newRepairLogPanelLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(backTab6Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(newLogLayerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(26, 26, 26)
+                        .addComponent(newLogLayerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(newRepairLogPanelLayout.createSequentialGroup()
+                        .addGap(42, 42, 42)
+                        .addComponent(backTab6Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 71, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(32, Short.MAX_VALUE))
         );
         newRepairLogPanelLayout.setVerticalGroup(
             newRepairLogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(newRepairLogPanelLayout.createSequentialGroup()
-                .addGap(41, 41, 41)
+                .addGap(35, 35, 35)
                 .addComponent(backTab6Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(newLogLayerPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(68, Short.MAX_VALUE))
         );
@@ -1571,14 +1572,9 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         addLogPanel.setSelectedIndex(3);
     }//GEN-LAST:event_logsBtnActionPerformed
 
-    private void backTab6BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTab6BtnActionPerformed
+    private void resetTab6BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetTab6BtnActionPerformed
         // TODO add your handling code here:
-        addLogPanel.setSelectedIndex(2);
-    }//GEN-LAST:event_backTab6BtnActionPerformed
-
-    private void cancelTab6BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelTab6BtnActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cancelTab6BtnActionPerformed
+    }//GEN-LAST:event_resetTab6BtnActionPerformed
 
     private void confirmNewLogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmNewLogBtnActionPerformed
         // TODO add your handling code here:
@@ -1589,10 +1585,9 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         addLogPanel.setSelectedIndex(2);
     }//GEN-LAST:event_backTab5BtnActionPerformed
 
-    private void cancelTab5BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cancelTab5BtnActionPerformed
+    private void resetTab5BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetTab5BtnActionPerformed
         // TODO add your handling code here:
-       addLogPanel.setSelectedIndex(2); 
-    }//GEN-LAST:event_cancelTab5BtnActionPerformed
+    }//GEN-LAST:event_resetTab5BtnActionPerformed
 
     private void confirmAddTechBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmAddTechBtnActionPerformed
         // TODO add your handling code here:
@@ -1692,6 +1687,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         
     }//GEN-LAST:event_registerBtnActionPerformed
 
+    private void backTab6BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTab6BtnActionPerformed
+        // TODO add your handling code here:
+        addLogPanel.setSelectedIndex(2);
+    }//GEN-LAST:event_backTab6BtnActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1747,8 +1747,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel busyLabel;
     private javax.swing.JPanel busyPanel;
     private javax.swing.JTextField busyTF;
-    private javax.swing.JButton cancelTab5Btn;
-    private javax.swing.JButton cancelTab6Btn;
     private javax.swing.JPanel categoriesPanel;
     private javax.swing.JLabel categorySystemModuleLabel;
     private javax.swing.JLabel certLabel;
@@ -1829,6 +1827,8 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel repairLabel;
     private javax.swing.JPanel repairLogsPanel;
     private javax.swing.JLabel requireLabel;
+    private javax.swing.JButton resetTab5Btn;
+    private javax.swing.JButton resetTab6Btn;
     private javax.swing.JLabel specialityLabel;
     private javax.swing.JTextField specialityTF;
     private javax.swing.JLabel subHeadingTab1Label;

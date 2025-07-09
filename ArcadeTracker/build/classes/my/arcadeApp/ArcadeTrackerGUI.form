@@ -2254,7 +2254,7 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Group type="103" groupAlignment="1" attributes="0">
                                       <Component id="experienceTF" min="-2" pref="320" max="-2" attributes="0"/>
-                                      <Component id="cancelTab5Btn" min="-2" pref="141" max="-2" attributes="0"/>
+                                      <Component id="resetTab5Btn" min="-2" pref="141" max="-2" attributes="0"/>
                                   </Group>
                                   <EmptySpace type="separate" max="-2" attributes="0"/>
                                   <Group type="103" groupAlignment="0" attributes="0">
@@ -2297,7 +2297,7 @@
                           </Group>
                           <EmptySpace pref="60" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="cancelTab5Btn" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="resetTab5Btn" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                               <Component id="confirmAddTechBtn" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
@@ -2460,15 +2460,15 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmAddTechBtnActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="cancelTab5Btn">
+                <Component class="javax.swing.JButton" name="resetTab5Btn">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Krungthep" size="13" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="CANCEL"/>
+                    <Property name="text" type="java.lang.String" value="RESET"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelTab5BtnActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetTab5BtnActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
@@ -2512,14 +2512,16 @@
           <Layout>
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                  <Group type="102" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <EmptySpace min="16" pref="16" max="-2" attributes="0"/>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                              <Component id="newLogLayerPanel" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <EmptySpace min="-2" pref="42" max="-2" attributes="0"/>
                               <Component id="backTab6Btn" min="-2" pref="71" max="-2" attributes="0"/>
                           </Group>
-                          <Component id="newLogLayerPanel" min="-2" max="-2" attributes="0"/>
                       </Group>
                       <EmptySpace pref="32" max="32767" attributes="0"/>
                   </Group>
@@ -2528,9 +2530,9 @@
             <DimensionLayout dim="1">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <EmptySpace min="-2" pref="41" max="-2" attributes="0"/>
+                      <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
                       <Component id="backTab6Btn" min="-2" pref="30" max="-2" attributes="0"/>
-                      <EmptySpace max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="newLogLayerPanel" min="-2" max="-2" attributes="0"/>
                       <EmptySpace pref="68" max="32767" attributes="0"/>
                   </Group>
@@ -2572,7 +2574,7 @@
                                   <Group type="103" groupAlignment="0" attributes="0">
                                       <Group type="102" alignment="0" attributes="0">
                                           <EmptySpace min="-2" pref="195" max="-2" attributes="0"/>
-                                          <Component id="cancelTab6Btn" min="-2" pref="141" max="-2" attributes="0"/>
+                                          <Component id="resetTab6Btn" min="-2" pref="141" max="-2" attributes="0"/>
                                           <EmptySpace min="-2" pref="47" max="-2" attributes="0"/>
                                           <Component id="confirmNewLogBtn" min="-2" max="-2" attributes="0"/>
                                       </Group>
@@ -2628,7 +2630,7 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="confirmNewLogBtn" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
-                              <Component id="cancelTab6Btn" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
+                              <Component id="resetTab6Btn" alignment="3" min="-2" pref="34" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                       </Group>
@@ -2805,15 +2807,15 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="confirmNewLogBtnActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JButton" name="cancelTab6Btn">
+                <Component class="javax.swing.JButton" name="resetTab6Btn">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Krungthep" size="13" style="0"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="CANCEL"/>
+                    <Property name="text" type="java.lang.String" value="RESET"/>
                   </Properties>
                   <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="cancelTab6BtnActionPerformed"/>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="resetTab6BtnActionPerformed"/>
                   </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="issueDescTF">
