@@ -83,10 +83,12 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         machineNameTF = new javax.swing.JTextField();
         manufacturerTF = new javax.swing.JTextField();
         typeCB = new javax.swing.JComboBox<>();
-        qtyTab2Label = new javax.swing.JLabel();
-        qtyTF = new javax.swing.JTextField();
+        numFlippersTab2Label = new javax.swing.JLabel();
         yearTF = new javax.swing.JTextField();
         registerBtn = new javax.swing.JButton();
+        numFlippersTF = new javax.swing.JTextField();
+        screenTypeTab2Label = new javax.swing.JLabel();
+        screenTypeTF = new javax.swing.JTextField();
         infoTab2Panel = new javax.swing.JPanel();
         headerInfoLabel = new javax.swing.JLabel();
         typeInfo = new javax.swing.JLabel();
@@ -197,7 +199,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         });
         headerMainPanel.add(adminBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 80, 30));
 
-        wifiLogo.setIcon(new javax.swing.ImageIcon("/Users/haziq/Downloads/WIFI.png")); // NOI18N
         wifiLogo.setText("jLabel23");
         headerMainPanel.add(wifiLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, 50, 30));
 
@@ -272,6 +273,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         logoPanel.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 255, 255), null));
         logoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        logoIcon.setForeground(new java.awt.Color(51, 255, 255));
         logoIcon.setIcon(new javax.swing.ImageIcon("/Users/haziq/Pictures/ScreenRecord/Screenshot 2025-07-09 at 7.49.50 AM.png")); // NOI18N
         logoIcon.setText("jLabel2");
         logoPanel.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 30, 30));
@@ -314,7 +316,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                                 .addComponent(addMachineBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                                 .addComponent(techniciansBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(logsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         categoriesPanelLayout.setVerticalGroup(
             categoriesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -630,19 +632,15 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         typeCB.setForeground(new java.awt.Color(51, 255, 51));
         typeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arcade Cabinet", "Pinball Machine" }));
         typeCB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-
-        qtyTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
-        qtyTab2Label.setForeground(new java.awt.Color(0, 255, 0));
-        qtyTab2Label.setText("QUANTITY:");
-
-        qtyTF.setBackground(new java.awt.Color(86, 95, 100));
-        qtyTF.setForeground(new java.awt.Color(51, 255, 51));
-        qtyTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-        qtyTF.addActionListener(new java.awt.event.ActionListener() {
+        typeCB.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                qtyTFActionPerformed(evt);
+                typeCBActionPerformed(evt);
             }
         });
+
+        numFlippersTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
+        numFlippersTab2Label.setForeground(new java.awt.Color(0, 255, 0));
+        numFlippersTab2Label.setText("NUMBER OF FLIPPERS");
 
         yearTF.setBackground(new java.awt.Color(86, 95, 100));
         yearTF.setForeground(new java.awt.Color(51, 255, 51));
@@ -663,6 +661,20 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             }
         });
 
+        numFlippersTF.setBackground(new java.awt.Color(86, 95, 100));
+        numFlippersTF.setForeground(new java.awt.Color(51, 255, 51));
+        numFlippersTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        numFlippersTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+
+        screenTypeTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
+        screenTypeTab2Label.setForeground(new java.awt.Color(0, 255, 0));
+        screenTypeTab2Label.setText("SCREEN TYPE");
+
+        screenTypeTF.setBackground(new java.awt.Color(86, 95, 100));
+        screenTypeTF.setForeground(new java.awt.Color(51, 255, 51));
+        screenTypeTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        screenTypeTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+
         javax.swing.GroupLayout layerTab2PanelLayout = new javax.swing.GroupLayout(layerTab2Panel);
         layerTab2Panel.setLayout(layerTab2PanelLayout);
         layerTab2PanelLayout.setHorizontalGroup(
@@ -670,31 +682,32 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             .addGroup(layerTab2PanelLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layerTab2PanelLayout.createSequentialGroup()
-                        .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(machineNameTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(layerHeaderTab2Label)
-                            .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layerTab2PanelLayout.createSequentialGroup()
-                                    .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(machineNameTF)
-                                        .addComponent(typeTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(typeCB, 0, 224, Short.MAX_VALUE))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(manufacturerTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(yearTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(manufacturerTF, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(yearTF, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(machineNameTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(layerHeaderTab2Label)
+                    .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layerTab2PanelLayout.createSequentialGroup()
+                            .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(numFlippersTab2Label)
+                                .addComponent(numFlippersTF, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(46, 46, 46)
+                            .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(layerTab2PanelLayout.createSequentialGroup()
-                                    .addComponent(qtyTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(361, 361, 361))))
-                        .addContainerGap(24, Short.MAX_VALUE))
-                    .addGroup(layerTab2PanelLayout.createSequentialGroup()
-                        .addComponent(qtyTF, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(78, 78, 78))))
+                                    .addComponent(screenTypeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 46, Short.MAX_VALUE)
+                                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(screenTypeTab2Label)))
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layerTab2PanelLayout.createSequentialGroup()
+                            .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(machineNameTF)
+                                .addComponent(typeTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(typeCB, 0, 224, Short.MAX_VALUE))
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(manufacturerTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(yearTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(manufacturerTF, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(yearTF, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layerTab2PanelLayout.setVerticalGroup(
             layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -709,21 +722,24 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(machineNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(manufacturerTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
+                .addGap(18, 18, 18)
                 .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(typeTab2Label)
                     .addComponent(yearTab2Label))
-                .addGap(4, 4, 4)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(typeCB, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(yearTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addComponent(qtyTab2Label)
+                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numFlippersTab2Label)
+                    .addComponent(screenTypeTab2Label))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(qtyTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(numFlippersTF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(screenTypeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(35, Short.MAX_VALUE))
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         infoTab2Panel.setBackground(new java.awt.Color(86, 95, 100));
@@ -833,7 +849,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                         .addGroup(addMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(subHeadingTab1Label)
                             .addComponent(headerTab1Label))
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addContainerGap(233, Short.MAX_VALUE))
                     .addGroup(addMachinePanelLayout.createSequentialGroup()
                         .addComponent(layerTab2Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addGap(18, 18, 18)
@@ -880,7 +896,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         });
         techniciansPanel.add(addTechBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 221, 36));
 
-        iconTab3.setIcon(new javax.swing.ImageIcon("/Users/haziq/Downloads/TECH.png")); // NOI18N
         iconTab3.setText("jLabel24");
         techniciansPanel.add(iconTab3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 60, 41));
 
@@ -1053,7 +1068,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, totalLogPanelLayout.createSequentialGroup()
                 .addContainerGap(16, Short.MAX_VALUE)
                 .addGroup(totalLogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(totalLogLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                    .addComponent(totalLogLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(totalLogTF))
                 .addGap(14, 14, 14))
         );
@@ -1665,10 +1680,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_yearTFActionPerformed
 
-    private void qtyTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_qtyTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_qtyTFActionPerformed
-
     private void manufacturerTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manufacturerTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_manufacturerTFActionPerformed
@@ -1728,6 +1739,24 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         addLogPanel.setSelectedIndex(2);
     }//GEN-LAST:event_backTab6BtnActionPerformed
+
+    private void typeCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeCBActionPerformed
+        // TODO add your handling code here:
+        if(typeCB.getSelectedItem() == "Arcade Cabinet"){
+            screenTypeTF.setVisible(true);
+            screenTypeTab2Label.setVisible(true);}
+        else{
+            screenTypeTF.setVisible(false);
+            screenTypeTab2Label.setVisible(false);}
+        
+        if(typeCB.getSelectedItem() == "Pinball Machine"){
+            numFlippersTF.setVisible(true);
+            numFlippersTab2Label.setVisible(true);}
+        else{
+            numFlippersTF.setVisible(false);
+            numFlippersTab2Label.setVisible(false);}
+        
+    }//GEN-LAST:event_typeCBActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1848,6 +1877,8 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JPanel newRepairLogPanel;
     private javax.swing.JLabel notesLabel;
     private javax.swing.JTextField notesTF;
+    private javax.swing.JTextField numFlippersTF;
+    private javax.swing.JLabel numFlippersTab2Label;
     private javax.swing.JLabel operationalLabel;
     private javax.swing.JPanel operationalPanel;
     private javax.swing.JTextField operationalTF;
@@ -1858,14 +1889,14 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JPanel progressPanel;
     private javax.swing.JTextField progressTF;
     private javax.swing.JLabel qtyLabel;
-    private javax.swing.JTextField qtyTF;
-    private javax.swing.JLabel qtyTab2Label;
     private javax.swing.JButton registerBtn;
     private javax.swing.JLabel repairLabel;
     private javax.swing.JPanel repairLogsPanel;
     private javax.swing.JLabel requireLabel;
     private javax.swing.JButton resetTab5Btn;
     private javax.swing.JButton resetTab6Btn;
+    private javax.swing.JTextField screenTypeTF;
+    private javax.swing.JLabel screenTypeTab2Label;
     private javax.swing.JLabel specialityLabel;
     private javax.swing.JTextField specialityTF;
     private javax.swing.JLabel subHeadingTab1Label;

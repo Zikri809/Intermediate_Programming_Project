@@ -355,6 +355,12 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="logoIcon">
               <Properties>
+                <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                  <Color blue="ff" green="ff" red="33" type="rgb"/>
+                </Property>
+                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
+                  <Image iconType="2" name="/Users/haziq/Pictures/ScreenRecord/Screenshot 2025-07-09 at 7.49.50&#x202f;AM.png"/>
+                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel2"/>
               </Properties>
               <Constraints>
@@ -897,7 +903,7 @@
                                   <Component id="subHeadingTab1Label" min="-2" max="-2" attributes="0"/>
                                   <Component id="headerTab1Label" min="-2" max="-2" attributes="0"/>
                               </Group>
-                              <EmptySpace max="32767" attributes="0"/>
+                              <EmptySpace pref="233" max="32767" attributes="0"/>
                           </Group>
                           <Group type="102" attributes="0">
                               <Component id="layerTab2Panel" max="32767" attributes="0"/>
@@ -1000,40 +1006,41 @@
                       <Group type="102" alignment="0" attributes="0">
                           <EmptySpace min="-2" pref="22" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="0" attributes="0">
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Component id="machineNameTab2Label" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                                      <Component id="layerHeaderTab2Label" min="-2" max="-2" attributes="0"/>
-                                      <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                                          <Group type="102" alignment="0" attributes="0">
-                                              <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                                  <Component id="machineNameTF" max="32767" attributes="0"/>
-                                                  <Component id="typeTab2Label" min="-2" pref="99" max="-2" attributes="0"/>
-                                                  <Component id="typeCB" alignment="0" pref="224" max="32767" attributes="0"/>
-                                              </Group>
-                                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                              <Group type="103" groupAlignment="0" attributes="0">
-                                                  <Component id="manufacturerTab2Label" min="-2" pref="99" max="-2" attributes="0"/>
-                                                  <Component id="yearTab2Label" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
-                                                  <Component id="manufacturerTF" min="-2" pref="224" max="-2" attributes="0"/>
-                                                  <Component id="yearTF" min="-2" pref="224" max="-2" attributes="0"/>
-                                              </Group>
+                              <Component id="machineNameTab2Label" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                              <Component id="layerHeaderTab2Label" min="-2" max="-2" attributes="0"/>
+                              <Group type="103" alignment="0" groupAlignment="1" max="-2" attributes="0">
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="numFlippersTab2Label" min="-2" max="-2" attributes="0"/>
+                                          <Component id="numFlippersTF" min="-2" pref="142" max="-2" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace min="-2" pref="46" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Group type="102" attributes="0">
+                                              <Component id="screenTypeTF" min="-2" pref="141" max="-2" attributes="0"/>
+                                              <EmptySpace pref="46" max="32767" attributes="0"/>
+                                              <Component id="registerBtn" min="-2" pref="85" max="-2" attributes="0"/>
                                           </Group>
-                                          <Group type="102" alignment="1" attributes="0">
-                                              <Component id="qtyTab2Label" min="-2" pref="99" max="-2" attributes="0"/>
-                                              <EmptySpace min="-2" pref="361" max="-2" attributes="0"/>
-                                          </Group>
+                                          <Component id="screenTypeTab2Label" min="-2" max="-2" attributes="0"/>
                                       </Group>
                                   </Group>
-                                  <EmptySpace pref="24" max="32767" attributes="0"/>
-                              </Group>
-                              <Group type="102" alignment="0" attributes="0">
-                                  <Component id="qtyTF" min="-2" pref="224" max="-2" attributes="0"/>
-                                  <EmptySpace max="32767" attributes="0"/>
-                                  <Component id="registerBtn" min="-2" pref="85" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
+                                  <Group type="102" alignment="0" attributes="0">
+                                      <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                          <Component id="machineNameTF" max="32767" attributes="0"/>
+                                          <Component id="typeTab2Label" min="-2" pref="99" max="-2" attributes="0"/>
+                                          <Component id="typeCB" alignment="0" pref="224" max="32767" attributes="0"/>
+                                      </Group>
+                                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                                      <Group type="103" groupAlignment="0" attributes="0">
+                                          <Component id="manufacturerTab2Label" min="-2" pref="99" max="-2" attributes="0"/>
+                                          <Component id="yearTab2Label" alignment="0" min="-2" pref="99" max="-2" attributes="0"/>
+                                          <Component id="manufacturerTF" min="-2" pref="224" max="-2" attributes="0"/>
+                                          <Component id="yearTF" min="-2" pref="224" max="-2" attributes="0"/>
+                                      </Group>
+                                  </Group>
                               </Group>
                           </Group>
+                          <EmptySpace max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1052,24 +1059,28 @@
                               <Component id="machineNameTF" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="manufacturerTF" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="26" max="-2" attributes="0"/>
+                          <EmptySpace min="-2" pref="18" max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="typeTab2Label" alignment="3" min="-2" max="-2" attributes="0"/>
                               <Component id="yearTab2Label" alignment="3" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace min="-2" pref="4" max="-2" attributes="0"/>
+                          <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
                               <Component id="typeCB" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                               <Component id="yearTF" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
                           <EmptySpace type="separate" max="-2" attributes="0"/>
-                          <Component id="qtyTab2Label" min="-2" max="-2" attributes="0"/>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="numFlippersTab2Label" alignment="3" min="-2" max="-2" attributes="0"/>
+                              <Component id="screenTypeTab2Label" alignment="3" min="-2" max="-2" attributes="0"/>
+                          </Group>
                           <EmptySpace max="-2" attributes="0"/>
                           <Group type="103" groupAlignment="3" attributes="0">
-                              <Component id="qtyTF" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="numFlippersTF" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
+                              <Component id="screenTypeTF" alignment="3" min="-2" pref="31" max="-2" attributes="0"/>
                               <Component id="registerBtn" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="35" max="32767" attributes="0"/>
+                          <EmptySpace pref="41" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1196,11 +1207,14 @@
                       </Border>
                     </Property>
                   </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="typeCBActionPerformed"/>
+                  </Events>
                   <AuxValues>
                     <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;String&gt;"/>
                   </AuxValues>
                 </Component>
-                <Component class="javax.swing.JLabel" name="qtyTab2Label">
+                <Component class="javax.swing.JLabel" name="numFlippersTab2Label">
                   <Properties>
                     <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
                       <Font name="Krungthep" size="11" style="0"/>
@@ -1208,29 +1222,8 @@
                     <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
                       <Color blue="0" green="ff" red="0" type="rgb"/>
                     </Property>
-                    <Property name="text" type="java.lang.String" value="QUANTITY:"/>
+                    <Property name="text" type="java.lang.String" value="NUMBER OF FLIPPERS"/>
                   </Properties>
-                </Component>
-                <Component class="javax.swing.JTextField" name="qtyTF">
-                  <Properties>
-                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="64" green="5f" red="56" type="rgb"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="33" green="ff" red="33" type="rgb"/>
-                    </Property>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                        <BevelBorder bevelType="1">
-                          <Color PropertyName="highlightOuter" blue="ff" green="ff" red="33" type="rgb"/>
-                          <Color PropertyName="highlightInner" blue="ff" green="ff" red="33" type="rgb"/>
-                        </BevelBorder>
-                      </Border>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="qtyTFActionPerformed"/>
-                  </Events>
                 </Component>
                 <Component class="javax.swing.JTextField" name="yearTF">
                   <Properties>
@@ -1271,6 +1264,55 @@
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerBtnActionPerformed"/>
                   </Events>
+                </Component>
+                <Component class="javax.swing.JTextField" name="numFlippersTF">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="64" green="5f" red="56" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="33" green="ff" red="33" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                        <BevelBorder bevelType="1">
+                          <Color PropertyName="highlightOuter" blue="ff" green="ff" red="33" type="rgb"/>
+                          <Color PropertyName="highlightInner" blue="ff" green="ff" red="33" type="rgb"/>
+                        </BevelBorder>
+                      </Border>
+                    </Property>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JLabel" name="screenTypeTab2Label">
+                  <Properties>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Krungthep" size="11" style="0"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="0" green="ff" red="0" type="rgb"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="SCREEN TYPE"/>
+                  </Properties>
+                </Component>
+                <Component class="javax.swing.JTextField" name="screenTypeTF">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="64" green="5f" red="56" type="rgb"/>
+                    </Property>
+                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="33" green="ff" red="33" type="rgb"/>
+                    </Property>
+                    <Property name="horizontalAlignment" type="int" value="0"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                        <BevelBorder bevelType="1">
+                          <Color PropertyName="highlightOuter" blue="ff" green="ff" red="33" type="rgb"/>
+                          <Color PropertyName="highlightInner" blue="ff" green="ff" red="33" type="rgb"/>
+                        </BevelBorder>
+                      </Border>
+                    </Property>
+                  </Properties>
                 </Component>
               </SubComponents>
             </Container>
