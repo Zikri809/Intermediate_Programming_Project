@@ -7,6 +7,7 @@ package my.arcadeApp;
 
 
 import javax.swing.*;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -14,12 +15,12 @@ import java.util.List;
  * @author haziq
  */
 public class ArcadeTrackerGUI extends javax.swing.JFrame {
-
+    private ArcadeManager main_manager;
     /**
      * Creates new form ArcadeTrackerGUI
      */
-    public ArcadeTrackerGUI() {
-
+    public ArcadeTrackerGUI(ArcadeManager main_manager) {
+        this.main_manager = main_manager;
         initComponents();
 
         //making the combo box dynamic
@@ -29,7 +30,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     }
     DefaultComboBoxModel<String> machineName_Model = new DefaultComboBoxModel<>();
     DefaultComboBoxModel<String> technicianName_Model = new DefaultComboBoxModel<>();
-    ArcadeManager main_manager = new ArcadeManager();
     int id = 0;
     int technicianID = 0;
 
@@ -173,6 +173,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         issueDescTF = new javax.swing.JTextField();
         notesTF = new javax.swing.JTextField();
         backTab6Btn = new javax.swing.JButton();
+
+
+        numFlippersTF.setVisible(false);
+        numFlippersTab2Label.setVisible(false);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
@@ -675,21 +679,21 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                             .addComponent(yearTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(manufacturerTF, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(yearTF, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layerTab2PanelLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(numFlippersTab2Label)
-                            .addComponent(numFlippersTF, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(60, 60, 60)
-                        .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(screenTypeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(screenTypeTab2Label)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layerTab2PanelLayout.createSequentialGroup()
-                        .addComponent(deleteDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(129, 129, 129)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layerTab2PanelLayout.createSequentialGroup()
+                            .addGap(123, 123, 123)
+                            .addComponent(deleteDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(layerTab2PanelLayout.createSequentialGroup()
+                            .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(numFlippersTab2Label)
+                                .addComponent(numFlippersTF, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(46, 46, 46)
+                            .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(screenTypeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(screenTypeTab2Label)))))
+                .addContainerGap(24, Short.MAX_VALUE))
         );
         layerTab2PanelLayout.setVerticalGroup(
             layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -721,9 +725,9 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                     .addComponent(numFlippersTF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(screenTypeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(deleteDatabaseBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(registerBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(35, 35, 35))
         );
 
@@ -1597,9 +1601,19 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         if (repairLogList == null) return;
         totalLogTF.setText(String.valueOf(repairLogList.size()));
         int [] logCount = main_manager.getPrioritylogCount();
+<<<<<<< Updated upstream
         highTF.setText(String.valueOf(logCount[2]));
-        mediumTF.setText(String.valueOf(logCount[1]));
-        lowTF.setText(String.valueOf(logCount[0]));
+        lowTF.setText(String.valueOf(logCount[1]));
+        mediumTF.setText(String.valueOf(logCount[0]));
+=======
+        highPriorityTF.setText(String.valueOf(logCount[2]));
+        progressTF.setText(String.valueOf(logCount[1]));
+        completedTF.setText(String.valueOf(logCount[0]));
+        System.out.println("Total Log TF: when click log " + Arrays.toString(logCount));
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
+>>>>>>> Stashed changes
         
     }//GEN-LAST:event_logsBtnActionPerformed
 
@@ -1615,16 +1629,22 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private void confirmNewLogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmNewLogBtnActionPerformed
         // TODO add your handling code here:
         //ArcadeMachine machine , Technician technician , String notes
-        String machineName = machinesCB.getSelectedItem().toString();
-        String technicianName = technicianCB.getSelectedItem().toString();
-        String priorityLevel = priorityCB.getSelectedItem().toString();
+        String machineName = (String) machinesCB.getSelectedItem();
+        String technicianName =(String) technicianCB.getSelectedItem();
+        String priorityLevel = (String) priorityCB.getSelectedItem();
         String issuesDesc = issueDescTF.getText();
         String note =  notesTF.getText();
-
+        System.out.println(priorityLevel);
         ArcadeMachine machine = main_manager.findMachineInList(machineName);
         Technician technician = main_manager.findTechnicianInList(technicianName);
         RepairLog log = new RepairLog (machine,technician,note,issuesDesc,priorityLevel);
         main_manager.addRepairLog(log);
+        int [] logCount = main_manager.getPrioritylogCount();
+        System.out.println(main_manager.getRepairLogList().size());
+        highPriorityTF.setText(String.valueOf(logCount[2]));
+        progressTF.setText(String.valueOf(logCount[1]));
+        completedTF.setText(String.valueOf(logCount[0]));
+        System.out.println("Total Log TF when click add log " + Arrays.toString(logCount));
     }//GEN-LAST:event_confirmNewLogBtnActionPerformed
 
     private void backTab5BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTab5BtnActionPerformed
@@ -1753,20 +1773,26 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         
         if (machineType.equals("Arcade Cabinet")){
             //int ID, String NAME, int YEARMADE, boolean IsWorking, String SCREENTYPE, String MANUFACTURER
-            ArcadeMachine arcadeCabinet = new CabinetGame(id,machineName,year,true ,"200px",manufacturer);
+            String screentype = screenTypeTF.getText();
+            ArcadeMachine arcadeCabinet = new CabinetGame(id,machineName,year,true ,screentype,manufacturer);
             main_manager.addMachine(arcadeCabinet);
             machineName_Model.addElement(machineName);
             id++;
         }
         else{
             //int ID, String NAME, int YEARMADE, boolean IsWorking, int FlippersNum,String MANUFACTURER
-            ArcadeMachine pinballMachine = new PinballMachine(id,machineName,year,true ,2,manufacturer);
+            int numflipper = Integer.parseInt(numFlippersTF.getText());
+            ArcadeMachine pinballMachine = new PinballMachine(id,machineName,year,true ,numflipper,manufacturer);
             main_manager.addMachine(pinballMachine);
             machineName_Model.addElement(machineName);
+
+
             id++;
         }
         machineNameTF.setText("");
         manufacturerTF.setText("");
+        screenTypeTF.setText("");
+        numFlippersTF.setText("");
         yearTF.setText("");
         typeCB.setSelectedIndex(0);
         
@@ -1826,9 +1852,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        ArcadeManager globalManager = new ArcadeManager();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ArcadeTrackerGUI().setVisible(true);
+
+                new ArcadeTrackerGUI(globalManager).setVisible(true);
             }
         });
     }
