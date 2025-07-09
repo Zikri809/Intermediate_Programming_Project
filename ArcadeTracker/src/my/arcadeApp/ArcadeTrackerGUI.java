@@ -19,6 +19,8 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         initComponents();
     }
     ArcadeManager main_manager = new ArcadeManager();
+    int id = 0;       
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1689,6 +1691,17 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         String manufacturer = manufacturerTF.getText();
         String machineType = (String)typeCB.getSelectedItem();
         int year = Integer.parseInt(yearTF.getText());
+        
+        if (machineType.equals("Arcade Cabinet")){
+            //int ID, String NAME, int YEARMADE, boolean IsWorking, String SCREENTYPE, String MANUFACTURER
+            ArcadeMachine arcadeCabinet = new CabinetGame(id,machineName,year,true ,"200px",manufacturer);
+            main_manager.addMachine(arcadeCabinet);
+        }
+        else{
+            //int ID, String NAME, int YEARMADE, boolean IsWorking, int FlippersNum,String MANUFACTURER
+            ArcadeMachine pinballMachine = new PinballMachine(id,machineName,year,true ,2,manufacturer);
+            main_manager.addMachine(pinballMachine);
+        }
         
         int id = 0;
         //check the machinetype 
