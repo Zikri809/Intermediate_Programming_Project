@@ -14,12 +14,12 @@ import java.util.List;
  * @author haziq
  */
 public class ArcadeTrackerGUI extends javax.swing.JFrame {
-
+    private ArcadeManager main_manager;
     /**
      * Creates new form ArcadeTrackerGUI
      */
-    public ArcadeTrackerGUI() {
-
+    public ArcadeTrackerGUI(ArcadeManager main_manager) {
+        this.main_manager = main_manager;
         initComponents();
 
         //making the combo box dynamic
@@ -29,7 +29,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     }
     DefaultComboBoxModel<String> machineName_Model = new DefaultComboBoxModel<>();
     DefaultComboBoxModel<String> technicianName_Model = new DefaultComboBoxModel<>();
-    ArcadeManager main_manager = new ArcadeManager();
     int id = 0;
     int technicianID = 0;
 
@@ -1601,9 +1600,9 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         if (repairLogList == null) return;
         totalLogTF.setText(String.valueOf(repairLogList.size()));
         int [] logCount = main_manager.getPrioritylogCount();
-        highPriorityTF.setText(String.valueOf(logCount[2]));
-        progressTF.setText(String.valueOf(logCount[1]));
-        completedTF.setText(String.valueOf(logCount[0]));
+        highTF.setText(String.valueOf(logCount[2]));
+        lowTF.setText(String.valueOf(logCount[1]));
+        mediumTF.setText(String.valueOf(logCount[0]));
         
     }//GEN-LAST:event_logsBtnActionPerformed
 
@@ -1830,9 +1829,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         //</editor-fold>
 
         /* Create and display the form */
+        ArcadeManager globalManager = new ArcadeManager();
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new ArcadeTrackerGUI().setVisible(true);
+
+                new ArcadeTrackerGUI(globalManager).setVisible(true);
             }
         });
     }
