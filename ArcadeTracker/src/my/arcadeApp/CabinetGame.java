@@ -2,7 +2,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package my.arcadeApp;
+
+
+import java.time.LocalDate;
 
 /**
  *
@@ -14,6 +16,7 @@ public class CabinetGame extends ArcadeMachine {
 
     public CabinetGame(int ID, String NAME, int YEARMADE, boolean IsWorking, String SCREENTYPE, String MANUFACTURER) {
         super(ID, NAME, YEARMADE, IsWorking, MANUFACTURER);
+        calculatePrice();
         this.screenType=SCREENTYPE;
     }
     
@@ -28,7 +31,10 @@ public class CabinetGame extends ArcadeMachine {
         return screenType;
         
         }
-        
+        public void calculatePrice(){
+            double price = 10000 * Math.pow((1-0.8),LocalDate.now().getYear() -  super.getYEARMADE()  );
+            super.setPrice(price);
+        }
         public String toString(){
         
         return super.toString() + ("Type Of Screen :"+screenType);

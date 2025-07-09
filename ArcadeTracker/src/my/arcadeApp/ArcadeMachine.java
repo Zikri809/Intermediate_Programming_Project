@@ -2,7 +2,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
-package my.arcadeApp;
+import java.time.LocalDate;
+
 
 /**
  *
@@ -51,6 +52,9 @@ public class ArcadeMachine {
                 public void setManufacturer(String manufacturer){
                     this.manufacturer = manufacturer;
                 }
+                public void setPrice(double price ){
+                    this.price = price;
+                }
                 public int getID (){
 
                 return id;
@@ -74,7 +78,12 @@ public class ArcadeMachine {
                 public String getManufaturer(){
                     return this.manufacturer;
                 }
-
+                public double getPrice(){
+                    return this.price;
+                }
+                public void calculatePrice(){
+                 this.price = 5000 * Math.pow((1-0.8),LocalDate.now().getYear() - this.yearMade   );
+                }
                 public String toString(){
 
                 return ("ID :"+id+"NAME :"+name+"YearMade :"+yearMade+"Machine is Working :"+isWorking);
