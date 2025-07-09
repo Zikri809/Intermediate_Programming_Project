@@ -180,7 +180,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         headerLabel3.setText("TRACKER");
         headerMainPanel.add(headerLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, 48));
 
-        headerLogo.setIcon(new javax.swing.ImageIcon("/Users/haziq/Downloads/Untitled design.png")); // NOI18N
         headerLogo.setText("headerLogo");
         headerMainPanel.add(headerLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 90, 90));
 
@@ -194,7 +193,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         });
         headerMainPanel.add(adminBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 80, 30));
 
-        wifiLogo.setIcon(new javax.swing.ImageIcon("/Users/haziq/Downloads/WIFI.png")); // NOI18N
         wifiLogo.setText("jLabel23");
         headerMainPanel.add(wifiLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, 50, 30));
 
@@ -264,7 +262,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         jPanel1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(51, 255, 255), null));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jLabel2.setIcon(new javax.swing.ImageIcon("/Users/haziq/Pictures/ScreenRecord/Screenshot 2025-07-09 at 7.49.50 AM.png")); // NOI18N
         jLabel2.setText("jLabel2");
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 30, 30));
 
@@ -306,7 +303,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                                 .addComponent(addMachineBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 123, Short.MAX_VALUE)
                                 .addComponent(techniciansBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                 .addComponent(logsBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         categoriesPanelLayout.setVerticalGroup(
             categoriesPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -881,7 +878,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         });
         jPanel4.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 20, 221, 36));
 
-        jLabel24.setIcon(new javax.swing.ImageIcon("/Users/haziq/Downloads/TECH.png")); // NOI18N
         jLabel24.setText("jLabel24");
         jPanel4.add(jLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, 60, 41));
 
@@ -1054,7 +1050,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel17Layout.createSequentialGroup()
                 .addContainerGap(16, Short.MAX_VALUE)
                 .addGroup(jPanel17Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                    .addComponent(jLabel32, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jTextField15))
                 .addGap(14, 14, 14))
         );
@@ -1308,9 +1304,9 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(headerLabel7, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel23)
-                    .addComponent(jLabel29))
+                .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel29, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(jLabel23))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel21Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jTextField13, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1492,10 +1488,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 .addGap(15, 15, 15)
                 .addComponent(headerLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel38)
-                    .addComponent(jLabel39)
-                    .addComponent(jLabel37))
+                .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel38, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel39)
+                        .addComponent(jLabel37)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel22Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jComboBox3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
