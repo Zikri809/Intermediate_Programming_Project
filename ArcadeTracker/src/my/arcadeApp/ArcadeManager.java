@@ -44,10 +44,13 @@ public class ArcadeManager {
             }
         }
     }
-    public void logRepair(int machineID, int technicianID, LocalDate date, String notes){
+    public void logRepair(int machineID, int technicianID, LocalDate date, String notes,String description, String priority){
         ArcadeMachine machine = findMachineInList(machineID);
         Technician technician = findTechnicianInList(technicianID);
-        repairLogList.add(new RepairLog(machine,technician, notes));
+        repairLogList.add(new RepairLog(machine,technician, notes, description, priority));
+    }
+    public void addRepairLog(RepairLog repairLog){
+        repairLogList.add(repairLog);
     }
     public List<ArcadeMachine> getMachineList(){
         return machinesList;
@@ -55,6 +58,9 @@ public class ArcadeManager {
     }
     public List<Technician> getTechnicianList(){
         return technicianList;
+    }
+    public List<RepairLog> getRepairLogList(){
+        return repairLogList;
     }
     public ArcadeMachine findMachineInList(int machineId){
         for (int i = 0; i <machinesList.size(); i++){
@@ -71,5 +77,40 @@ public class ArcadeManager {
             }
         }
         return null;
+    }
+    public ArcadeMachine findMachineInList(String machineName){
+        for (int i = 0; i <machinesList.size(); i++){
+            if (machinesList.get(i).getNAME().equals(machineName)){
+                return machinesList.get(i);
+            }
+        }
+        return null;
+    }
+    public Technician findTechnicianInList(String technicianName){
+        for (int i = 0; i <technicianList.size(); i++){
+            if (technicianList.get(i).getNAME().equals(technicianName)){
+                return technicianList.get(i);
+            }
+        }
+        return null;
+    }
+    public int[] getPrioritylogCount(){
+        int lowcount = 0;
+        int mediumcount = 0;
+        int highcount = 0;
+        for (int i = 0; i <repairLogList.size(); i++){
+            if(repairLogList.get(i).getPriority().equals("Low priority")){
+                lowcount++;
+            }
+            else if(repairLogList.get(i).getPriority().equals("Medium priority")){
+                mediumcount++;
+            }
+            else if(repairLogList.get(i).getPriority().equals("High priority")){
+                highcount++;
+            }
+        }
+        //0-low 1-med 2-high
+        int [] logcount = {lowcount,mediumcount,highcount};
+        return logcount;
     }
 }

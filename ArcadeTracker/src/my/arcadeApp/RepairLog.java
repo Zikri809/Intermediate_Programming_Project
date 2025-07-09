@@ -8,12 +8,16 @@ public class RepairLog {
     private Technician technician;
     private LocalDate repairDate;
     private String notes;
+    private String description;
+    private String priority;
 
-    public RepairLog(ArcadeMachine machine , Technician technician , String notes) {
+    public RepairLog(ArcadeMachine machine , Technician technician , String notes, String description, String priority) {
         this.machine = machine;
         this.technician = technician;
         this.notes = notes;
         this.repairDate = LocalDate.now();
+        this.description = description;
+        this.priority = priority;
     }
 
     public ArcadeMachine getMachine (){
@@ -28,6 +32,13 @@ public class RepairLog {
     public String getNotes() {
         return notes;
     }
+    public String getDescription() {
+        return description;
+    }
+    public String getPriority() {
+        return priority;
+    }
+
 
     public void setTechnician(Technician technician) {
         this.technician = technician;
@@ -40,5 +51,11 @@ public class RepairLog {
     }
     public void setRepairDate(LocalDate repairDate) {
         this.repairDate = repairDate;
+    }
+    public void setDescription(String description) {
+        this.description = description;
+    }
+    public void setPriority(String priority) {
+        this.priority = priority;
     }
 }

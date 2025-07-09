@@ -6,6 +6,9 @@
 package my.arcadeApp;
 
 
+import javax.swing.*;
+import java.util.List;
+
 /**
  *
  * @author haziq
@@ -16,8 +19,16 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
      * Creates new form ArcadeTrackerGUI
      */
     public ArcadeTrackerGUI() {
+
         initComponents();
+
+        //making the combo box dynamic
+        machinesCB.setModel(machineName_Model);
+        technicianCB.setModel(technicianName_Model);
+
     }
+    DefaultComboBoxModel<String> machineName_Model = new DefaultComboBoxModel<>();
+    DefaultComboBoxModel<String> technicianName_Model = new DefaultComboBoxModel<>();
     ArcadeManager main_manager = new ArcadeManager();
     int id = 0;
     int technicianID = 0;
@@ -1590,14 +1601,35 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private void logsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logsBtnActionPerformed
         // TODO add your handling code here:
         addLogPanel.setSelectedIndex(3);
+        List<RepairLog> repairLogList = main_manager.getRepairLogList();
+        totalLogTF.setText(String.valueOf(repairLogList.size()));
+        int [] logCount = main_manager.getPrioritylogCount();
+        highPriorityTF.setText(String.valueOf(logCount[2]));
+        
     }//GEN-LAST:event_logsBtnActionPerformed
 
     private void resetTab6BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetTab6BtnActionPerformed
         // TODO add your handling code here:
+        machinesCB.setSelectedIndex(0);
+        technicianCB.setSelectedIndex(0);
+        priorityCB.setSelectedIndex(0);
+        issueDescTF.setText("");
+        notesTF.setText("");
     }//GEN-LAST:event_resetTab6BtnActionPerformed
 
     private void confirmNewLogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmNewLogBtnActionPerformed
         // TODO add your handling code here:
+        //ArcadeMachine machine , Technician technician , String notes
+        String machineName = machinesCB.getSelectedItem().toString();
+        String technicianName = technicianCB.getSelectedItem().toString();
+        String priorityLevel = priorityCB.getSelectedItem().toString();
+        String issuesDesc = issueDescTF.getText();
+        String note =  notesTF.getText();
+
+        ArcadeMachine machine = main_manager.findMachineInList(machineName);
+        Technician technician = main_manager.findTechnicianInList(technicianName);
+        RepairLog log = new RepairLog (machine,technician,note,issuesDesc,priorityLevel);
+        main_manager.addRepairLog(log);
     }//GEN-LAST:event_confirmNewLogBtnActionPerformed
 
     private void backTab5BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTab5BtnActionPerformed
@@ -1607,7 +1639,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void resetTab5BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetTab5BtnActionPerformed
         // TODO add your handling code here:
-         nameTF.setText("");
+        nameTF.setText("");
         specialityTF.setText("");
         experienceTF.setText("");
         certTF.setText("");
@@ -1622,6 +1654,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         String certification = certTF.getText();
         Technician tech1 = new Technician(id,name,specialty,experience,certification);
         main_manager.addTechnician(tech1);
+        technicianName_Model.addElement(name);
         technicianID++;
         
     }//GEN-LAST:event_confirmAddTechBtnActionPerformed
@@ -1721,12 +1754,14 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             //int ID, String NAME, int YEARMADE, boolean IsWorking, String SCREENTYPE, String MANUFACTURER
             ArcadeMachine arcadeCabinet = new CabinetGame(id,machineName,year,true ,"200px",manufacturer);
             main_manager.addMachine(arcadeCabinet);
+            machineName_Model.addElement(machineName);
             id++;
         }
         else{
             //int ID, String NAME, int YEARMADE, boolean IsWorking, int FlippersNum,String MANUFACTURER
             ArcadeMachine pinballMachine = new PinballMachine(id,machineName,year,true ,2,manufacturer);
             main_manager.addMachine(pinballMachine);
+            machineName_Model.addElement(machineName);
             id++;
         }
         
