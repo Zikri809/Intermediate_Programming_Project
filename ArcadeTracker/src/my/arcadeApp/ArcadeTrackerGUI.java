@@ -1610,6 +1610,9 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         progressTF.setText(String.valueOf(logCount[1]));
         completedTF.setText(String.valueOf(logCount[0]));
         System.out.println("Total Log TF: when click log " + Arrays.toString(logCount));
+<<<<<<< Updated upstream
+>>>>>>> Stashed changes
+=======
 >>>>>>> Stashed changes
         
     }//GEN-LAST:event_logsBtnActionPerformed
