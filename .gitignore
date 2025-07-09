@@ -1,1 +1,27 @@
-/ArcadeTracker/dist/
+# Default ignored files
+/shelf/
+/workspace.xml
+# Editor-based HTTP Client requests
+/httpRequests/
+# Environment-dependent path to Maven home directory
+/mavenHomeManager.xml
+# Datasource local storage ignored files
+/dataSources/
+/dataSources.local.xml
+
+# Ignore all .class files
+*.class
+
+# Ignore build folders (commonly used by IDEs)
+bin/
+build/
+out/
+
+# IDE-specific folders
+/.idea/
+/*.iml
+*.log
+
+# VS Code
+.vscode/
+

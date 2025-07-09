@@ -27,13 +27,21 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         //making the combo box dynamic
         machinesCB.setModel(machineName_Model);
         technicianCB.setModel(technicianName_Model);
+
+        //log table
         repairLogTb.setModel(repairLogmodel);
+        //log table
 
 
     }
     DefaultComboBoxModel<String> machineName_Model = new DefaultComboBoxModel<>();
     DefaultComboBoxModel<String> technicianName_Model = new DefaultComboBoxModel<>();
-    DefaultTableModel repairLogmodel = new DefaultTableModel();
+
+    //log table
+    String [] logTableHeader = {"Machine Name","Technician", "Description", "Notes", "Priority"};
+    DefaultTableModel repairLogmodel = new DefaultTableModel(logTableHeader,0);
+    //log table
+
     int id = 0;
     int technicianID = 0;
 
@@ -80,7 +88,8 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         editDatabaseBtn = new javax.swing.JButton();
         databaseSelectCB = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
-        tableDepanTB = new javax.swing.JTable();
+        jTable2 = new javax.swing.JTable();
+        editDatabaseBtn1 = new javax.swing.JButton();
         addMachinePanel = new javax.swing.JPanel();
         headerTab1Label = new javax.swing.JLabel();
         backTab1Btn = new javax.swing.JButton();
@@ -198,7 +207,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         headerLabel3.setText("TRACKER");
         headerMainPanel.add(headerLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, 48));
 
-        headerLogo.setIcon(new javax.swing.ImageIcon("/Users/haziq/Downloads/Untitled design.png")); // NOI18N
         headerLogo.setText("headerLogo");
         headerMainPanel.add(headerLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 90, 90));
 
@@ -212,7 +220,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         });
         headerMainPanel.add(adminBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 80, 30));
 
-        wifiLogo.setIcon(new javax.swing.ImageIcon("/Users/haziq/Downloads/WIFI.png")); // NOI18N
         wifiLogo.setText("jLabel23");
         headerMainPanel.add(wifiLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, 50, 30));
 
@@ -288,7 +295,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         logoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoIcon.setForeground(new java.awt.Color(51, 255, 255));
-        logoIcon.setIcon(new javax.swing.ImageIcon("/Users/haziq/Pictures/ScreenRecord/Screenshot 2025-07-09 at 7.49.50 AM.png")); // NOI18N
         logoIcon.setText("jLabel2");
         logoPanel.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 30, 30));
 
@@ -365,11 +371,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         totalUnitTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
         totalUnitTF.setForeground(new java.awt.Color(51, 255, 51));
         totalUnitTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        totalUnitTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalUnitTFActionPerformed(evt);
-            }
-        });
 
         totalUnitLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
         totalUnitLabel.setForeground(new java.awt.Color(51, 255, 51));
@@ -466,9 +467,28 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
         databaseSelectCB.setEditable(true);
 
-        tableDepanTB.setAutoCreateColumnsFromModel(false);
-        tableDepanTB.setAutoCreateRowSorter(true);
-        jScrollPane2.setViewportView(tableDepanTB);
+        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(jTable2);
+
+        editDatabaseBtn1.setBackground(new java.awt.Color(51, 255, 51));
+        editDatabaseBtn1.setFont(new java.awt.Font("Krungthep", 1, 18)); // NOI18N
+        editDatabaseBtn1.setText("+ADD");
+        editDatabaseBtn1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        editDatabaseBtn1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editDatabaseBtn1ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout listPanelLayout = new javax.swing.GroupLayout(listPanel);
         listPanel.setLayout(listPanelLayout);
@@ -476,34 +496,32 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(listPanelLayout.createSequentialGroup()
                 .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(listPanelLayout.createSequentialGroup()
-                                .addGap(30, 30, 30)
-                                .addComponent(mainHeaderPane1))
-                            .addGroup(listPanelLayout.createSequentialGroup()
-                                .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(listPanelLayout.createSequentialGroup()
-                                        .addGap(346, 346, 346)
-                                        .addComponent(operationalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listPanelLayout.createSequentialGroup()
-                                        .addContainerGap()
-                                        .addComponent(databaseSelectCB, javax.swing.GroupLayout.PREFERRED_SIZE, 288, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(8, 8, 8)))
-                                .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(listPanelLayout.createSequentialGroup()
-                                        .addGap(84, 84, 84)
-                                        .addComponent(needRepairPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGroup(listPanelLayout.createSequentialGroup()
-                                        .addGap(42, 42, 42)
-                                        .addComponent(editDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                        .addGroup(listPanelLayout.createSequentialGroup()
-                            .addComponent(totalUnitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGap(439, 439, 439)))
                     .addGroup(listPanelLayout.createSequentialGroup()
-                        .addGap(90, 90, 90)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(102, Short.MAX_VALUE))
+                        .addGap(30, 30, 30)
+                        .addComponent(mainHeaderPane1))
+                    .addGroup(listPanelLayout.createSequentialGroup()
+                        .addGap(126, 126, 126)
+                        .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(listPanelLayout.createSequentialGroup()
+                                .addComponent(operationalPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(84, 84, 84)
+                                .addComponent(needRepairPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(listPanelLayout.createSequentialGroup()
+                                .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listPanelLayout.createSequentialGroup()
+                                        .addComponent(editDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(59, 59, 59))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listPanelLayout.createSequentialGroup()
+                                        .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(totalUnitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addComponent(databaseSelectCB, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGap(218, 218, 218)))
+                                .addComponent(editDatabaseBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listPanelLayout.createSequentialGroup()
+                .addGap(0, 100, Short.MAX_VALUE)
+                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(92, 92, 92))
         );
         listPanelLayout.setVerticalGroup(
             listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -515,13 +533,14 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                     .addComponent(needRepairPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(operationalPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(totalUnitPanel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addGap(41, 41, 41)
-                .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(38, 38, 38)
+                .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(databaseSelectCB, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35)
+                    .addComponent(editDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(editDatabaseBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(26, 26, 26)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(69, Short.MAX_VALUE))
+                .addContainerGap(79, Short.MAX_VALUE))
         );
 
         addLogPanel.addTab("tab1", listPanel);
@@ -1188,21 +1207,27 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
         repairLogTb.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
                 {null, null, null, null, null}
             },
             new String [] {
-                "Machine Name", "Technician", "Description", "Priority", "Notes"
+                "Machine Name", "Technician", "Description", "Notes", "Priority"
             }
-        ) {
-            Class[] types = new Class [] {
-                java.lang.String.class, java.lang.String.class, java.lang.Object.class, java.lang.Object.class, java.lang.String.class
-            };
-
-            public Class getColumnClass(int columnIndex) {
-                return types [columnIndex];
-            }
-        });
+        ));
         jScrollPane1.setViewportView(repairLogTb);
+        if (repairLogTb.getColumnModel().getColumnCount() > 0) {
+            repairLogTb.getColumnModel().getColumn(0).setHeaderValue("Machine Name");
+            repairLogTb.getColumnModel().getColumn(1).setHeaderValue("Technician");
+            repairLogTb.getColumnModel().getColumn(2).setHeaderValue("Description");
+            repairLogTb.getColumnModel().getColumn(3).setHeaderValue("Notes");
+            repairLogTb.getColumnModel().getColumn(4).setHeaderValue("Priority");
+        }
 
         repairLogsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 730, 270));
 
@@ -1574,6 +1599,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         addLogPanel.setSelectedIndex(0);
     }//GEN-LAST:event_listsBtnActionPerformed
 
+
     private void techniciansBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_techniciansBtnActionPerformed
         // TODO add your handling code here:
         addLogPanel.setSelectedIndex(2);
@@ -1603,11 +1629,14 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         highTF.setText(String.valueOf(logCount[2]));
         lowTF.setText(String.valueOf(logCount[1]));
         mediumTF.setText(String.valueOf(logCount[0]));
+
+        //log table
         for (int i =0; i<repairLogList.size(); i++){
             RepairLog log = repairLogList.get(i);
             String [] stringarr = {log.getMachine().getNAME(), log.getTechnician().getNAME(),log.getDescription(), log.getNotes(), log.getPriority() };
             repairLogmodel.addRow(stringarr);
         }
+        //log table
 
 
         //System.out.println("Total Log TF: when click log " + Arrays.toString(logCount));
@@ -1820,6 +1849,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_totalUnitTFActionPerformed
 
+    private void editDatabaseBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editDatabaseBtn1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_editDatabaseBtn1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1887,6 +1920,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> databaseSelectCB;
     private javax.swing.JButton deleteDatabaseBtn;
     private javax.swing.JButton editDatabaseBtn;
+    private javax.swing.JButton editDatabaseBtn1;
     private javax.swing.JButton exitBtn;
     private javax.swing.JLabel experienceLabel;
     private javax.swing.JTextField experienceTF;
@@ -1910,11 +1944,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
-<<<<<<< Updated upstream
-    private javax.swing.JTable jTable1;
-=======
     private javax.swing.JTable jTable2;
->>>>>>> Stashed changes
     private javax.swing.JTable jTable3;
     private javax.swing.JLabel layerHeaderTab2Label;
     private javax.swing.JPanel layerTab2Panel;
@@ -1970,7 +2000,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel subHeadingTab1Label;
     private javax.swing.JLabel subHeadingTab3;
     private javax.swing.JLabel subHeadingTab4Label;
-    private javax.swing.JTable tableDepanTB;
     private javax.swing.JComboBox<String> technicianCB;
     private javax.swing.JLabel technicianLabel;
     private javax.swing.JButton techniciansBtn;
