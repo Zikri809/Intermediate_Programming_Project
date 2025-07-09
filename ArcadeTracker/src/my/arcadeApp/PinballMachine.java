@@ -12,9 +12,9 @@ public class PinballMachine extends ArcadeMachine {
     
     private int flippersNum;
     
-        public void setFlippersNum(){
+        public void setFlippersNum(int flippersnum){
         
-        int FlippersNum=flippersNum;
+        this.flippersNum = flippersNum;
         
         }
     
@@ -26,7 +26,7 @@ public class PinballMachine extends ArcadeMachine {
         
         public String toString(){
         
-        return super.toString + ("Number Of Flippers :"+flippersNum);
+        return super.toString() + ("Number Of Flippers :"+flippersNum);
             
         }
 }

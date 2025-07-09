@@ -16,19 +16,24 @@ public class ArcadeMachine {
     private boolean isWorking;
     
             
-            public void setID(){
+            public void setID(int id){
             
-            int ID=id;
+            this.id=id;
             }
             
-            public void setNAME(){
+            public void setNAME(String name){
             
-            String NAME=name;
+            this.name=name;
             }
             
-            public void setYEARMADE(){
+            public void setYEARMADE(int yearMade){
             
-            int YEARMADE=yearMade;
+            this.yearMade=yearMade;
+            }
+            
+            public void setIsWorking(boolean isWorking){
+            
+            this.isWorking=isWorking;
             }
             
             public int getID (){
@@ -46,9 +51,15 @@ public class ArcadeMachine {
             return yearMade;
             }
             
+            public boolean getIsWorking(){
+             
+            return isWorking;    
+                
+            }
+            
             public String toString(){
             
-            return ("ID :"+id+"NAME :"+name+"YearMade :"+yearMade);
+            return ("ID :"+id+"NAME :"+name+"YearMade :"+yearMade+"Machine is Working :"+isWorking);
             
             }
 }

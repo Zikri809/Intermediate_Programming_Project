@@ -10,4 +10,25 @@ package my.arcadeApp;
  */
 public class CabinetGame {
     
+    private String screenType;
+    
+        public void setSCREENTYPE(String screenType){
+        
+        this.screenType=screenType;
+        
+        }
+    
+        public String getSCREENTYPE(){
+        
+        return screenType;
+        
+        }
+        
+        public String toString(){
+        
+        return super.toString() + ("Type Of Screen :"+screenType);
+            
+        }
 }
+    
+
