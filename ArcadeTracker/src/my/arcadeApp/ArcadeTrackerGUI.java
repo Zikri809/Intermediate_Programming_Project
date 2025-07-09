@@ -151,11 +151,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         priorityLabel = new javax.swing.JLabel();
         priorityCB = new javax.swing.JComboBox<>();
         issueDesLabel = new javax.swing.JLabel();
-        issueDesSP = new javax.swing.JScrollPane();
         notesLabel = new javax.swing.JLabel();
-        notesSP = new javax.swing.JScrollPane();
         confirmNewLogBtn = new javax.swing.JButton();
         cancelTab6Btn = new javax.swing.JButton();
+        issueDescTF = new javax.swing.JTextField();
+        notesTF = new javax.swing.JTextField();
         backTab6Btn = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -1424,10 +1424,26 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             }
         });
 
+        issueDescTF.setFont(new java.awt.Font("SF Pro Display", 0, 10)); // NOI18N
+        issueDescTF.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        issueDescTF.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+
+        notesTF.setFont(new java.awt.Font("SF Pro Display", 0, 10)); // NOI18N
+        notesTF.setHorizontalAlignment(javax.swing.JTextField.LEFT);
+        notesTF.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+
         javax.swing.GroupLayout newLogLayerPanelLayout = new javax.swing.GroupLayout(newLogLayerPanel);
         newLogLayerPanel.setLayout(newLogLayerPanelLayout);
         newLogLayerPanelLayout.setHorizontalGroup(
             newLogLayerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newLogLayerPanelLayout.createSequentialGroup()
+                .addGap(93, 93, 93)
+                .addComponent(machinesLabel)
+                .addGap(193, 193, 193)
+                .addComponent(technicianLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(priorityLabel)
+                .addGap(114, 114, 114))
             .addGroup(newLogLayerPanelLayout.createSequentialGroup()
                 .addGap(22, 22, 22)
                 .addGroup(newLogLayerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1444,23 +1460,15 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                         .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(newLogLayerPanelLayout.createSequentialGroup()
                         .addGroup(newLogLayerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(issueDesSP, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 725, Short.MAX_VALUE)
-                            .addComponent(notesSP, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, newLogLayerPanelLayout.createSequentialGroup()
+                            .addComponent(issueDescTF, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(newLogLayerPanelLayout.createSequentialGroup()
                                 .addComponent(machinesCB, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addGap(41, 41, 41)
                                 .addComponent(technicianCB, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(36, 36, 36)
-                                .addComponent(priorityCB, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                                .addComponent(priorityCB, javax.swing.GroupLayout.PREFERRED_SIZE, 216, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(notesTF))
                         .addGap(0, 31, Short.MAX_VALUE))))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, newLogLayerPanelLayout.createSequentialGroup()
-                .addGap(93, 93, 93)
-                .addComponent(machinesLabel)
-                .addGap(193, 193, 193)
-                .addComponent(technicianLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(priorityLabel)
-                .addGap(114, 114, 114))
         );
         newLogLayerPanelLayout.setVerticalGroup(
             newLogLayerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1480,12 +1488,12 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(issueDesLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(issueDesSP, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(issueDescTF, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(notesLabel)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(notesSP, javax.swing.GroupLayout.PREFERRED_SIZE, 73, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 24, Short.MAX_VALUE)
+                .addComponent(notesTF, javax.swing.GroupLayout.DEFAULT_SIZE, 79, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addGroup(newLogLayerPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(confirmNewLogBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(cancelTab6Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -1774,7 +1782,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel iconTab3;
     private javax.swing.JPanel infoTab2Panel;
     private javax.swing.JLabel issueDesLabel;
-    private javax.swing.JScrollPane issueDesSP;
+    private javax.swing.JTextField issueDescTF;
     private javax.swing.JLabel layerHeaderTab2Label;
     private javax.swing.JPanel layerTab2Panel;
     private javax.swing.JPanel listPanel;
@@ -1804,7 +1812,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JPanel newLogLayerPanel;
     private javax.swing.JPanel newRepairLogPanel;
     private javax.swing.JLabel notesLabel;
-    private javax.swing.JScrollPane notesSP;
+    private javax.swing.JTextField notesTF;
     private javax.swing.JLabel operationalLabel;
     private javax.swing.JPanel operationalPanel;
     private javax.swing.JTextField operationalTF;
