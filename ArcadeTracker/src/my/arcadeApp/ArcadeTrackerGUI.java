@@ -176,6 +176,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         notesTF = new javax.swing.JTextField();
         backTab6Btn = new javax.swing.JButton();
 
+
+        numFlippersTF.setVisible(false);
+        numFlippersTab2Label.setVisible(false);
+        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -1602,9 +1606,12 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         addLogPanel.setSelectedIndex(3);
         List<RepairLog> repairLogList = main_manager.getRepairLogList();
+        if (repairLogList == null) return;
         totalLogTF.setText(String.valueOf(repairLogList.size()));
         int [] logCount = main_manager.getPrioritylogCount();
         highPriorityTF.setText(String.valueOf(logCount[2]));
+        progressTF.setText(String.valueOf(logCount[1]));
+        completedTF.setText(String.valueOf(logCount[0]));
         
     }//GEN-LAST:event_logsBtnActionPerformed
 
@@ -1656,6 +1663,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         main_manager.addTechnician(tech1);
         technicianName_Model.addElement(name);
         technicianID++;
+        nameTF.setText("");
+        specialityTF.setText("");
+        experienceTF.setText("");
+        certTF.setText("");
         
     }//GEN-LAST:event_confirmAddTechBtnActionPerformed
 
@@ -1764,6 +1775,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             machineName_Model.addElement(machineName);
             id++;
         }
+        machineNameTF.setText("");
+        manufacturerTF.setText("");
+        yearTF.setText("");
+        typeCB.setSelectedIndex(0);
         
       
             
