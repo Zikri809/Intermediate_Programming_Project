@@ -174,10 +174,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         notesTF = new javax.swing.JTextField();
         backTab6Btn = new javax.swing.JButton();
 
-
-        numFlippersTF.setVisible(false);
-        numFlippersTab2Label.setVisible(false);
-        
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -679,21 +675,21 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                             .addComponent(yearTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(manufacturerTF, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(yearTF, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layerTab2PanelLayout.createSequentialGroup()
-                            .addGap(123, 123, 123)
-                            .addComponent(deleteDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGroup(layerTab2PanelLayout.createSequentialGroup()
-                            .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(numFlippersTab2Label)
-                                .addComponent(numFlippersTF, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGap(46, 46, 46)
-                            .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(screenTypeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(screenTypeTab2Label)))))
-                .addContainerGap(24, Short.MAX_VALUE))
+                    .addGroup(layerTab2PanelLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(numFlippersTab2Label)
+                            .addComponent(numFlippersTF, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60)
+                        .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(screenTypeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(screenTypeTab2Label)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layerTab2PanelLayout.createSequentialGroup()
+                        .addComponent(deleteDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(129, 129, 129)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layerTab2PanelLayout.setVerticalGroup(
             layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -725,9 +721,9 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                     .addComponent(numFlippersTF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(screenTypeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(deleteDatabaseBtn, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
-                    .addComponent(registerBtn, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(35, 35, 35))
         );
 
@@ -1601,9 +1597,9 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         if (repairLogList == null) return;
         totalLogTF.setText(String.valueOf(repairLogList.size()));
         int [] logCount = main_manager.getPrioritylogCount();
-        highPriorityTF.setText(String.valueOf(logCount[2]));
-        progressTF.setText(String.valueOf(logCount[1]));
-        completedTF.setText(String.valueOf(logCount[0]));
+        highTF.setText(String.valueOf(logCount[2]));
+        mediumTF.setText(String.valueOf(logCount[1]));
+        lowTF.setText(String.valueOf(logCount[0]));
         
     }//GEN-LAST:event_logsBtnActionPerformed
 
