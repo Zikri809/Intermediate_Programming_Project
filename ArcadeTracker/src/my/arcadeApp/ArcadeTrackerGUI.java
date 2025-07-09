@@ -16,7 +16,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     public ArcadeTrackerGUI() {
         initComponents();
     }
-
+    ArcadeManager main_manager = new ArcadeManager();
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -1684,6 +1684,16 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         
         // TODO add your handling code here:
         String machineName = machineNameTF.getText();
+        String manufacturer = manufacturerTF.getText();
+        String machineType = (String)typeCB.getSelectedItem();
+        int year = Integer.parseInt(yearTF.getText());
+        
+        int id = 0;
+        //check the machinetype 
+        if(machineType.equals("Arcade Cabinet")){
+            ArcadeMachine CabinetGame = new CabinetGame(id,machineName, year, );
+        }
+            
         
     }//GEN-LAST:event_registerBtnActionPerformed
 

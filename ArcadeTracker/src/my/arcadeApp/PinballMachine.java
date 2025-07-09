@@ -12,8 +12,8 @@ public class PinballMachine extends ArcadeMachine {
     
     private int flippersNum;
 
-    public PinballMachine(int ID, String NAME, int YEARMADE, boolean IsWorking, int FlippersNum) {
-        super(ID, NAME, YEARMADE, IsWorking);
+    public PinballMachine(int ID, String NAME, int YEARMADE, boolean IsWorking, int FlippersNum,String MANUFACTURER) {
+        super(ID, NAME, YEARMADE, IsWorking, MANUFACTURER);
         this.flippersNum = FlippersNum;
     }
     

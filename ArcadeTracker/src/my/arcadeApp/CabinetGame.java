@@ -12,8 +12,8 @@ public class CabinetGame extends ArcadeMachine {
     
     private String screenType;
 
-    public CabinetGame(int ID, String NAME, int YEARMADE, boolean IsWorking, String SCREENTYPE) {
-        super(ID, NAME, YEARMADE, IsWorking);
+    public CabinetGame(int ID, String NAME, int YEARMADE, boolean IsWorking, String SCREENTYPE, String MANUFACTURER) {
+        super(ID, NAME, YEARMADE, IsWorking, MANUFACTURER);
         this.screenType=SCREENTYPE;
     }
     
