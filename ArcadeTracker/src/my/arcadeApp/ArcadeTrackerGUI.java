@@ -77,12 +77,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         yearTab2Label = new javax.swing.JLabel();
         machineNameTF = new javax.swing.JTextField();
         manufacturerTF = new javax.swing.JTextField();
-        totalTF = new javax.swing.JTextField();
         typeCB = new javax.swing.JComboBox<>();
         qtyTab2Label = new javax.swing.JLabel();
         qtyTF = new javax.swing.JTextField();
-        totalTab2Label = new javax.swing.JLabel();
         yearTF = new javax.swing.JTextField();
+        registerBtn = new javax.swing.JButton();
         infoTab2Panel = new javax.swing.JPanel();
         headerInfoLabel = new javax.swing.JLabel();
         typeInfo = new javax.swing.JLabel();
@@ -622,14 +621,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             }
         });
 
-        totalTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        totalTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-        totalTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalTFActionPerformed(evt);
-            }
-        });
-
         typeCB.setBackground(new java.awt.Color(86, 95, 100));
         typeCB.setForeground(new java.awt.Color(51, 255, 51));
         typeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arcade Cabinet", "Pinball Machine" }));
@@ -648,16 +639,22 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             }
         });
 
-        totalTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
-        totalTab2Label.setForeground(new java.awt.Color(0, 255, 0));
-        totalTab2Label.setText("TOTAL:");
-
         yearTF.setBackground(new java.awt.Color(86, 95, 100));
         yearTF.setForeground(new java.awt.Color(51, 255, 51));
         yearTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
         yearTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 yearTFActionPerformed(evt);
+            }
+        });
+
+        registerBtn.setBackground(new java.awt.Color(51, 255, 255));
+        registerBtn.setFont(new java.awt.Font("Krungthep", 1, 13)); // NOI18N
+        registerBtn.setText("REGISTER");
+        registerBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        registerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerBtnActionPerformed(evt);
             }
         });
 
@@ -691,13 +688,8 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                     .addGroup(layerTab2PanelLayout.createSequentialGroup()
                         .addComponent(qtyTF, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layerTab2PanelLayout.createSequentialGroup()
-                                .addComponent(totalTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layerTab2PanelLayout.createSequentialGroup()
-                                .addComponent(totalTF, javax.swing.GroupLayout.PREFERRED_SIZE, 139, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap())))))
+                        .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(78, 78, 78))))
         );
         layerTab2PanelLayout.setVerticalGroup(
             layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -723,13 +715,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(qtyTab2Label)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(qtyTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layerTab2PanelLayout.createSequentialGroup()
-                        .addComponent(totalTab2Label)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(totalTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(35, Short.MAX_VALUE))
         );
 
         infoTab2Panel.setBackground(new java.awt.Color(86, 95, 100));
@@ -1659,10 +1648,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_qtyTFActionPerformed
 
-    private void totalTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalTFActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_totalTFActionPerformed
-
     private void manufacturerTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_manufacturerTFActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_manufacturerTFActionPerformed
@@ -1691,6 +1676,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private void addDatabaseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addDatabaseBtnActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_addDatabaseBtnActionPerformed
+
+    private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_registerBtnActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1825,6 +1814,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel qtyLabel;
     private javax.swing.JTextField qtyTF;
     private javax.swing.JLabel qtyTab2Label;
+    private javax.swing.JButton registerBtn;
     private javax.swing.JLabel repairLabel;
     private javax.swing.JPanel repairLogsPanel;
     private javax.swing.JLabel requireLabel;
@@ -1843,8 +1833,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel totalLogLabel;
     private javax.swing.JPanel totalLogPanel;
     private javax.swing.JTextField totalLogTF;
-    private javax.swing.JTextField totalTF;
-    private javax.swing.JLabel totalTab2Label;
     private javax.swing.JLabel totalTechLabel;
     private javax.swing.JPanel totalTechPanel;
     private javax.swing.JTextField totalTechTF;

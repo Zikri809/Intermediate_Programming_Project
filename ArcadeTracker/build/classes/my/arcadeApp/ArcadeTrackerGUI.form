@@ -1036,16 +1036,8 @@
                               <Group type="102" alignment="0" attributes="0">
                                   <Component id="qtyTF" min="-2" pref="224" max="-2" attributes="0"/>
                                   <EmptySpace max="32767" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" attributes="0">
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="totalTab2Label" min="-2" pref="48" max="-2" attributes="0"/>
-                                          <EmptySpace min="-2" pref="48" max="-2" attributes="0"/>
-                                      </Group>
-                                      <Group type="102" alignment="1" attributes="0">
-                                          <Component id="totalTF" min="-2" pref="139" max="-2" attributes="0"/>
-                                          <EmptySpace max="-2" attributes="0"/>
-                                      </Group>
-                                  </Group>
+                                  <Component id="registerBtn" min="-2" pref="85" max="-2" attributes="0"/>
+                                  <EmptySpace min="-2" pref="78" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
@@ -1079,15 +1071,11 @@
                           <EmptySpace type="separate" max="-2" attributes="0"/>
                           <Component id="qtyTab2Label" min="-2" max="-2" attributes="0"/>
                           <EmptySpace max="-2" attributes="0"/>
-                          <Group type="103" groupAlignment="0" attributes="0">
-                              <Component id="qtyTF" min="-2" pref="33" max="-2" attributes="0"/>
-                              <Group type="102" attributes="0">
-                                  <Component id="totalTab2Label" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace max="-2" attributes="0"/>
-                                  <Component id="totalTF" min="-2" pref="33" max="-2" attributes="0"/>
-                              </Group>
+                          <Group type="103" groupAlignment="3" attributes="0">
+                              <Component id="qtyTF" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
+                              <Component id="registerBtn" alignment="3" min="-2" pref="33" max="-2" attributes="0"/>
                           </Group>
-                          <EmptySpace pref="14" max="32767" attributes="0"/>
+                          <EmptySpace pref="35" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                 </DimensionLayout>
@@ -1191,22 +1179,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="manufacturerTFActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JTextField" name="totalTF">
-                  <Properties>
-                    <Property name="horizontalAlignment" type="int" value="0"/>
-                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
-                      <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
-                        <BevelBorder bevelType="1">
-                          <Color PropertyName="highlightOuter" blue="ff" green="ff" red="33" type="rgb"/>
-                          <Color PropertyName="highlightInner" blue="ff" green="ff" red="33" type="rgb"/>
-                        </BevelBorder>
-                      </Border>
-                    </Property>
-                  </Properties>
-                  <Events>
-                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="totalTFActionPerformed"/>
-                  </Events>
-                </Component>
                 <Component class="javax.swing.JComboBox" name="typeCB">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1266,17 +1238,6 @@
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="qtyTFActionPerformed"/>
                   </Events>
                 </Component>
-                <Component class="javax.swing.JLabel" name="totalTab2Label">
-                  <Properties>
-                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-                      <Font name="Krungthep" size="11" style="0"/>
-                    </Property>
-                    <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                      <Color blue="0" green="ff" red="0" type="rgb"/>
-                    </Property>
-                    <Property name="text" type="java.lang.String" value="TOTAL:"/>
-                  </Properties>
-                </Component>
                 <Component class="javax.swing.JTextField" name="yearTF">
                   <Properties>
                     <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
@@ -1296,6 +1257,25 @@
                   </Properties>
                   <Events>
                     <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="yearTFActionPerformed"/>
+                  </Events>
+                </Component>
+                <Component class="javax.swing.JButton" name="registerBtn">
+                  <Properties>
+                    <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
+                      <Color blue="ff" green="ff" red="33" type="rgb"/>
+                    </Property>
+                    <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+                      <Font name="Krungthep" size="13" style="1"/>
+                    </Property>
+                    <Property name="text" type="java.lang.String" value="REGISTER"/>
+                    <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
+                      <Border info="org.netbeans.modules.form.compat2.border.SoftBevelBorderInfo">
+                        <BevelBorder/>
+                      </Border>
+                    </Property>
+                  </Properties>
+                  <Events>
+                    <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="registerBtnActionPerformed"/>
                   </Events>
                 </Component>
               </SubComponents>
