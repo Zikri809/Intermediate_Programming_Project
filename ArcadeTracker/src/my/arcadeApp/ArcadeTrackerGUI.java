@@ -174,10 +174,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         notesTF = new javax.swing.JTextField();
         backTab6Btn = new javax.swing.JButton();
 
-
-        numFlippersTF.setVisible(false);
-        numFlippersTab2Label.setVisible(false);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -287,7 +283,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         logoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoIcon.setForeground(new java.awt.Color(51, 255, 255));
-        logoIcon.setIcon(new javax.swing.ImageIcon("/Users/haziq/Pictures/ScreenRecord/Screenshot 2025-07-09 at 7.49.50 AM.png")); // NOI18N
         logoIcon.setText("jLabel2");
         logoPanel.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 30, 30));
 
@@ -1425,6 +1420,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         priorityCB.setForeground(new java.awt.Color(51, 255, 51));
         priorityCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Low Priority", "Medium Priority", "High Priority" }));
         priorityCB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+        priorityCB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                priorityCBActionPerformed(evt);
+            }
+        });
 
         issueDesLabel.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
         issueDesLabel.setForeground(new java.awt.Color(0, 255, 0));
@@ -1601,19 +1601,13 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         if (repairLogList == null) return;
         totalLogTF.setText(String.valueOf(repairLogList.size()));
         int [] logCount = main_manager.getPrioritylogCount();
-<<<<<<< Updated upstream
+
         highTF.setText(String.valueOf(logCount[2]));
         lowTF.setText(String.valueOf(logCount[1]));
         mediumTF.setText(String.valueOf(logCount[0]));
-=======
-        highPriorityTF.setText(String.valueOf(logCount[2]));
-        progressTF.setText(String.valueOf(logCount[1]));
-        completedTF.setText(String.valueOf(logCount[0]));
+
         System.out.println("Total Log TF: when click log " + Arrays.toString(logCount));
-<<<<<<< Updated upstream
->>>>>>> Stashed changes
-=======
->>>>>>> Stashed changes
+
         
     }//GEN-LAST:event_logsBtnActionPerformed
 
@@ -1639,11 +1633,13 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         Technician technician = main_manager.findTechnicianInList(technicianName);
         RepairLog log = new RepairLog (machine,technician,note,issuesDesc,priorityLevel);
         main_manager.addRepairLog(log);
+        System.out.println(machine.toString());
+        System.out.println(technician.toString());
         int [] logCount = main_manager.getPrioritylogCount();
-        System.out.println(main_manager.getRepairLogList().size());
-        highPriorityTF.setText(String.valueOf(logCount[2]));
-        progressTF.setText(String.valueOf(logCount[1]));
-        completedTF.setText(String.valueOf(logCount[0]));
+        highTF.setText(String.valueOf(logCount[2]));
+        lowTF.setText(String.valueOf(logCount[1]));
+        mediumTF.setText(String.valueOf(logCount[0]));
+
         System.out.println("Total Log TF when click add log " + Arrays.toString(logCount));
     }//GEN-LAST:event_confirmNewLogBtnActionPerformed
 
@@ -1823,6 +1819,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             numFlippersTab2Label.setVisible(false);}
         
     }//GEN-LAST:event_typeCBActionPerformed
+
+    private void priorityCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_priorityCBActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_priorityCBActionPerformed
 
     /**
      * @param args the command line arguments
