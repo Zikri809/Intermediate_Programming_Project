@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="ArcadeTracker">
-    <CLASSES>
-      <root url="jar://$PROJECT_DIR$/dist/ArcadeTracker.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
