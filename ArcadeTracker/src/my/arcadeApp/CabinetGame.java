@@ -8,9 +8,14 @@ package my.arcadeApp;
  *
  * @author MUHAMMAD NASZRUL
  */
-public class CabinetGame {
+public class CabinetGame extends ArcadeMachine {
     
     private String screenType;
+
+    public CabinetGame(int ID, String NAME, int YEARMADE, boolean IsWorking, String SCREENTYPE) {
+        super(ID, NAME, YEARMADE, IsWorking);
+        this.screenType=SCREENTYPE;
+    }
     
         public void setSCREENTYPE(String screenType){
         

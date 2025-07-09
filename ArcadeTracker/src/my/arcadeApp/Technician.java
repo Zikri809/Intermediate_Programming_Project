@@ -14,47 +14,54 @@ public class Technician {
     private String name;
     private String specialty;
     
-        public void setID(int id){
-
-        this.id=id;
-
+        public Technician (int ID, String NAME, String SPECIALTY){
+        this.id = ID;   
+        this.name = NAME;
+        this.specialty = SPECIALTY;        
+                
         }
+    
+            public void setID(int id){
 
-        public void setNAME(String name){
+            this.id=id;
 
-        this.name=name;
-
-        }
-
-        public void setSPECIALTY(String specialty){
-
-        this.specialty=specialty;
-
-        }
-
-        public int getID(){
-
-        return id;
-
-        }
-
-        public String getNAME(){
-
-        return name;
-
-        }
-
-        public String getSPECIALTY(){
-
-        return specialty;
-
-        }
-            
-            public String toString(){
-            
-            return ("ID :"+id+"NAME :"+name+"Technician Specialty :"+specialty);
-            
             }
+
+            public void setNAME(String name){
+
+            this.name=name;
+
+            }
+
+            public void setSPECIALTY(String specialty){
+
+            this.specialty=specialty;
+
+            }
+
+            public int getID(){
+
+            return id;
+
+            }
+
+            public String getNAME(){
+
+            return name;
+
+            }
+
+            public String getSPECIALTY(){
+
+            return specialty;
+
+            }
+
+                public String toString(){
+
+                return ("ID :"+id+"NAME :"+name+"Technician Specialty :"+specialty);
+
+                }
 
     
 }
