@@ -119,9 +119,6 @@
         </Component>
         <Component class="javax.swing.JLabel" name="wifiLogo">
           <Properties>
-            <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-              <Image iconType="2" name="/Users/haziq/Downloads/WIFI.png"/>
-            </Property>
             <Property name="text" type="java.lang.String" value="jLabel23"/>
           </Properties>
           <Constraints>
@@ -194,7 +191,7 @@
                           </Group>
                       </Group>
                   </Group>
-                  <EmptySpace pref="17" max="32767" attributes="0"/>
+                  <EmptySpace max="32767" attributes="0"/>
               </Group>
           </Group>
         </DimensionLayout>
@@ -358,9 +355,6 @@
           <SubComponents>
             <Component class="javax.swing.JLabel" name="logoIcon">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/Users/haziq/Pictures/ScreenRecord/Screenshot 2025-07-09 at 7.49.50&#x202f;AM.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel2"/>
               </Properties>
               <Constraints>
@@ -1527,9 +1521,6 @@
             </Component>
             <Component class="javax.swing.JLabel" name="iconTab3">
               <Properties>
-                <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
-                  <Image iconType="2" name="/Users/haziq/Downloads/TECH.png"/>
-                </Property>
                 <Property name="text" type="java.lang.String" value="jLabel24"/>
               </Properties>
               <Constraints>
@@ -1913,7 +1904,7 @@
                       <Group type="102" alignment="1" attributes="0">
                           <EmptySpace pref="16" max="32767" attributes="0"/>
                           <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                              <Component id="totalLogLabel" alignment="0" pref="96" max="32767" attributes="0"/>
+                              <Component id="totalLogLabel" alignment="0" max="32767" attributes="0"/>
                               <Component id="totalLogTF" alignment="0" max="32767" attributes="0"/>
                           </Group>
                           <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>

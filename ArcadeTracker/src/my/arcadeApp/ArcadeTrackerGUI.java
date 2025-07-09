@@ -1678,7 +1678,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     }//GEN-LAST:event_addDatabaseBtnActionPerformed
 
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
+        
         // TODO add your handling code here:
+        String machineName = machineNameTF.getText();
+        
     }//GEN-LAST:event_registerBtnActionPerformed
 
     /**

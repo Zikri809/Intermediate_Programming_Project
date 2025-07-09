@@ -4,6 +4,10 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/C:/Git_Repo/Intermediate_Programming_Project/ArcadeTracker/src/my/arcadeApp/ArcadeTrackerGUI.java</file>
+            <file>file:/C:/Git_Repo/Intermediate_Programming_Project/ArcadeTracker/src/my/arcadeApp/ArcadeManager.java</file>
+            <file>file:/C:/Git_Repo/Intermediate_Programming_Project/ArcadeTracker/src/my/arcadeApp/ArcadeMachine.java</file>
+            <file>file:/C:/Git_Repo/Intermediate_Programming_Project/ArcadeTracker/src/my/arcadeApp/CabinetGame.java</file>
+            <file>file:/C:/Git_Repo/Intermediate_Programming_Project/ArcadeTracker/src/my/arcadeApp/PinballMachine.java</file>
         </group>
     </open-files>
 </project-private>

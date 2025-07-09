@@ -17,7 +17,6 @@ public class PinballMachine extends ArcadeMachine {
         this.flippersNum = flippersNum;
         
         }
-    
         public int getFlippersNum(){
         
         return flippersNum;

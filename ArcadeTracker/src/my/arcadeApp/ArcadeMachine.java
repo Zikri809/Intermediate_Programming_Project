@@ -15,7 +15,12 @@ public class ArcadeMachine {
     private int yearMade;    
     private boolean isWorking;
     
-            
+            public ArcadeMachine(int id , String name , int yearmade, boolean isworking){
+                this.id = id;
+                this.name = name;
+                this.yearMade = yearmade;
+                this.isWorking = isworking;
+            }
             public void setID(int id){
             
             this.id=id;
