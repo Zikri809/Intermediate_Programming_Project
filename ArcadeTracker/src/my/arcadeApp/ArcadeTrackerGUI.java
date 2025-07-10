@@ -20,6 +20,8 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     /**
      * Creates new form ArcadeTrackerGUI
      */
+    private DefaultComboBoxModel<String> machineNameModel;//databaseCB
+    
     public ArcadeTrackerGUI(ArcadeManager main_manager) {
         this.main_manager = main_manager;
         initComponents();
@@ -27,21 +29,114 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         //making the combo box dynamic
         machinesCB.setModel(machineName_Model);
         technicianCB.setModel(technicianName_Model);
-
+        
+        jTable2.setModel(MachineDatabaseTbModel);//machine table
         //log table
         repairLogTb.setModel(repairLogmodel);
-        //log table
+        //LOG MODEL
+        machineNameModel = new DefaultComboBoxModel<>();
+        databaseSelectCB.setModel(machineNameModel);
+        
+        jTable3.setModel(technicianTBModel); 
+        loadTechnicianTB();
 
-
+        loadMachineTb();//machine table
+        loadMachineIntoCB();
     }
+    
     DefaultComboBoxModel<String> machineName_Model = new DefaultComboBoxModel<>();
     DefaultComboBoxModel<String> technicianName_Model = new DefaultComboBoxModel<>();
 
+    String [] MachineTableHeader = {"Id","Name", "Year", "Working"};//machine table
+    DefaultTableModel MachineDatabaseTbModel = new DefaultTableModel(MachineTableHeader,0);//machine table
+    
+    
+    private void loadMachineTb() {
+    MachineDatabaseTbModel.setRowCount(0); // clear old rows
+
+    for (ArcadeMachine machine : main_manager.getMachineList()) {
+        MachineDatabaseTbModel.addRow(new Object[]{
+            machine.getID(),
+            machine.getNAME(),
+            machine.getYEARMADE(),
+            machine.getIsWorking() ? "Yes" : "No"
+        });
+    }
+    updateMachineCounter();
+}
+    
     //log table
     String [] logTableHeader = {"Machine Name","Technician", "Description", "Notes", "Priority"};
     DefaultTableModel repairLogmodel = new DefaultTableModel(logTableHeader,0);
     //log table
 
+    
+    private void updateMachineCounter(){
+        int total=0;
+        int operational=0;
+        int needRepair=0;
+        
+        for (ArcadeMachine machine : main_manager.getMachineList()){
+            total++;
+            if (machine.getIsWorking()){
+                operational++;
+            }else{
+            needRepair++;
+            }    
+        }
+        //setting value in text fields
+        totalUnitTF.setText(String.valueOf(total));
+        operationalTF.setText(String.valueOf(operational));
+        needRepairTF.setText(String.valueOf(needRepair));
+    }    
+    
+    private void loadMachineIntoCB(){
+        machineNameModel.removeAllElements();
+    
+        for (ArcadeMachine machine : main_manager.getMachineList()){
+            machineNameModel.addElement(machine.getNAME());
+        }
+            
+    }
+    
+    String[] technicianTableHeader = {"ID", "Name", "Status"};
+    DefaultTableModel technicianTBModel = new DefaultTableModel(technicianTableHeader, 0);
+
+    private void loadTechnicianTB() {
+    technicianTBModel.setRowCount(0); // clear table first
+
+    for (Technician tech : main_manager.getTechnicianList()) {
+        technicianTBModel.addRow(new Object[] {
+            tech.getID(),
+            tech.getNAME(),
+            //tech.getStatus()
+        });
+    }
+
+    //updateTechnicianCounters();
+}
+
+    /*private void updateTechnicianCounters() {
+    int total = 0;
+    int available = 0;
+    int busy = 0;
+
+    for (Technician tech : main_manager.getTechnicianList()) {
+        total++;
+        if (tech.getStatus().equalsIgnoreCase("Available")) {
+            available++;
+        } else if (tech.getStatus().equalsIgnoreCase("Busy")) {
+            busy++;
+        }
+    }
+
+    totalTechTF.setText(String.valueOf(total));
+    availableTF.setText(String.valueOf(available));
+    busyTF.setText(String.valueOf(busy));
+}*/
+
+    
+    
     int id = 0;
     int technicianID = 0;
 
@@ -1209,11 +1304,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             new Object [][] {
                 {null, null, null, null, null},
                 {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
                 {null, null, null, null, null}
             },
             new String [] {
@@ -1221,13 +1311,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             }
         ));
         jScrollPane1.setViewportView(repairLogTb);
-        if (repairLogTb.getColumnModel().getColumnCount() > 0) {
-            repairLogTb.getColumnModel().getColumn(0).setHeaderValue("Machine Name");
-            repairLogTb.getColumnModel().getColumn(1).setHeaderValue("Technician");
-            repairLogTb.getColumnModel().getColumn(2).setHeaderValue("Description");
-            repairLogTb.getColumnModel().getColumn(3).setHeaderValue("Notes");
-            repairLogTb.getColumnModel().getColumn(4).setHeaderValue("Priority");
-        }
 
         repairLogsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 730, 270));
 
@@ -1627,8 +1710,8 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         totalLogTF.setText(String.valueOf(repairLogList.size()));
         int [] logCount = main_manager.getPrioritylogCount();
         highTF.setText(String.valueOf(logCount[2]));
-        lowTF.setText(String.valueOf(logCount[1]));
-        mediumTF.setText(String.valueOf(logCount[0]));
+        lowTF.setText(String.valueOf(logCount[0]));
+        mediumTF.setText(String.valueOf(logCount[1]));
 
         //log table
         for (int i =0; i<repairLogList.size(); i++){
@@ -1698,6 +1781,8 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         experienceTF.setText("");
         certTF.setText("");
         
+        main_manager.addTechnician(new Technician(id, name, specialty, experience, certification));
+        loadTechnicianTB();
     }//GEN-LAST:event_confirmAddTechBtnActionPerformed
 
     private void certTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_certTFActionPerformed
@@ -1769,6 +1854,28 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void editDatabaseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editDatabaseBtnActionPerformed
         // TODO add your handling code here:
+        // edit database button
+        String selectedName = (String) databaseSelectCB.getSelectedItem();
+            if (selectedName == null)return;
+            
+        ArcadeMachine selectedMachine = main_manager.findMachineInList(selectedName);
+            if(selectedMachine == null)return;
+            
+            machineNameTF.setText(selectedMachine.getNAME());
+            yearTF.setText(String.valueOf(selectedMachine.getYEARMADE()));
+            manufacturerTF.setText(selectedMachine.getManufacturer());
+            //typeCB.setSelected(selectedMachine.());
+            
+            if (selectedMachine instanceof CabinetGame){
+                typeCB.setSelectedItem("Arcade Cabinet");
+                screenTypeTF.setText(((CabinetGame)selectedMachine).getSCREENTYPE());
+                numFlippersTF.setText("");
+            }else if(selectedMachine instanceof PinballMachine){
+                typeCB.setSelectedItem("Pinball Machine");
+                numFlippersTF.setText(String.valueOf(((PinballMachine)selectedMachine).getFlippersNum()));
+                screenTypeTF.setText("");
+            }
+            
         addLogPanel.setSelectedIndex(1);
     }//GEN-LAST:event_editDatabaseBtnActionPerformed
 
@@ -1794,7 +1901,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             ArcadeMachine arcadeCabinet = new CabinetGame(id,machineName,year,true ,screentype,manufacturer);
             main_manager.addMachine(arcadeCabinet);
             machineName_Model.addElement(machineName);
-            id++;
+            id++;               
         }
         else{
             //int ID, String NAME, int YEARMADE, boolean IsWorking, int FlippersNum,String MANUFACTURER
@@ -1805,22 +1912,23 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
 
             id++;
+            
+            
         }
+        loadMachineIntoCB();
+        loadMachineTb();//load data to machine table
+        
         machineNameTF.setText("");
         manufacturerTF.setText("");
         screenTypeTF.setText("");
         numFlippersTF.setText("");
         yearTF.setText("");
-        typeCB.setSelectedIndex(0);
-        
-      
-            
-        
+        typeCB.setSelectedIndex(0);    
     }//GEN-LAST:event_registerBtnActionPerformed
 
     private void backTab6BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTab6BtnActionPerformed
         // TODO add your handling code here:
-        addLogPanel.setSelectedIndex(2);
+        addLogPanel.setSelectedIndex(3);
     }//GEN-LAST:event_backTab6BtnActionPerformed
 
     private void typeCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeCBActionPerformed
@@ -1851,6 +1959,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void editDatabaseBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editDatabaseBtn1ActionPerformed
         // TODO add your handling code here:
+        addLogPanel.setSelectedIndex(1);
     }//GEN-LAST:event_editDatabaseBtn1ActionPerformed
 
     /**

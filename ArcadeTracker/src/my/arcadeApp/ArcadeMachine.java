@@ -76,7 +76,7 @@ public class ArcadeMachine {
                 return isWorking;    
 
                 }
-                public String getManufaturer(){
+                public String getManufacturer(){
                     return this.manufacturer;
                 }
                 public double getPrice(){
