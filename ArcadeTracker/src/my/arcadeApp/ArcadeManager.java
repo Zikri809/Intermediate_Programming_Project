@@ -1,5 +1,7 @@
 
 package my.arcadeApp;
+import javax.swing.*;
+import javax.swing.table.DefaultTableModel;
 import java.time.LocalDate;
 import java.util.*;
 
@@ -118,4 +120,91 @@ public class ArcadeManager {
         int [] logcount = {lowcount,mediumcount,highcount};
         return logcount;
     }
+    public int[] getOperationalCount(){
+        int total = 0;
+        int operational=0, needRepair=0;
+        for (ArcadeMachine machine : machinesList){
+            total++;
+            if (machine.getIsWorking()){
+                operational++;
+            }else{
+                needRepair++;
+            }
+        };
+        //total-0 operational-1 needRepair-2
+        int [] operationalCount = {total,operational,needRepair};
+        return operationalCount;
+    }
+    private int[] getTechnicianAvail() {
+        int total = 0;
+        int available = 0;
+        int busy = 0;
+
+        for (Technician tech : getTechnicianList()) {
+            total++;
+            if (tech.getBusy()) {
+                busy++;
+            } else {
+                available++;
+            }
+        }
+        return new int[]{total,available,busy};
+    }
+    public void loadLogPanel(DefaultTableModel TbModel, javax.swing.JTextField totalLogTF, javax.swing.JTextField highTF, javax.swing.JTextField lowTF, javax.swing.JTextField mediumTF){
+        if (repairLogList == null) return;
+        totalLogTF.setText(String.valueOf(repairLogList.size()));
+        int [] logCount = getPrioritylogCount();
+        highTF.setText(String.valueOf(logCount[2]));
+        lowTF.setText(String.valueOf(logCount[0]));
+        mediumTF.setText(String.valueOf(logCount[1]));
+
+        //log table
+        for (int i =0; i<repairLogList.size(); i++){
+            RepairLog log = repairLogList.get(i);
+            String [] stringarr = {log.getMachine().getNAME(), log.getTechnician().getNAME(),log.getDescription(), log.getNotes(), log.getPriority() };
+            TbModel.addRow(stringarr);
+        }
+    }
+    public void loadMachinePanel(DefaultTableModel MachineDatabaseTbModel, javax.swing.JTextField totalUnitTF, javax.swing.JTextField operationalTF, javax.swing.JTextField needRepairTF, DefaultComboBoxModel<String> machineNameModel){
+        //load the table
+        MachineDatabaseTbModel.setRowCount(0); // clear old rows
+
+        for (ArcadeMachine machine : getMachineList()) {
+            MachineDatabaseTbModel.addRow(new Object[]{
+                    machine.getID(),
+                    machine.getNAME(),
+                    machine.getYEARMADE(),
+                    machine.getIsWorking() ? "Yes" : "No"
+            });
+        }
+        //load the text field
+        int [] operationalCount = getOperationalCount();
+        totalUnitTF.setText(String.valueOf(operationalCount[0]));
+        operationalTF.setText(String.valueOf(operationalCount[1]));
+        needRepairTF.setText(String.valueOf(operationalCount[2]));
+
+        //load the comboBox
+        machineNameModel.removeAllElements();
+        for (ArcadeMachine machine : getMachineList()){
+            machineNameModel.addElement(machine.getNAME());
+        }
+    }
+    public void loadTechnicainPanel(DefaultTableModel technicianTBModel ,javax.swing.JTextField totalTechTF,javax.swing.JTextField availableTF,javax.swing.JTextField busyTF){
+        //load table
+        technicianTBModel.setRowCount(0); // clear table first
+        for (Technician tech : getTechnicianList()) {
+            technicianTBModel.addRow(new Object[]{
+                    tech.getID(),
+                    tech.getNAME(),
+                    tech.getBusy() ? "Yes" : "No"
+            });
+        }
+        //load text field
+        int [] technicianCount = getTechnicianAvail();
+        totalTechTF.setText(String.valueOf(technicianCount[0]));
+        availableTF.setText(String.valueOf(technicianCount[1]));
+        busyTF.setText(String.valueOf(technicianCount[2]));
+
+    }
+
 }
