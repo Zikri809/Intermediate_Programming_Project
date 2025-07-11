@@ -26,7 +26,9 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     public ArcadeTrackerGUI(ArcadeManager main_manager) {
         this.main_manager = main_manager;
         initComponents();
-
+        //only display default field
+        numFlippersTF.setVisible(false);
+        numFlippersTab2Label.setVisible(false);
         //making the combo box dynamic
         machinesCB.setModel(machineName_Model);
         technicianCB.setModel(technicianName_Model);
@@ -103,7 +105,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         databaseSelectCB = new javax.swing.JComboBox<>();
         jScrollPane2 = new javax.swing.JScrollPane();
         jTable2 = new javax.swing.JTable();
-        editDatabaseBtn1 = new javax.swing.JButton();
+        deleteDatabaseBtn1 = new javax.swing.JButton();
         addMachinePanel = new javax.swing.JPanel();
         headerTab1Label = new javax.swing.JLabel();
         backTab1Btn = new javax.swing.JButton();
@@ -505,13 +507,13 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        editDatabaseBtn1.setBackground(new java.awt.Color(51, 255, 51));
-        editDatabaseBtn1.setFont(new java.awt.Font("Krungthep", 1, 18)); // NOI18N
-        editDatabaseBtn1.setText("+ADD");
-        editDatabaseBtn1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        editDatabaseBtn1.addActionListener(new java.awt.event.ActionListener() {
+        deleteDatabaseBtn1.setBackground(new java.awt.Color(204, 0, 0));
+        deleteDatabaseBtn1.setFont(new java.awt.Font("Krungthep", 1, 18)); // NOI18N
+        deleteDatabaseBtn1.setText("DELETE");
+        deleteDatabaseBtn1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        deleteDatabaseBtn1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                editDatabaseBtn1ActionPerformed(evt);
+                deleteDatabaseBtn1ActionPerformed(evt);
             }
         });
 
@@ -535,13 +537,13 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                                 .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listPanelLayout.createSequentialGroup()
                                         .addComponent(editDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(59, 59, 59))
+                                        .addGap(35, 35, 35))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listPanelLayout.createSequentialGroup()
                                         .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                             .addComponent(totalUnitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                             .addComponent(databaseSelectCB, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(218, 218, 218)))
-                                .addComponent(editDatabaseBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                        .addGap(194, 194, 194)))
+                                .addComponent(deleteDatabaseBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listPanelLayout.createSequentialGroup()
                 .addGap(0, 100, Short.MAX_VALUE)
@@ -562,7 +564,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(databaseSelectCB, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(editDatabaseBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(deleteDatabaseBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(26, 26, 26)
                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(79, Short.MAX_VALUE))
@@ -1677,7 +1679,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         String priorityLevel = (String) priorityCB.getSelectedItem();
         String issuesDesc = issueDescTF.getText();
         String note =  notesTF.getText();
-        System.out.println(priorityLevel);
+        //System.out.println(priorityLevel);
         ArcadeMachine machine = main_manager.findMachineInList(machineName);
         machine.setIsWorking(false);
         Technician technician = main_manager.findTechnicianInList(technicianName);
@@ -1685,6 +1687,13 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         RepairLog log = new RepairLog (machine,technician,note,issuesDesc,priorityLevel);
         main_manager.addRepairLog(log);
         main_manager.loadLogPanel(repairLogmodel,totalLogTF,highTF,lowTF,mediumTF);
+
+        //clear the input field
+        machinesCB.setSelectedIndex(0);
+        technicianCB.setSelectedIndex(0);
+        priorityCB.setSelectedIndex(0);
+        issueDescTF.setText("");
+        notesTF.setText("");
 
     }//GEN-LAST:event_confirmNewLogBtnActionPerformed
 
@@ -1706,9 +1715,19 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         //int ID, String NAME, String SPECIALTY
         String name = nameTF.getText();
         String specialty = specialityTF.getText();
-        double experience = Double.parseDouble(experienceTF.getText());
+        double experience;
         String certification = certTF.getText();
-        Technician tech1 = new Technician(id,name,specialty,experience,certification);
+
+        //input validation
+        if(name==null) return;
+        if(specialty==null) return;
+        if(certification==null) return;
+        if(!main_manager.isDouble(experienceTF.getText())) return;
+        //this wont execute if the upper if's are satisfied
+        experience = Double.parseDouble(experienceTF.getText());
+
+
+        Technician tech1 = new Technician(technicianID,name,specialty,experience,certification);
         main_manager.addTechnician(tech1);
         technicianName_Model.addElement(name);
         technicianID++;
@@ -1815,6 +1834,19 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void deleteDatabaseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDatabaseBtnActionPerformed
         // TODO add your handling code here:
+        //this is for the button in the add machine
+        String machineName = machineNameTF.getText();
+        ArcadeMachine selectedMachine = main_manager.findMachineInList(machineName);
+        if(selectedMachine == null)return; //prevent any error if user accidentall click on the delte when the record aint there
+        main_manager.removeMachine(selectedMachine);
+
+        //reset the condition
+        machineNameTF.setText("");
+        manufacturerTF.setText("");
+        screenTypeTF.setText("");
+        numFlippersTF.setText("");
+        yearTF.setText("");
+        typeCB.setSelectedIndex(0);
     }//GEN-LAST:event_deleteDatabaseBtnActionPerformed
 
     private void operationalTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_operationalTFActionPerformed
@@ -1827,25 +1859,58 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         String machineName = machineNameTF.getText();
         String manufacturer = manufacturerTF.getText();
         String machineType = (String)typeCB.getSelectedItem();
-        int year = Integer.parseInt(yearTF.getText());
-        
+        int year;
+
+        //input validation
+        //the return just helps us to exit the function
+        if(machineType == null)return;
+        if(manufacturer == null)return;
+        if(machineName == null)return;
+        if(main_manager.isInteger(yearTF.getText())){
+            year = Integer.parseInt(yearTF.getText());
+        }
+        else {
+            return;
+        }
+
         if (machineType.equals("Arcade Cabinet")){
             //int ID, String NAME, int YEARMADE, boolean IsWorking, String SCREENTYPE, String MANUFACTURER
             String screentype = screenTypeTF.getText();
-            ArcadeMachine arcadeCabinet = new CabinetGame(id,machineName,year,true ,screentype,manufacturer);
-            main_manager.addMachine(arcadeCabinet);
-            machineName_Model.addElement(machineName);
-            id++;               
+            //if using edit
+            if(main_manager.findMachineInList(machineName) == null){
+                ArcadeMachine arcadeCabinet = new CabinetGame(id,machineName,year,true ,screentype,manufacturer);
+                main_manager.addMachine(arcadeCabinet);
+                machineName_Model.addElement(machineName);
+                id++;
+            }
+            else{
+                //the return type will be in arcademachine class but we casted down to be able to access the setter screentype method
+                CabinetGame toEditMachine = (CabinetGame) main_manager.findMachineInList(machineName);
+                toEditMachine.setNAME(machineName);
+                toEditMachine.setYEARMADE(year);
+                toEditMachine.setManufacturer(manufacturer);
+                toEditMachine.setSCREENTYPE(screentype);
+            }
+
         }
         else{
             //int ID, String NAME, int YEARMADE, boolean IsWorking, int FlippersNum,String MANUFACTURER
             int numflipper = Integer.parseInt(numFlippersTF.getText());
-            ArcadeMachine pinballMachine = new PinballMachine(id,machineName,year,true ,numflipper,manufacturer);
-            main_manager.addMachine(pinballMachine);
-            machineName_Model.addElement(machineName);
+            //check if the machine with that name already present in the machine list
+            if(main_manager.findMachineInList(machineName) == null){
+                ArcadeMachine pinballMachine = new PinballMachine(id,machineName,year,true ,numflipper,manufacturer);
+                main_manager.addMachine(pinballMachine);
+                machineName_Model.addElement(machineName);
+                id++;
+            }
+            else{
+                PinballMachine toEditMachine = (PinballMachine) main_manager.findMachineInList(machineName);
+                toEditMachine.setNAME(machineName);
+                toEditMachine.setYEARMADE(year);
+                toEditMachine.setManufacturer(manufacturer);
+                toEditMachine.setFlippersNum(numflipper);
+            }
 
-
-            id++;
             
             
         }
@@ -1890,10 +1955,15 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_totalUnitTFActionPerformed
 
-    private void editDatabaseBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editDatabaseBtn1ActionPerformed
+    private void deleteDatabaseBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDatabaseBtn1ActionPerformed
         // TODO add your handling code here:
-        addLogPanel.setSelectedIndex(1);
-    }//GEN-LAST:event_editDatabaseBtn1ActionPerformed
+        String machineName = (String) databaseSelectCB.getSelectedItem();
+        ArcadeMachine selectedMachine = main_manager.findMachineInList(machineName);
+        main_manager.removeMachine(selectedMachine);
+        main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineNameModel);//load data to machine table
+        //addLogPanel.setSelectedIndex(1);
+
+    }//GEN-LAST:event_deleteDatabaseBtn1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -1961,8 +2031,8 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel connectedLabel2;
     private javax.swing.JComboBox<String> databaseSelectCB;
     private javax.swing.JButton deleteDatabaseBtn;
+    private javax.swing.JButton deleteDatabaseBtn1;
     private javax.swing.JButton editDatabaseBtn;
-    private javax.swing.JButton editDatabaseBtn1;
     private javax.swing.JButton exitBtn;
     private javax.swing.JLabel experienceLabel;
     private javax.swing.JTextField experienceTF;

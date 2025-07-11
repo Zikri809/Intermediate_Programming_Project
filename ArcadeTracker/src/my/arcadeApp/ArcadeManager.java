@@ -94,6 +94,14 @@ public class ArcadeManager {
         }
         return null;
     }
+    public RepairLog findRepairLogInList(ArcadeMachine machine){
+        for (int i = 0; i <repairLogList.size(); i++){
+            if (repairLogList.get(i).getMachine().getNAME().equals(machine.getNAME())){
+                return repairLogList.get(i);
+            }
+        }
+        return null;
+    }
     public int[] getPrioritylogCount(){
         int lowcount = 0;
         int mediumcount = 0;
@@ -206,5 +214,24 @@ public class ArcadeManager {
         busyTF.setText(String.valueOf(technicianCount[2]));
 
     }
-
+    public boolean isInteger(String value){
+        try{
+            int valueOfString = Integer.parseInt(value);
+            return true;
+        }
+        catch (NumberFormatException e){
+            return false;
+        }
+    }
+    public boolean isDouble(String value){
+        System.out.println("start checking double");
+        try{
+            Double.parseDouble(value);
+            System.out.println("this is a vlid double");
+            return true;
+        }
+        catch (NumberFormatException e){
+            return false;
+        }
+    }
 }
