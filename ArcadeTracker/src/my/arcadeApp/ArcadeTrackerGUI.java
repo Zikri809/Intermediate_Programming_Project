@@ -200,10 +200,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         notesTF = new javax.swing.JTextField();
         backTab6Btn = new javax.swing.JButton();
 
-
-        numFlippersTF.setVisible(false);
-        numFlippersTab2Label.setVisible(false);
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(51, 51, 51));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -225,6 +221,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         headerLabel3.setText("TRACKER");
         headerMainPanel.add(headerLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, -1, 48));
 
+        headerLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/arcadeApp/consoleIcon.png"))); // NOI18N
         headerLogo.setText("headerLogo");
         headerMainPanel.add(headerLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 30, 90, 90));
 
@@ -238,6 +235,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         });
         headerMainPanel.add(adminBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 40, 80, 30));
 
+        wifiLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/arcadeApp/wifiIcon.png"))); // NOI18N
         wifiLogo.setText("jLabel23");
         headerMainPanel.add(wifiLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 40, 50, 30));
 
@@ -313,6 +311,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         logoPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         logoIcon.setForeground(new java.awt.Color(51, 255, 255));
+        logoIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/arcadeApp/kiriIcon.png"))); // NOI18N
         logoIcon.setText("jLabel2");
         logoPanel.add(logoIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 30, 30));
 
@@ -386,9 +385,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         totalUnitPanel.setBackground(new java.awt.Color(86, 95, 100));
         totalUnitPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
+        totalUnitTF.setBackground(new java.awt.Color(86, 95, 100));
         totalUnitTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
         totalUnitTF.setForeground(new java.awt.Color(51, 255, 51));
         totalUnitTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        totalUnitTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
 
         totalUnitLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
         totalUnitLabel.setForeground(new java.awt.Color(51, 255, 51));
@@ -418,9 +419,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         operationalPanel.setBackground(new java.awt.Color(86, 95, 100));
         operationalPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
+        operationalTF.setBackground(new java.awt.Color(86, 95, 100));
         operationalTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
         operationalTF.setForeground(new java.awt.Color(51, 255, 51));
         operationalTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        operationalTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
         operationalTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 operationalTFActionPerformed(evt);
@@ -458,9 +461,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         needRepairPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         needRepairPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        needRepairTF.setBackground(new java.awt.Color(86, 95, 100));
         needRepairTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
         needRepairTF.setForeground(new java.awt.Color(255, 204, 51));
         needRepairTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        needRepairTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
         needRepairPanel.add(needRepairTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 70, 44));
 
         needsLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
@@ -483,7 +488,9 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             }
         });
 
+        databaseSelectCB.setBackground(new java.awt.Color(86, 95, 100));
         databaseSelectCB.setEditable(true);
+        databaseSelectCB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -911,6 +918,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         });
         techniciansPanel.add(addTechBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 221, 36));
 
+        iconTab3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/arcadeApp/springIcon.png"))); // NOI18N
         iconTab3.setText("jLabel24");
         techniciansPanel.add(iconTab3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 60, 41));
 
@@ -923,9 +931,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         totalTechPanel.setBackground(new java.awt.Color(86, 95, 100));
         totalTechPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
+        totalTechTF.setBackground(new java.awt.Color(86, 95, 100));
         totalTechTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
         totalTechTF.setForeground(new java.awt.Color(51, 255, 51));
         totalTechTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        totalTechTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
         totalTechTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalTechTFActionPerformed(evt);
@@ -963,9 +973,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         availablePanel.setBackground(new java.awt.Color(86, 95, 100));
         availablePanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
+        availableTF.setBackground(new java.awt.Color(86, 95, 100));
         availableTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
         availableTF.setForeground(new java.awt.Color(51, 255, 51));
         availableTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        availableTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
         availableTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 availableTFActionPerformed(evt);
@@ -982,10 +994,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         availablePanelLayout.setHorizontalGroup(
             availablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, availablePanelLayout.createSequentialGroup()
-                .addContainerGap(22, Short.MAX_VALUE)
-                .addGroup(availablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(availableLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                    .addComponent(availableTF))
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(availablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(availableTF, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(availableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(14, 14, 14))
         );
         availablePanelLayout.setVerticalGroup(
@@ -1004,9 +1016,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         busyPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
         busyPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        busyTF.setBackground(new java.awt.Color(86, 95, 100));
         busyTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
         busyTF.setForeground(new java.awt.Color(255, 204, 51));
         busyTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        busyTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
         busyPanel.add(busyTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 100, 44));
 
         busyLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
@@ -1062,9 +1076,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         totalLogPanel.setBackground(new java.awt.Color(86, 95, 100));
         totalLogPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
+        totalLogTF.setBackground(new java.awt.Color(86, 95, 100));
         totalLogTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
         totalLogTF.setForeground(new java.awt.Color(51, 255, 51));
         totalLogTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        totalLogTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
         totalLogTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 totalLogTFActionPerformed(evt);
@@ -1102,9 +1118,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         highPriorityPanel.setBackground(new java.awt.Color(86, 95, 100));
         highPriorityPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
+        highTF.setBackground(new java.awt.Color(86, 95, 100));
         highTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
         highTF.setForeground(new java.awt.Color(255, 51, 51));
         highTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        highTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
         highTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 highTFActionPerformed(evt);
@@ -1142,9 +1160,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         progressPanel.setBackground(new java.awt.Color(86, 95, 100));
         progressPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
+        mediumTF.setBackground(new java.awt.Color(86, 95, 100));
         mediumTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
         mediumTF.setForeground(new java.awt.Color(255, 255, 0));
         mediumTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        mediumTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
         mediumTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mediumTFActionPerformed(evt);
@@ -1185,8 +1205,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         completedPanel.setBackground(new java.awt.Color(86, 95, 100));
         completedPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
 
+        lowTF.setBackground(new java.awt.Color(86, 95, 100));
         lowTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
+        lowTF.setForeground(new java.awt.Color(255, 255, 255));
         lowTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        lowTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
         lowTF.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lowTFActionPerformed(evt);
