@@ -10,6 +10,7 @@ public class RepairLog {
     private String notes;
     private String description;
     private String priority;
+    private boolean isCompleted;
 
     public RepairLog(ArcadeMachine machine , Technician technician , String notes, String description, String priority) {
         this.machine = machine;
@@ -18,6 +19,7 @@ public class RepairLog {
         this.repairDate = LocalDate.now();
         this.description = description;
         this.priority = priority;
+        this.isCompleted = false;
     }
 
     public ArcadeMachine getMachine (){
@@ -38,6 +40,9 @@ public class RepairLog {
     public String getPriority() {
         return priority;
     }
+    public boolean getIsCompleted() {
+        return isCompleted;
+    }
 
 
     public void setTechnician(Technician technician) {
@@ -57,5 +62,8 @@ public class RepairLog {
     }
     public void setPriority(String priority) {
         this.priority = priority;
+    }
+    public void setIsCompleted(boolean isCompleted) {
+        this.isCompleted = isCompleted;
     }
 }

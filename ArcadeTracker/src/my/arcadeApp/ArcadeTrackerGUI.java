@@ -1260,7 +1260,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(repairLogTb);
 
-        repairLogsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 730, 270));
+        repairLogsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 730, 260));
 
         addLogPanel.addTab("tab4", repairLogsPanel);
 
@@ -1655,6 +1655,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void logsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logsBtnActionPerformed
         // TODO add your handling code here:
+        main_manager.loadLogPanel(repairLogmodel,totalLogTF,highTF,lowTF,mediumTF);
         addLogPanel.setSelectedIndex(3);
 
         //System.out.println("Total Log TF: when click log " + Arrays.toString(logCount));
