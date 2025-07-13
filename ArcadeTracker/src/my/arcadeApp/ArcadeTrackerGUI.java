@@ -2077,11 +2077,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         if (selectedMachine != null){
             main_manager.removeMachine(selectedMachine);
         
-            //machineName_Model.removeAllElements();
+            machineName_Model.removeAllElements();
             
-            /*for (ArcadeMachine machine : main_manager.getMachineList()){
+            for (ArcadeMachine machine : main_manager.getMachineList()){
               machineName_Model.addElement(machine.getNAME());
-           }*/
+           }
                
             main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineName_Model);//load data to machine table
         }else{
@@ -2100,10 +2100,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             main_manager.removeTechnician(techToDelete);
             
             //updateCB
-            //technicianName_Model.removeAllElements();
-            /*for (Technician tech : main_manager.getTechnicianList()){
+            technicianName_Model.removeAllElements();
+            for (Technician tech : main_manager.getTechnicianList()){
                 technicianName_Model.addElement(tech.getNAME());
-            }*/
+            }
             
             main_manager.loadTechnicainPanel(technicianTBModel, totalTechTF, availableTechTF, busyTechTF, technicianName_Model);
             
