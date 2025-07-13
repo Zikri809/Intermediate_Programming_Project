@@ -106,6 +106,37 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         listSP = new javax.swing.JScrollPane();
         listTable = new javax.swing.JTable();
         deleteDatabaseBtn1 = new javax.swing.JButton();
+        addMachinePanel = new javax.swing.JPanel();
+        headerTab1Label = new javax.swing.JLabel();
+        backTab1Btn = new javax.swing.JButton();
+        subHeadingTab1Label = new javax.swing.JLabel();
+        layerTab2Panel = new javax.swing.JPanel();
+        layerHeaderTab2Label = new javax.swing.JLabel();
+        machineNameTab2Label = new javax.swing.JLabel();
+        manufacturerTab2Label = new javax.swing.JLabel();
+        typeTab2Label = new javax.swing.JLabel();
+        yearTab2Label = new javax.swing.JLabel();
+        machineNameTF = new javax.swing.JTextField();
+        manufacturerTF = new javax.swing.JTextField();
+        typeCB = new javax.swing.JComboBox<>();
+        numFlippersTab2Label = new javax.swing.JLabel();
+        yearTF = new javax.swing.JTextField();
+        registerBtn = new javax.swing.JButton();
+        numFlippersTF = new javax.swing.JTextField();
+        screenTypeTab2Label = new javax.swing.JLabel();
+        screenTypeTF = new javax.swing.JTextField();
+        deleteDatabaseBtn = new javax.swing.JButton();
+        infoTab2Panel = new javax.swing.JPanel();
+        headerInfoLabel = new javax.swing.JLabel();
+        typeInfo = new javax.swing.JLabel();
+        arcadeLabel = new javax.swing.JLabel();
+        pinballLabel = new javax.swing.JLabel();
+        requireLabel = new javax.swing.JLabel();
+        machineLabel = new javax.swing.JLabel();
+        manufacturerLabel = new javax.swing.JLabel();
+        typeLabel = new javax.swing.JLabel();
+        yearLabel = new javax.swing.JLabel();
+        qtyLabel = new javax.swing.JLabel();
         techniciansPanel = new javax.swing.JPanel();
         headerTab3Label = new javax.swing.JLabel();
         addTechBtn = new javax.swing.JButton();
@@ -144,37 +175,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         totalLogPanel1 = new javax.swing.JPanel();
         completedLogTF = new javax.swing.JTextField();
         completedLogLabel = new javax.swing.JLabel();
-        addMachinePanel = new javax.swing.JPanel();
-        headerTab1Label = new javax.swing.JLabel();
-        backTab1Btn = new javax.swing.JButton();
-        subHeadingTab1Label = new javax.swing.JLabel();
-        layerTab2Panel = new javax.swing.JPanel();
-        layerHeaderTab2Label = new javax.swing.JLabel();
-        machineNameTab2Label = new javax.swing.JLabel();
-        manufacturerTab2Label = new javax.swing.JLabel();
-        typeTab2Label = new javax.swing.JLabel();
-        yearTab2Label = new javax.swing.JLabel();
-        machineNameTF = new javax.swing.JTextField();
-        manufacturerTF = new javax.swing.JTextField();
-        typeCB = new javax.swing.JComboBox<>();
-        numFlippersTab2Label = new javax.swing.JLabel();
-        yearTF = new javax.swing.JTextField();
-        registerBtn = new javax.swing.JButton();
-        numFlippersTF = new javax.swing.JTextField();
-        screenTypeTab2Label = new javax.swing.JLabel();
-        screenTypeTF = new javax.swing.JTextField();
-        deleteDatabaseBtn = new javax.swing.JButton();
-        infoTab2Panel = new javax.swing.JPanel();
-        headerInfoLabel = new javax.swing.JLabel();
-        typeInfo = new javax.swing.JLabel();
-        arcadeLabel = new javax.swing.JLabel();
-        pinballLabel = new javax.swing.JLabel();
-        requireLabel = new javax.swing.JLabel();
-        machineLabel = new javax.swing.JLabel();
-        manufacturerLabel = new javax.swing.JLabel();
-        typeLabel = new javax.swing.JLabel();
-        yearLabel = new javax.swing.JLabel();
-        qtyLabel = new javax.swing.JLabel();
         addTechnicianPanel = new javax.swing.JPanel();
         addTechLayerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
@@ -574,10 +574,339 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                     .addComponent(deleteDatabaseBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(37, 37, 37)
                 .addComponent(listSP, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(40, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         addLogPanel.addTab("tab1", listPanel);
+
+        addMachinePanel.setBackground(new java.awt.Color(0, 0, 0));
+
+        headerTab1Label.setFont(new java.awt.Font("Silom", 1, 26)); // NOI18N
+        headerTab1Label.setForeground(new java.awt.Color(51, 255, 255));
+        headerTab1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        headerTab1Label.setText("ADD NEW ARCADE MACHINE ");
+
+        backTab1Btn.setBackground(new java.awt.Color(0, 0, 0));
+        backTab1Btn.setFont(new java.awt.Font("Krungthep", 0, 15)); // NOI18N
+        backTab1Btn.setForeground(new java.awt.Color(204, 255, 204));
+        backTab1Btn.setText("<- BACK");
+        backTab1Btn.setBorder(null);
+        backTab1Btn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backTab1BtnActionPerformed(evt);
+            }
+        });
+
+        subHeadingTab1Label.setFont(new java.awt.Font("PT Sans Caption", 2, 13)); // NOI18N
+        subHeadingTab1Label.setForeground(new java.awt.Color(153, 204, 0));
+        subHeadingTab1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        subHeadingTab1Label.setText("REGISTER A NEW ARCADE  CABINET OR PINBALL MACHINE");
+
+        layerTab2Panel.setBackground(new java.awt.Color(86, 95, 100));
+        layerTab2Panel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+
+        layerHeaderTab2Label.setFont(new java.awt.Font("Silom", 1, 24)); // NOI18N
+        layerHeaderTab2Label.setForeground(new java.awt.Color(51, 255, 255));
+        layerHeaderTab2Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        layerHeaderTab2Label.setText("+ MACHINE REGISTRATION");
+
+        machineNameTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
+        machineNameTab2Label.setForeground(new java.awt.Color(0, 255, 0));
+        machineNameTab2Label.setText("MACHINE NAME:");
+
+        manufacturerTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
+        manufacturerTab2Label.setForeground(new java.awt.Color(0, 255, 0));
+        manufacturerTab2Label.setText("MANUFACTURER");
+
+        typeTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
+        typeTab2Label.setForeground(new java.awt.Color(0, 255, 0));
+        typeTab2Label.setText("MACHINE TYPE:");
+
+        yearTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
+        yearTab2Label.setForeground(new java.awt.Color(0, 255, 0));
+        yearTab2Label.setText("YEAR RELEASE:");
+
+        machineNameTF.setBackground(new java.awt.Color(86, 95, 100));
+        machineNameTF.setForeground(new java.awt.Color(51, 255, 51));
+        machineNameTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+        machineNameTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                machineNameTFActionPerformed(evt);
+            }
+        });
+
+        manufacturerTF.setBackground(new java.awt.Color(86, 95, 100));
+        manufacturerTF.setForeground(new java.awt.Color(51, 255, 51));
+        manufacturerTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+        manufacturerTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                manufacturerTFActionPerformed(evt);
+            }
+        });
+
+        typeCB.setBackground(new java.awt.Color(86, 95, 100));
+        typeCB.setForeground(new java.awt.Color(51, 255, 51));
+        typeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arcade Cabinet", "Pinball Machine" }));
+        typeCB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+        typeCB.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                typeCBActionPerformed(evt);
+            }
+        });
+
+        numFlippersTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
+        numFlippersTab2Label.setForeground(new java.awt.Color(0, 255, 0));
+        numFlippersTab2Label.setText("NUMBER OF FLIPPERS");
+
+        yearTF.setBackground(new java.awt.Color(86, 95, 100));
+        yearTF.setForeground(new java.awt.Color(51, 255, 51));
+        yearTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+        yearTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                yearTFActionPerformed(evt);
+            }
+        });
+
+        registerBtn.setBackground(new java.awt.Color(51, 255, 255));
+        registerBtn.setFont(new java.awt.Font("Krungthep", 1, 13)); // NOI18N
+        registerBtn.setText("REGISTER");
+        registerBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        registerBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                registerBtnActionPerformed(evt);
+            }
+        });
+
+        numFlippersTF.setBackground(new java.awt.Color(86, 95, 100));
+        numFlippersTF.setForeground(new java.awt.Color(51, 255, 51));
+        numFlippersTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        numFlippersTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+
+        screenTypeTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
+        screenTypeTab2Label.setForeground(new java.awt.Color(0, 255, 0));
+        screenTypeTab2Label.setText("SCREEN TYPE");
+
+        screenTypeTF.setBackground(new java.awt.Color(86, 95, 100));
+        screenTypeTF.setForeground(new java.awt.Color(51, 255, 51));
+        screenTypeTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        screenTypeTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+
+        deleteDatabaseBtn.setBackground(new java.awt.Color(255, 51, 51));
+        deleteDatabaseBtn.setFont(new java.awt.Font("Krungthep", 1, 13)); // NOI18N
+        deleteDatabaseBtn.setText("DELETE");
+        deleteDatabaseBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        deleteDatabaseBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteDatabaseBtnActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout layerTab2PanelLayout = new javax.swing.GroupLayout(layerTab2Panel);
+        layerTab2Panel.setLayout(layerTab2PanelLayout);
+        layerTab2PanelLayout.setHorizontalGroup(
+            layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layerTab2PanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(machineNameTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(layerHeaderTab2Label)
+                    .addGroup(layerTab2PanelLayout.createSequentialGroup()
+                        .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(machineNameTF)
+                            .addComponent(typeTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(typeCB, 0, 224, Short.MAX_VALUE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(manufacturerTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(yearTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(manufacturerTF, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(yearTF, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(layerTab2PanelLayout.createSequentialGroup()
+                        .addGap(54, 54, 54)
+                        .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(numFlippersTab2Label)
+                            .addComponent(numFlippersTF, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(60, 60, 60)
+                        .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(screenTypeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(screenTypeTab2Label)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layerTab2PanelLayout.createSequentialGroup()
+                        .addComponent(deleteDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(37, 37, 37)
+                        .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(129, 129, 129)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        layerTab2PanelLayout.setVerticalGroup(
+            layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(layerTab2PanelLayout.createSequentialGroup()
+                .addGap(15, 15, 15)
+                .addComponent(layerHeaderTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(machineNameTab2Label)
+                    .addComponent(manufacturerTab2Label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(machineNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manufacturerTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(typeTab2Label)
+                    .addComponent(yearTab2Label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(typeCB, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(yearTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numFlippersTab2Label)
+                    .addComponent(screenTypeTab2Label))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(numFlippersTF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(screenTypeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(deleteDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35))
+        );
+
+        infoTab2Panel.setBackground(new java.awt.Color(86, 95, 100));
+        infoTab2Panel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+
+        headerInfoLabel.setBackground(new java.awt.Color(255, 255, 255));
+        headerInfoLabel.setFont(new java.awt.Font("Krungthep", 0, 24)); // NOI18N
+        headerInfoLabel.setForeground(new java.awt.Color(0, 255, 51));
+        headerInfoLabel.setText("SYSTEM INFO");
+        headerInfoLabel.setToolTipText("");
+
+        typeInfo.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
+        typeInfo.setForeground(new java.awt.Color(51, 255, 255));
+        typeInfo.setText("MACHINE TYPE:");
+
+        arcadeLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        arcadeLabel.setForeground(new java.awt.Color(153, 204, 0));
+        arcadeLabel.setText("Arcade Cabinet");
+
+        pinballLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        pinballLabel.setForeground(new java.awt.Color(153, 204, 0));
+        pinballLabel.setText("Pinball Machine");
+
+        requireLabel.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
+        requireLabel.setForeground(new java.awt.Color(51, 255, 255));
+        requireLabel.setText("REQUIRED FIELD:");
+
+        machineLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        machineLabel.setForeground(new java.awt.Color(153, 204, 0));
+        machineLabel.setText("- Machine Name");
+
+        manufacturerLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        manufacturerLabel.setForeground(new java.awt.Color(153, 204, 0));
+        manufacturerLabel.setText("- Manufacturer");
+
+        typeLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        typeLabel.setForeground(new java.awt.Color(153, 204, 0));
+        typeLabel.setText("- Machine Type");
+
+        yearLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        yearLabel.setForeground(new java.awt.Color(153, 204, 0));
+        yearLabel.setText("- Year Released");
+
+        qtyLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
+        qtyLabel.setForeground(new java.awt.Color(153, 204, 0));
+        qtyLabel.setText("- Quantity");
+
+        javax.swing.GroupLayout infoTab2PanelLayout = new javax.swing.GroupLayout(infoTab2Panel);
+        infoTab2Panel.setLayout(infoTab2PanelLayout);
+        infoTab2PanelLayout.setHorizontalGroup(
+            infoTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoTab2PanelLayout.createSequentialGroup()
+                .addContainerGap(36, Short.MAX_VALUE)
+                .addComponent(headerInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(17, 17, 17))
+            .addGroup(infoTab2PanelLayout.createSequentialGroup()
+                .addGap(19, 19, 19)
+                .addGroup(infoTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(typeInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(arcadeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pinballLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(requireLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(machineLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(manufacturerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(typeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(yearLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(qtyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+        infoTab2PanelLayout.setVerticalGroup(
+            infoTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(infoTab2PanelLayout.createSequentialGroup()
+                .addGap(16, 16, 16)
+                .addComponent(headerInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(typeInfo)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(arcadeLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(pinballLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(requireLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(machineLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(manufacturerLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(typeLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(yearLabel)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(qtyLabel)
+                .addContainerGap(20, Short.MAX_VALUE))
+        );
+
+        javax.swing.GroupLayout addMachinePanelLayout = new javax.swing.GroupLayout(addMachinePanel);
+        addMachinePanel.setLayout(addMachinePanelLayout);
+        addMachinePanelLayout.setHorizontalGroup(
+            addMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addMachinePanelLayout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(addMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addMachinePanelLayout.createSequentialGroup()
+                        .addGap(23, 23, 23)
+                        .addComponent(backTab1Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(95, 95, 95)
+                        .addGroup(addMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(subHeadingTab1Label)
+                            .addComponent(headerTab1Label))
+                        .addContainerGap(233, Short.MAX_VALUE))
+                    .addGroup(addMachinePanelLayout.createSequentialGroup()
+                        .addComponent(layerTab2Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addGap(18, 18, 18)
+                        .addComponent(infoTab2Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35))))
+        );
+        addMachinePanelLayout.setVerticalGroup(
+            addMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addMachinePanelLayout.createSequentialGroup()
+                .addGroup(addMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(addMachinePanelLayout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(headerTab1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(subHeadingTab1Label))
+                    .addGroup(addMachinePanelLayout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(backTab1Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(47, 47, 47)
+                .addGroup(addMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(infoTab2Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(layerTab2Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+        );
+
+        addLogPanel.addTab("tab2", addMachinePanel);
 
         techniciansPanel.setBackground(new java.awt.Color(0, 0, 0));
         techniciansPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -996,335 +1325,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         repairLogsPanel.add(totalLogPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 120));
 
         addLogPanel.addTab("tab4", repairLogsPanel);
-
-        addMachinePanel.setBackground(new java.awt.Color(0, 0, 0));
-
-        headerTab1Label.setFont(new java.awt.Font("Silom", 1, 26)); // NOI18N
-        headerTab1Label.setForeground(new java.awt.Color(51, 255, 255));
-        headerTab1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        headerTab1Label.setText("ADD NEW ARCADE MACHINE ");
-
-        backTab1Btn.setBackground(new java.awt.Color(0, 0, 0));
-        backTab1Btn.setFont(new java.awt.Font("Krungthep", 0, 15)); // NOI18N
-        backTab1Btn.setForeground(new java.awt.Color(204, 255, 204));
-        backTab1Btn.setText("<- BACK");
-        backTab1Btn.setBorder(null);
-        backTab1Btn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                backTab1BtnActionPerformed(evt);
-            }
-        });
-
-        subHeadingTab1Label.setFont(new java.awt.Font("PT Sans Caption", 2, 13)); // NOI18N
-        subHeadingTab1Label.setForeground(new java.awt.Color(153, 204, 0));
-        subHeadingTab1Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        subHeadingTab1Label.setText("REGISTER A NEW ARCADE  CABINET OR PINBALL MACHINE");
-
-        layerTab2Panel.setBackground(new java.awt.Color(86, 95, 100));
-        layerTab2Panel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-
-        layerHeaderTab2Label.setFont(new java.awt.Font("Silom", 1, 24)); // NOI18N
-        layerHeaderTab2Label.setForeground(new java.awt.Color(51, 255, 255));
-        layerHeaderTab2Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        layerHeaderTab2Label.setText("+ MACHINE REGISTRATION");
-
-        machineNameTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
-        machineNameTab2Label.setForeground(new java.awt.Color(0, 255, 0));
-        machineNameTab2Label.setText("MACHINE NAME:");
-
-        manufacturerTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
-        manufacturerTab2Label.setForeground(new java.awt.Color(0, 255, 0));
-        manufacturerTab2Label.setText("MANUFACTURER");
-
-        typeTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
-        typeTab2Label.setForeground(new java.awt.Color(0, 255, 0));
-        typeTab2Label.setText("MACHINE TYPE:");
-
-        yearTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
-        yearTab2Label.setForeground(new java.awt.Color(0, 255, 0));
-        yearTab2Label.setText("YEAR RELEASE:");
-
-        machineNameTF.setBackground(new java.awt.Color(86, 95, 100));
-        machineNameTF.setForeground(new java.awt.Color(51, 255, 51));
-        machineNameTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-        machineNameTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                machineNameTFActionPerformed(evt);
-            }
-        });
-
-        manufacturerTF.setBackground(new java.awt.Color(86, 95, 100));
-        manufacturerTF.setForeground(new java.awt.Color(51, 255, 51));
-        manufacturerTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-        manufacturerTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                manufacturerTFActionPerformed(evt);
-            }
-        });
-
-        typeCB.setBackground(new java.awt.Color(86, 95, 100));
-        typeCB.setForeground(new java.awt.Color(51, 255, 51));
-        typeCB.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Arcade Cabinet", "Pinball Machine" }));
-        typeCB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-        typeCB.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                typeCBActionPerformed(evt);
-            }
-        });
-
-        numFlippersTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
-        numFlippersTab2Label.setForeground(new java.awt.Color(0, 255, 0));
-        numFlippersTab2Label.setText("NUMBER OF FLIPPERS");
-
-        yearTF.setBackground(new java.awt.Color(86, 95, 100));
-        yearTF.setForeground(new java.awt.Color(51, 255, 51));
-        yearTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-        yearTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                yearTFActionPerformed(evt);
-            }
-        });
-
-        registerBtn.setBackground(new java.awt.Color(51, 255, 255));
-        registerBtn.setFont(new java.awt.Font("Krungthep", 1, 13)); // NOI18N
-        registerBtn.setText("REGISTER");
-        registerBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        registerBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                registerBtnActionPerformed(evt);
-            }
-        });
-
-        numFlippersTF.setBackground(new java.awt.Color(86, 95, 100));
-        numFlippersTF.setForeground(new java.awt.Color(51, 255, 51));
-        numFlippersTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        numFlippersTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-
-        screenTypeTab2Label.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
-        screenTypeTab2Label.setForeground(new java.awt.Color(0, 255, 0));
-        screenTypeTab2Label.setText("SCREEN TYPE");
-
-        screenTypeTF.setBackground(new java.awt.Color(86, 95, 100));
-        screenTypeTF.setForeground(new java.awt.Color(51, 255, 51));
-        screenTypeTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        screenTypeTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-
-        deleteDatabaseBtn.setBackground(new java.awt.Color(255, 51, 51));
-        deleteDatabaseBtn.setFont(new java.awt.Font("Krungthep", 1, 13)); // NOI18N
-        deleteDatabaseBtn.setText("DELETE");
-        deleteDatabaseBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        deleteDatabaseBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                deleteDatabaseBtnActionPerformed(evt);
-            }
-        });
-
-        javax.swing.GroupLayout layerTab2PanelLayout = new javax.swing.GroupLayout(layerTab2Panel);
-        layerTab2Panel.setLayout(layerTab2PanelLayout);
-        layerTab2PanelLayout.setHorizontalGroup(
-            layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layerTab2PanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(machineNameTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(layerHeaderTab2Label)
-                    .addGroup(layerTab2PanelLayout.createSequentialGroup()
-                        .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(machineNameTF)
-                            .addComponent(typeTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(typeCB, 0, 224, Short.MAX_VALUE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(manufacturerTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(yearTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(manufacturerTF, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(yearTF, javax.swing.GroupLayout.PREFERRED_SIZE, 224, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layerTab2PanelLayout.createSequentialGroup()
-                        .addGap(54, 54, 54)
-                        .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(numFlippersTab2Label)
-                            .addComponent(numFlippersTF, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(60, 60, 60)
-                        .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(screenTypeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 141, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(screenTypeTab2Label)))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layerTab2PanelLayout.createSequentialGroup()
-                        .addComponent(deleteDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(37, 37, 37)
-                        .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 85, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(129, 129, 129)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        layerTab2PanelLayout.setVerticalGroup(
-            layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layerTab2PanelLayout.createSequentialGroup()
-                .addGap(15, 15, 15)
-                .addComponent(layerHeaderTab2Label, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(machineNameTab2Label)
-                    .addComponent(manufacturerTab2Label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(machineNameTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manufacturerTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(typeTab2Label)
-                    .addComponent(yearTab2Label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(typeCB, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(yearTF, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(numFlippersTab2Label)
-                    .addComponent(screenTypeTab2Label))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(numFlippersTF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(screenTypeTF, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
-                .addGroup(layerTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(registerBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(deleteDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(35, 35, 35))
-        );
-
-        infoTab2Panel.setBackground(new java.awt.Color(86, 95, 100));
-        infoTab2Panel.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-
-        headerInfoLabel.setBackground(new java.awt.Color(255, 255, 255));
-        headerInfoLabel.setFont(new java.awt.Font("Krungthep", 0, 24)); // NOI18N
-        headerInfoLabel.setForeground(new java.awt.Color(0, 255, 51));
-        headerInfoLabel.setText("SYSTEM INFO");
-        headerInfoLabel.setToolTipText("");
-
-        typeInfo.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
-        typeInfo.setForeground(new java.awt.Color(51, 255, 255));
-        typeInfo.setText("MACHINE TYPE:");
-
-        arcadeLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        arcadeLabel.setForeground(new java.awt.Color(153, 204, 0));
-        arcadeLabel.setText("Arcade Cabinet");
-
-        pinballLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        pinballLabel.setForeground(new java.awt.Color(153, 204, 0));
-        pinballLabel.setText("Pinball Machine");
-
-        requireLabel.setFont(new java.awt.Font("Krungthep", 0, 11)); // NOI18N
-        requireLabel.setForeground(new java.awt.Color(51, 255, 255));
-        requireLabel.setText("REQUIRED FIELD:");
-
-        machineLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        machineLabel.setForeground(new java.awt.Color(153, 204, 0));
-        machineLabel.setText("- Machine Name");
-
-        manufacturerLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        manufacturerLabel.setForeground(new java.awt.Color(153, 204, 0));
-        manufacturerLabel.setText("- Manufacturer");
-
-        typeLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        typeLabel.setForeground(new java.awt.Color(153, 204, 0));
-        typeLabel.setText("- Machine Type");
-
-        yearLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        yearLabel.setForeground(new java.awt.Color(153, 204, 0));
-        yearLabel.setText("- Year Released");
-
-        qtyLabel.setFont(new java.awt.Font("Dialog", 0, 12)); // NOI18N
-        qtyLabel.setForeground(new java.awt.Color(153, 204, 0));
-        qtyLabel.setText("- Quantity");
-
-        javax.swing.GroupLayout infoTab2PanelLayout = new javax.swing.GroupLayout(infoTab2Panel);
-        infoTab2Panel.setLayout(infoTab2PanelLayout);
-        infoTab2PanelLayout.setHorizontalGroup(
-            infoTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, infoTab2PanelLayout.createSequentialGroup()
-                .addContainerGap(36, Short.MAX_VALUE)
-                .addComponent(headerInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(17, 17, 17))
-            .addGroup(infoTab2PanelLayout.createSequentialGroup()
-                .addGap(19, 19, 19)
-                .addGroup(infoTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(typeInfo, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(arcadeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(pinballLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(requireLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 99, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(machineLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(manufacturerLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(typeLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(yearLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(qtyLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
-        infoTab2PanelLayout.setVerticalGroup(
-            infoTab2PanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(infoTab2PanelLayout.createSequentialGroup()
-                .addGap(16, 16, 16)
-                .addComponent(headerInfoLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 30, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(typeInfo)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(arcadeLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(pinballLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(requireLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(machineLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(manufacturerLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(typeLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(yearLabel)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(qtyLabel)
-                .addContainerGap(20, Short.MAX_VALUE))
-        );
-
-        javax.swing.GroupLayout addMachinePanelLayout = new javax.swing.GroupLayout(addMachinePanel);
-        addMachinePanel.setLayout(addMachinePanelLayout);
-        addMachinePanelLayout.setHorizontalGroup(
-            addMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMachinePanelLayout.createSequentialGroup()
-                .addGap(29, 29, 29)
-                .addGroup(addMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addMachinePanelLayout.createSequentialGroup()
-                        .addGap(23, 23, 23)
-                        .addComponent(backTab1Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(95, 95, 95)
-                        .addGroup(addMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(subHeadingTab1Label)
-                            .addComponent(headerTab1Label))
-                        .addContainerGap(233, Short.MAX_VALUE))
-                    .addGroup(addMachinePanelLayout.createSequentialGroup()
-                        .addComponent(layerTab2Panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGap(18, 18, 18)
-                        .addComponent(infoTab2Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(35, 35, 35))))
-        );
-        addMachinePanelLayout.setVerticalGroup(
-            addMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(addMachinePanelLayout.createSequentialGroup()
-                .addGroup(addMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(addMachinePanelLayout.createSequentialGroup()
-                        .addGap(29, 29, 29)
-                        .addComponent(headerTab1Label, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(subHeadingTab1Label))
-                    .addGroup(addMachinePanelLayout.createSequentialGroup()
-                        .addGap(48, 48, 48)
-                        .addComponent(backTab1Btn, javax.swing.GroupLayout.PREFERRED_SIZE, 35, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addGap(47, 47, 47)
-                .addGroup(addMachinePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(infoTab2Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(layerTab2Panel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(64, Short.MAX_VALUE))
-        );
-
-        addLogPanel.addTab("tab2", addMachinePanel);
 
         addTechnicianPanel.setBackground(new java.awt.Color(0, 0, 0));
 
