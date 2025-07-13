@@ -18,10 +18,10 @@ import java.util.List;
  */
 public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private ArcadeManager main_manager;
+    private Technician editTech = null;
     /**
      * Creates new form ArcadeTrackerGUI
      */
-    private DefaultComboBoxModel<String> machineNameModel;//databaseCB
     
     public ArcadeTrackerGUI(ArcadeManager main_manager) {
         this.main_manager = main_manager;
@@ -38,13 +38,16 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         repairLogTb.setModel(repairLogmodel);
         repairLogCb.setModel(repairLogCbModel);
         //LOG MODEL
-        machineNameModel = new DefaultComboBoxModel<>();
-        databaseSelectCB.setModel(machineNameModel);
+        machineName_Model = new DefaultComboBoxModel<>();
+        databaseSelectCB.setModel(machineName_Model);
+        
+        technicianName_Model = new DefaultComboBoxModel<>();
+        techCB.setModel(technicianName_Model);//making sure techCB show technician name 
         
         techTable.setModel(technicianTBModel); 
 
-        main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTechTF,busyTechTF);
-        main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineNameModel);//load data to machine table
+        main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTechTF,busyTechTF,technicianName_Model);
+        main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineName_Model);//load data to machine table
     }
     
     DefaultComboBoxModel<String> machineName_Model = new DefaultComboBoxModel<>();
@@ -1085,6 +1088,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         editTechBtn.setFont(new java.awt.Font("Krungthep", 0, 18)); // NOI18N
         editTechBtn.setText("EDIT");
         editTechBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        editTechBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                editTechBtnActionPerformed(evt);
+            }
+        });
         techniciansPanel.add(editTechBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 90, 40));
 
         addLogPanel.addTab("tab3", techniciansPanel);
@@ -1730,7 +1738,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         
         addLogPanel.setSelectedIndex(0);
-        main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineNameModel);//load data to machine table
+        main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineName_Model);//load data to machine table
 
     }//GEN-LAST:event_listsBtnActionPerformed
 
@@ -1738,7 +1746,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private void techniciansBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_techniciansBtnActionPerformed
         // TODO add your handling code here:
         addLogPanel.setSelectedIndex(2);
-        main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTechTF,busyTechTF);
+        main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTechTF,busyTechTF,technicianName_Model);
     }//GEN-LAST:event_techniciansBtnActionPerformed
 
     private void addMachineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMachineBtnActionPerformed
@@ -1839,7 +1847,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         specialityTF.setText("");
         experienceTF.setText("");
         certTF.setText("");
-        main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTechTF,busyTechTF);
+        main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTechTF,busyTechTF,technicianName_Model);
     }//GEN-LAST:event_confirmAddTechBtnActionPerformed
 
     private void certTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_certTFActionPerformed
@@ -1943,7 +1951,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         ArcadeMachine selectedMachine = main_manager.findMachineInList(machineName);
         if(selectedMachine == null)return; //prevent any error if user accidentall click on the delte when the record aint there
         main_manager.removeMachine(selectedMachine);
-
+        main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineName_Model);//load data to machine table
         //reset the condition
         machineNameTF.setText("");
         manufacturerTF.setText("");
@@ -2018,7 +2026,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             
             
         }
-        main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineNameModel);//load data to machine table
+        main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineName_Model);//load data to machine table
         
         machineNameTF.setText("");
         manufacturerTF.setText("");
@@ -2062,15 +2070,46 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private void deleteDatabaseBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDatabaseBtn1ActionPerformed
         // TODO add your handling code here:
         String machineName = (String) databaseSelectCB.getSelectedItem();
-        ArcadeMachine selectedMachine = main_manager.findMachineInList(machineName);
-        main_manager.removeMachine(selectedMachine);
-        main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineNameModel);//load data to machine table
-        //addLogPanel.setSelectedIndex(1);
 
+        if (machineName !=null ){
+            ArcadeMachine selectedMachine = main_manager.findMachineInList(machineName);
+        
+        if (selectedMachine != null){
+            main_manager.removeMachine(selectedMachine);
+        
+            //machineName_Model.removeAllElements();
+            
+            /*for (ArcadeMachine machine : main_manager.getMachineList()){
+              machineName_Model.addElement(machine.getNAME());
+           }*/
+               
+            main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineName_Model);//load data to machine table
+        }else{
+            }
+        }
     }//GEN-LAST:event_deleteDatabaseBtn1ActionPerformed
 
     private void deleteTechBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTechBtnActionPerformed
         // TODO add your handling code here:
+        String technicianName = (String) techCB.getSelectedItem();
+        
+        if (technicianName != null){
+            Technician techToDelete = main_manager.findTechnicianInList(technicianName);
+        
+        if (techToDelete != null){
+            main_manager.removeTechnician(techToDelete);
+            
+            //updateCB
+            //technicianName_Model.removeAllElements();
+            /*for (Technician tech : main_manager.getTechnicianList()){
+                technicianName_Model.addElement(tech.getNAME());
+            }*/
+            
+            main_manager.loadTechnicainPanel(technicianTBModel, totalTechTF, availableTechTF, busyTechTF, technicianName_Model);
+            
+        }else{           
+            }
+        }
     }//GEN-LAST:event_deleteTechBtnActionPerformed
 
     private void completedLogTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completedLogTFActionPerformed
@@ -2092,6 +2131,23 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private void repairLogCbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repairLogCbActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_repairLogCbActionPerformed
+
+    private void editTechBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTechBtnActionPerformed
+        // TODO add your handling code here:
+        String technicianName = (String) techCB.getSelectedItem();
+            if (technicianName == null)return;
+        
+        Technician selectedTechnician = main_manager.findTechnicianInList(technicianName);
+            if (selectedTechnician == null)return; 
+            
+            nameTF.setText(selectedTechnician.getNAME());
+            specialityTF.setText(selectedTechnician.getSPECIALTY());
+            experienceTF.setText(String.valueOf(selectedTechnician.getEXPERIENCE()));
+            certTF.setText(selectedTechnician.getCERTIFICATION());        
+        editTech=selectedTechnician;
+        
+        addLogPanel.setSelectedIndex(4);
+    }//GEN-LAST:event_editTechBtnActionPerformed
 
     /**
      * @param args the command line arguments

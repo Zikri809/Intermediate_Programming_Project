@@ -119,7 +119,7 @@ public class ArcadeManager {
             }
             else if(repairLogList.get(i).getPriority().equals("Medium Priority") && !repairLogList.get(i).getIsCompleted()){
                 mediumcount++;
-                System.out.println("found 1 mdeium");
+                System.out.println("found 1 medium");
             }
             else if(repairLogList.get(i).getPriority().equals("High Priority") && !repairLogList.get(i).getIsCompleted()){
                 highcount++;
@@ -224,14 +224,14 @@ public class ArcadeManager {
             machineNameModel.addElement(machine.getNAME());
         }
     }
-    public void loadTechnicainPanel(DefaultTableModel technicianTBModel ,javax.swing.JTextField totalTechTF,javax.swing.JTextField availableTF,javax.swing.JTextField busyTF){
+    public void loadTechnicainPanel(DefaultTableModel technicianTBModel ,javax.swing.JTextField totalTechTF,javax.swing.JTextField availableTF,javax.swing.JTextField busyTF, DefaultComboBoxModel<String>technicianName_Model){
         //load table
         technicianTBModel.setRowCount(0); // clear table first
         for (Technician tech : getTechnicianList()) {
             technicianTBModel.addRow(new Object[]{
                     tech.getID(),
                     tech.getNAME(),
-                    tech.getBusy() ? "Yes" : "No"
+                    tech.getBusy() ? "Busy" : "Free"
             });
         }
         //load text field
@@ -254,7 +254,7 @@ public class ArcadeManager {
         System.out.println("start checking double");
         try{
             Double.parseDouble(value);
-            System.out.println("this is a vlid double");
+            System.out.println("this is a valid double");
             return true;
         }
         catch (NumberFormatException e){
