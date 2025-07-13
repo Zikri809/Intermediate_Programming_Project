@@ -33,16 +33,16 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         machinesCB.setModel(machineName_Model);
         technicianCB.setModel(technicianName_Model);
         
-        jTable2.setModel(MachineDatabaseTbModel);//machine table
+        listTable.setModel(MachineDatabaseTbModel);//machine table
         //log table
         repairLogTb.setModel(repairLogmodel);
         //LOG MODEL
         machineNameModel = new DefaultComboBoxModel<>();
         databaseSelectCB.setModel(machineNameModel);
         
-        jTable3.setModel(technicianTBModel); 
+        techTable.setModel(technicianTBModel); 
 
-        main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTF,busyTF);
+        main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTechTF,busyTechTF);
         main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineNameModel);//load data to machine table
     }
     
@@ -103,9 +103,47 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         repairLabel = new javax.swing.JLabel();
         editDatabaseBtn = new javax.swing.JButton();
         databaseSelectCB = new javax.swing.JComboBox<>();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jTable2 = new javax.swing.JTable();
+        listSP = new javax.swing.JScrollPane();
+        listTable = new javax.swing.JTable();
         deleteDatabaseBtn1 = new javax.swing.JButton();
+        techniciansPanel = new javax.swing.JPanel();
+        headerTab3Label = new javax.swing.JLabel();
+        addTechBtn = new javax.swing.JButton();
+        deleteTechBtn = new javax.swing.JButton();
+        iconTab3 = new javax.swing.JLabel();
+        subHeadingTab3 = new javax.swing.JLabel();
+        totalTechPanel = new javax.swing.JPanel();
+        totalTechTF = new javax.swing.JTextField();
+        totalTechLabel = new javax.swing.JLabel();
+        availableTechPanel = new javax.swing.JPanel();
+        availableTechTF = new javax.swing.JTextField();
+        availableTechLabel = new javax.swing.JLabel();
+        busyTechPanel = new javax.swing.JPanel();
+        busyTechTF = new javax.swing.JTextField();
+        busyTechLabel = new javax.swing.JLabel();
+        techSP = new javax.swing.JScrollPane();
+        techTable = new javax.swing.JTable();
+        repairLogsPanel = new javax.swing.JPanel();
+        headerTab4Label = new javax.swing.JLabel();
+        subHeadingTab4Label = new javax.swing.JLabel();
+        addNewLogBtn = new javax.swing.JButton();
+        totalLogPanel = new javax.swing.JPanel();
+        waitingLogTF = new javax.swing.JTextField();
+        waitingLogLabel = new javax.swing.JLabel();
+        highPriorityPanel = new javax.swing.JPanel();
+        highTF = new javax.swing.JTextField();
+        highPriorityLabel = new javax.swing.JLabel();
+        progressPanel = new javax.swing.JPanel();
+        mediumTF = new javax.swing.JTextField();
+        mediumPriorityLabel = new javax.swing.JLabel();
+        completedPanel = new javax.swing.JPanel();
+        lowTF = new javax.swing.JTextField();
+        lowPriorityTable = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        repairLogTb = new javax.swing.JTable();
+        totalLogPanel1 = new javax.swing.JPanel();
+        completedLogTF = new javax.swing.JTextField();
+        completedLogLabel = new javax.swing.JLabel();
         addMachinePanel = new javax.swing.JPanel();
         headerTab1Label = new javax.swing.JLabel();
         backTab1Btn = new javax.swing.JButton();
@@ -137,40 +175,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         typeLabel = new javax.swing.JLabel();
         yearLabel = new javax.swing.JLabel();
         qtyLabel = new javax.swing.JLabel();
-        techniciansPanel = new javax.swing.JPanel();
-        headerTab3Label = new javax.swing.JLabel();
-        addTechBtn = new javax.swing.JButton();
-        iconTab3 = new javax.swing.JLabel();
-        subHeadingTab3 = new javax.swing.JLabel();
-        totalTechPanel = new javax.swing.JPanel();
-        totalTechTF = new javax.swing.JTextField();
-        totalTechLabel = new javax.swing.JLabel();
-        availablePanel = new javax.swing.JPanel();
-        availableTF = new javax.swing.JTextField();
-        availableLabel = new javax.swing.JLabel();
-        busyPanel = new javax.swing.JPanel();
-        busyTF = new javax.swing.JTextField();
-        busyLabel = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        jTable3 = new javax.swing.JTable();
-        repairLogsPanel = new javax.swing.JPanel();
-        headerTab4Label = new javax.swing.JLabel();
-        subHeadingTab4Label = new javax.swing.JLabel();
-        addNewLogBtn = new javax.swing.JButton();
-        totalLogPanel = new javax.swing.JPanel();
-        totalLogTF = new javax.swing.JTextField();
-        totalLogLabel = new javax.swing.JLabel();
-        highPriorityPanel = new javax.swing.JPanel();
-        highTF = new javax.swing.JTextField();
-        highPriorityLabel = new javax.swing.JLabel();
-        progressPanel = new javax.swing.JPanel();
-        mediumTF = new javax.swing.JTextField();
-        mediumPriorityLabel = new javax.swing.JLabel();
-        completedPanel = new javax.swing.JPanel();
-        lowTF = new javax.swing.JTextField();
-        lowPriorityTable = new javax.swing.JLabel();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        repairLogTb = new javax.swing.JTable();
         addTechnicianPanel = new javax.swing.JPanel();
         addTechLayerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
@@ -494,7 +498,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         databaseSelectCB.setEditable(true);
         databaseSelectCB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
+        listTable.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -502,10 +506,12 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 {null, null, null, null}
             },
             new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
+                "ID", "Name", "Year", "Working"
             }
         ));
-        jScrollPane2.setViewportView(jTable2);
+        listTable.setColumnSelectionAllowed(true);
+        listSP.setViewportView(listTable);
+        listTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
         deleteDatabaseBtn1.setBackground(new java.awt.Color(204, 0, 0));
         deleteDatabaseBtn1.setFont(new java.awt.Font("Krungthep", 1, 18)); // NOI18N
@@ -539,15 +545,16 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                                         .addComponent(editDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(35, 35, 35))
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listPanelLayout.createSequentialGroup()
-                                        .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(totalUnitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addComponent(databaseSelectCB, javax.swing.GroupLayout.PREFERRED_SIZE, 274, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGap(194, 194, 194)))
+                                        .addComponent(totalUnitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(339, 339, 339))
+                                    .addGroup(listPanelLayout.createSequentialGroup()
+                                        .addComponent(databaseSelectCB, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
                                 .addComponent(deleteDatabaseBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listPanelLayout.createSequentialGroup()
                 .addGap(0, 100, Short.MAX_VALUE)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(listSP, javax.swing.GroupLayout.PREFERRED_SIZE, 648, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(92, 92, 92))
         );
         listPanelLayout.setVerticalGroup(
@@ -565,12 +572,430 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                     .addComponent(databaseSelectCB, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(editDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(deleteDatabaseBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(26, 26, 26)
-                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(79, Short.MAX_VALUE))
+                .addGap(37, 37, 37)
+                .addComponent(listSP, javax.swing.GroupLayout.PREFERRED_SIZE, 220, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(40, Short.MAX_VALUE))
         );
 
         addLogPanel.addTab("tab1", listPanel);
+
+        techniciansPanel.setBackground(new java.awt.Color(0, 0, 0));
+        techniciansPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        headerTab3Label.setFont(new java.awt.Font("Silom", 1, 26)); // NOI18N
+        headerTab3Label.setForeground(new java.awt.Color(51, 255, 255));
+        headerTab3Label.setText("TECHNICIAN MANAGEMENT");
+        techniciansPanel.add(headerTab3Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, 36));
+
+        addTechBtn.setBackground(new java.awt.Color(51, 255, 255));
+        addTechBtn.setFont(new java.awt.Font("Krungthep", 1, 18)); // NOI18N
+        addTechBtn.setText("+ ADD");
+        addTechBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        addTechBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addTechBtnActionPerformed(evt);
+            }
+        });
+        techniciansPanel.add(addTechBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, 140, 36));
+
+        deleteTechBtn.setBackground(new java.awt.Color(255, 51, 51));
+        deleteTechBtn.setFont(new java.awt.Font("Krungthep", 1, 18)); // NOI18N
+        deleteTechBtn.setText("- DELETE");
+        deleteTechBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        deleteTechBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                deleteTechBtnActionPerformed(evt);
+            }
+        });
+        techniciansPanel.add(deleteTechBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 140, 36));
+
+        iconTab3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/arcadeApp/springIcon.png"))); // NOI18N
+        iconTab3.setText("jLabel24");
+        techniciansPanel.add(iconTab3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 60, 41));
+
+        subHeadingTab3.setFont(new java.awt.Font("PT Sans Caption", 2, 13)); // NOI18N
+        subHeadingTab3.setForeground(new java.awt.Color(153, 204, 0));
+        subHeadingTab3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        subHeadingTab3.setText("MANAGING CERTIFIED ARCADE TECHNICIANS ");
+        techniciansPanel.add(subHeadingTab3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
+
+        totalTechPanel.setBackground(new java.awt.Color(86, 95, 100));
+        totalTechPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        totalTechTF.setBackground(new java.awt.Color(86, 95, 100));
+        totalTechTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
+        totalTechTF.setForeground(new java.awt.Color(51, 255, 51));
+        totalTechTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        totalTechTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+        totalTechTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                totalTechTFActionPerformed(evt);
+            }
+        });
+
+        totalTechLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
+        totalTechLabel.setForeground(new java.awt.Color(51, 255, 51));
+        totalTechLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        totalTechLabel.setText("TOTAL TECH.");
+
+        javax.swing.GroupLayout totalTechPanelLayout = new javax.swing.GroupLayout(totalTechPanel);
+        totalTechPanel.setLayout(totalTechPanelLayout);
+        totalTechPanelLayout.setHorizontalGroup(
+            totalTechPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, totalTechPanelLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addGroup(totalTechPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(totalTechLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
+                    .addComponent(totalTechTF))
+                .addGap(14, 14, 14))
+        );
+        totalTechPanelLayout.setVerticalGroup(
+            totalTechPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, totalTechPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(totalTechLabel)
+                .addGap(18, 18, 18)
+                .addComponent(totalTechTF, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
+
+        techniciansPanel.add(totalTechPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, 120));
+
+        availableTechPanel.setBackground(new java.awt.Color(86, 95, 100));
+        availableTechPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        availableTechTF.setBackground(new java.awt.Color(86, 95, 100));
+        availableTechTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
+        availableTechTF.setForeground(new java.awt.Color(51, 255, 51));
+        availableTechTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        availableTechTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+        availableTechTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                availableTechTFActionPerformed(evt);
+            }
+        });
+
+        availableTechLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
+        availableTechLabel.setForeground(new java.awt.Color(51, 255, 51));
+        availableTechLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        availableTechLabel.setText("AVAILABLE");
+
+        javax.swing.GroupLayout availableTechPanelLayout = new javax.swing.GroupLayout(availableTechPanel);
+        availableTechPanel.setLayout(availableTechPanelLayout);
+        availableTechPanelLayout.setHorizontalGroup(
+            availableTechPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, availableTechPanelLayout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addGroup(availableTechPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(availableTechTF, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(availableTechLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(14, 14, 14))
+        );
+        availableTechPanelLayout.setVerticalGroup(
+            availableTechPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, availableTechPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(availableTechLabel)
+                .addGap(18, 18, 18)
+                .addComponent(availableTechTF, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
+
+        techniciansPanel.add(availableTechPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, 120));
+
+        busyTechPanel.setBackground(new java.awt.Color(86, 95, 100));
+        busyTechPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+        busyTechPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        busyTechTF.setBackground(new java.awt.Color(86, 95, 100));
+        busyTechTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
+        busyTechTF.setForeground(new java.awt.Color(255, 204, 51));
+        busyTechTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        busyTechTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+        busyTechPanel.add(busyTechTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 100, 44));
+
+        busyTechLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
+        busyTechLabel.setForeground(new java.awt.Color(255, 204, 51));
+        busyTechLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        busyTechLabel.setText("BUSY");
+        busyTechPanel.add(busyTechLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 50, -1));
+
+        techniciansPanel.add(busyTechPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 140, 120));
+
+        techTable.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "ID", "Name", "Status", ""
+            }
+        ));
+        techTable.setColumnSelectionAllowed(true);
+        techSP.setViewportView(techTable);
+        techTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
+
+        techniciansPanel.add(techSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 610, 260));
+
+        addLogPanel.addTab("tab3", techniciansPanel);
+
+        repairLogsPanel.setBackground(new java.awt.Color(0, 0, 0));
+        repairLogsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        headerTab4Label.setFont(new java.awt.Font("Silom", 1, 26)); // NOI18N
+        headerTab4Label.setForeground(new java.awt.Color(51, 255, 255));
+        headerTab4Label.setText("REPAIR & MAINTENANCE LOGS");
+        repairLogsPanel.add(headerTab4Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, 36));
+
+        subHeadingTab4Label.setFont(new java.awt.Font("PT Sans Caption", 2, 13)); // NOI18N
+        subHeadingTab4Label.setForeground(new java.awt.Color(153, 204, 0));
+        subHeadingTab4Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        subHeadingTab4Label.setText("TRACKING MAINTENANCE RECORDS AND REPAIR TICKET");
+        repairLogsPanel.add(subHeadingTab4Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
+
+        addNewLogBtn.setBackground(new java.awt.Color(51, 255, 255));
+        addNewLogBtn.setFont(new java.awt.Font("Krungthep", 1, 18)); // NOI18N
+        addNewLogBtn.setText("+ NEW LOG");
+        addNewLogBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        addNewLogBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                addNewLogBtnActionPerformed(evt);
+            }
+        });
+        repairLogsPanel.add(addNewLogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(660, 40, 120, 36));
+
+        totalLogPanel.setBackground(new java.awt.Color(86, 95, 100));
+        totalLogPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        waitingLogTF.setBackground(new java.awt.Color(86, 95, 100));
+        waitingLogTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
+        waitingLogTF.setForeground(new java.awt.Color(255, 153, 51));
+        waitingLogTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        waitingLogTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+        waitingLogTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                waitingLogTFActionPerformed(evt);
+            }
+        });
+
+        waitingLogLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
+        waitingLogLabel.setForeground(new java.awt.Color(255, 153, 51));
+        waitingLogLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        waitingLogLabel.setText("WAITING");
+
+        javax.swing.GroupLayout totalLogPanelLayout = new javax.swing.GroupLayout(totalLogPanel);
+        totalLogPanel.setLayout(totalLogPanelLayout);
+        totalLogPanelLayout.setHorizontalGroup(
+            totalLogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, totalLogPanelLayout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addGroup(totalLogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(waitingLogLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE)
+                    .addComponent(waitingLogTF))
+                .addGap(14, 14, 14))
+        );
+        totalLogPanelLayout.setVerticalGroup(
+            totalLogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, totalLogPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(waitingLogLabel)
+                .addGap(18, 18, 18)
+                .addComponent(waitingLogTF, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
+
+        repairLogsPanel.add(totalLogPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, 120));
+
+        highPriorityPanel.setBackground(new java.awt.Color(86, 95, 100));
+        highPriorityPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        highTF.setBackground(new java.awt.Color(86, 95, 100));
+        highTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
+        highTF.setForeground(new java.awt.Color(255, 51, 51));
+        highTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        highTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+        highTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                highTFActionPerformed(evt);
+            }
+        });
+
+        highPriorityLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
+        highPriorityLabel.setForeground(new java.awt.Color(255, 51, 51));
+        highPriorityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        highPriorityLabel.setText("HIGH PRIORITY");
+
+        javax.swing.GroupLayout highPriorityPanelLayout = new javax.swing.GroupLayout(highPriorityPanel);
+        highPriorityPanel.setLayout(highPriorityPanelLayout);
+        highPriorityPanelLayout.setHorizontalGroup(
+            highPriorityPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(highPriorityPanelLayout.createSequentialGroup()
+                .addGap(17, 17, 17)
+                .addGroup(highPriorityPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(highTF, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(highPriorityLabel))
+                .addContainerGap(16, Short.MAX_VALUE))
+        );
+        highPriorityPanelLayout.setVerticalGroup(
+            highPriorityPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, highPriorityPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(highPriorityLabel)
+                .addGap(18, 18, 18)
+                .addComponent(highTF, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
+
+        repairLogsPanel.add(highPriorityPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 150, 120));
+
+        progressPanel.setBackground(new java.awt.Color(86, 95, 100));
+        progressPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        mediumTF.setBackground(new java.awt.Color(86, 95, 100));
+        mediumTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
+        mediumTF.setForeground(new java.awt.Color(255, 255, 0));
+        mediumTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        mediumTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+        mediumTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mediumTFActionPerformed(evt);
+            }
+        });
+
+        mediumPriorityLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
+        mediumPriorityLabel.setForeground(new java.awt.Color(255, 255, 0));
+        mediumPriorityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        mediumPriorityLabel.setText("MEDIUM PRIORITY");
+
+        javax.swing.GroupLayout progressPanelLayout = new javax.swing.GroupLayout(progressPanel);
+        progressPanel.setLayout(progressPanelLayout);
+        progressPanelLayout.setHorizontalGroup(
+            progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(progressPanelLayout.createSequentialGroup()
+                .addGroup(progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(progressPanelLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addComponent(mediumPriorityLabel))
+                    .addGroup(progressPanelLayout.createSequentialGroup()
+                        .addGap(16, 16, 16)
+                        .addComponent(mediumTF, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(8, Short.MAX_VALUE))
+        );
+        progressPanelLayout.setVerticalGroup(
+            progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, progressPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(mediumPriorityLabel)
+                .addGap(18, 18, 18)
+                .addComponent(mediumTF, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
+
+        repairLogsPanel.add(progressPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 150, 120));
+
+        completedPanel.setBackground(new java.awt.Color(86, 95, 100));
+        completedPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        lowTF.setBackground(new java.awt.Color(86, 95, 100));
+        lowTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
+        lowTF.setForeground(new java.awt.Color(255, 255, 255));
+        lowTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        lowTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+        lowTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                lowTFActionPerformed(evt);
+            }
+        });
+
+        lowPriorityTable.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
+        lowPriorityTable.setForeground(new java.awt.Color(255, 255, 255));
+        lowPriorityTable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lowPriorityTable.setText("LOW PRIORITY");
+
+        javax.swing.GroupLayout completedPanelLayout = new javax.swing.GroupLayout(completedPanel);
+        completedPanel.setLayout(completedPanelLayout);
+        completedPanelLayout.setHorizontalGroup(
+            completedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(completedPanelLayout.createSequentialGroup()
+                .addGap(22, 22, 22)
+                .addComponent(lowPriorityTable)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, completedPanelLayout.createSequentialGroup()
+                .addContainerGap(14, Short.MAX_VALUE)
+                .addComponent(lowTF, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
+        completedPanelLayout.setVerticalGroup(
+            completedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, completedPanelLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lowPriorityTable)
+                .addGap(18, 18, 18)
+                .addComponent(lowTF, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
+
+        repairLogsPanel.add(completedPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 110, 150, 120));
+
+        repairLogTb.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "Machine Name", "Technician", "Description", "Notes", "Priority"
+            }
+        ));
+        jScrollPane1.setViewportView(repairLogTb);
+
+        repairLogsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 740, 260));
+
+        totalLogPanel1.setBackground(new java.awt.Color(86, 95, 100));
+        totalLogPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
+
+        completedLogTF.setBackground(new java.awt.Color(86, 95, 100));
+        completedLogTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
+        completedLogTF.setForeground(new java.awt.Color(51, 255, 51));
+        completedLogTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
+        completedLogTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+        completedLogTF.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                completedLogTFActionPerformed(evt);
+            }
+        });
+
+        completedLogLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
+        completedLogLabel.setForeground(new java.awt.Color(51, 255, 51));
+        completedLogLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        completedLogLabel.setText("COMPLETED");
+
+        javax.swing.GroupLayout totalLogPanel1Layout = new javax.swing.GroupLayout(totalLogPanel1);
+        totalLogPanel1.setLayout(totalLogPanel1Layout);
+        totalLogPanel1Layout.setHorizontalGroup(
+            totalLogPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, totalLogPanel1Layout.createSequentialGroup()
+                .addContainerGap(16, Short.MAX_VALUE)
+                .addGroup(totalLogPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(completedLogLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(completedLogTF))
+                .addGap(14, 14, 14))
+        );
+        totalLogPanel1Layout.setVerticalGroup(
+            totalLogPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, totalLogPanel1Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(completedLogLabel)
+                .addGap(18, 18, 18)
+                .addComponent(completedLogTF, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(14, 14, 14))
+        );
+
+        repairLogsPanel.add(totalLogPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 120));
+
+        addLogPanel.addTab("tab4", repairLogsPanel);
 
         addMachinePanel.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -900,369 +1325,6 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         );
 
         addLogPanel.addTab("tab2", addMachinePanel);
-
-        techniciansPanel.setBackground(new java.awt.Color(0, 0, 0));
-        techniciansPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        headerTab3Label.setFont(new java.awt.Font("Silom", 1, 26)); // NOI18N
-        headerTab3Label.setForeground(new java.awt.Color(51, 255, 255));
-        headerTab3Label.setText("TECHNICIAN MANAGEMENT");
-        techniciansPanel.add(headerTab3Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, 36));
-
-        addTechBtn.setBackground(new java.awt.Color(51, 255, 255));
-        addTechBtn.setFont(new java.awt.Font("Krungthep", 1, 18)); // NOI18N
-        addTechBtn.setText("+ ADD TECHNICIAN");
-        addTechBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        addTechBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addTechBtnActionPerformed(evt);
-            }
-        });
-        techniciansPanel.add(addTechBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(560, 40, 221, 36));
-
-        iconTab3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/arcadeApp/springIcon.png"))); // NOI18N
-        iconTab3.setText("jLabel24");
-        techniciansPanel.add(iconTab3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 60, 41));
-
-        subHeadingTab3.setFont(new java.awt.Font("PT Sans Caption", 2, 13)); // NOI18N
-        subHeadingTab3.setForeground(new java.awt.Color(153, 204, 0));
-        subHeadingTab3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        subHeadingTab3.setText("MANAGING CERTIFIED ARCADE TECHNICIANS ");
-        techniciansPanel.add(subHeadingTab3, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 60, -1, -1));
-
-        totalTechPanel.setBackground(new java.awt.Color(86, 95, 100));
-        totalTechPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-
-        totalTechTF.setBackground(new java.awt.Color(86, 95, 100));
-        totalTechTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
-        totalTechTF.setForeground(new java.awt.Color(51, 255, 51));
-        totalTechTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        totalTechTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-        totalTechTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalTechTFActionPerformed(evt);
-            }
-        });
-
-        totalTechLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
-        totalTechLabel.setForeground(new java.awt.Color(51, 255, 51));
-        totalTechLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        totalTechLabel.setText("TOTAL TECH.");
-
-        javax.swing.GroupLayout totalTechPanelLayout = new javax.swing.GroupLayout(totalTechPanel);
-        totalTechPanel.setLayout(totalTechPanelLayout);
-        totalTechPanelLayout.setHorizontalGroup(
-            totalTechPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, totalTechPanelLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addGroup(totalTechPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(totalTechLabel, javax.swing.GroupLayout.DEFAULT_SIZE, 96, Short.MAX_VALUE)
-                    .addComponent(totalTechTF))
-                .addGap(14, 14, 14))
-        );
-        totalTechPanelLayout.setVerticalGroup(
-            totalTechPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, totalTechPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(totalTechLabel)
-                .addGap(18, 18, 18)
-                .addComponent(totalTechTF, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-        );
-
-        techniciansPanel.add(totalTechPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, 120));
-
-        availablePanel.setBackground(new java.awt.Color(86, 95, 100));
-        availablePanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-
-        availableTF.setBackground(new java.awt.Color(86, 95, 100));
-        availableTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
-        availableTF.setForeground(new java.awt.Color(51, 255, 51));
-        availableTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        availableTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-        availableTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                availableTFActionPerformed(evt);
-            }
-        });
-
-        availableLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
-        availableLabel.setForeground(new java.awt.Color(51, 255, 51));
-        availableLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        availableLabel.setText("AVAILABLE");
-
-        javax.swing.GroupLayout availablePanelLayout = new javax.swing.GroupLayout(availablePanel);
-        availablePanel.setLayout(availablePanelLayout);
-        availablePanelLayout.setHorizontalGroup(
-            availablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, availablePanelLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addGroup(availablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(availableTF, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(availableLabel, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(14, 14, 14))
-        );
-        availablePanelLayout.setVerticalGroup(
-            availablePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, availablePanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(availableLabel)
-                .addGap(18, 18, 18)
-                .addComponent(availableTF, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-        );
-
-        techniciansPanel.add(availablePanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, -1, 120));
-
-        busyPanel.setBackground(new java.awt.Color(86, 95, 100));
-        busyPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-        busyPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        busyTF.setBackground(new java.awt.Color(86, 95, 100));
-        busyTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
-        busyTF.setForeground(new java.awt.Color(255, 204, 51));
-        busyTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        busyTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-        busyPanel.add(busyTF, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 100, 44));
-
-        busyLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
-        busyLabel.setForeground(new java.awt.Color(255, 204, 51));
-        busyLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        busyLabel.setText("BUSY");
-        busyPanel.add(busyLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 20, 50, -1));
-
-        techniciansPanel.add(busyPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 140, 120));
-
-        jTable3.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(jTable3);
-
-        techniciansPanel.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 610, 260));
-
-        addLogPanel.addTab("tab3", techniciansPanel);
-
-        repairLogsPanel.setBackground(new java.awt.Color(0, 0, 0));
-        repairLogsPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        headerTab4Label.setFont(new java.awt.Font("Silom", 1, 26)); // NOI18N
-        headerTab4Label.setForeground(new java.awt.Color(51, 255, 255));
-        headerTab4Label.setText("REPAIR & MAINTENANCE LOGS");
-        repairLogsPanel.add(headerTab4Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, 36));
-
-        subHeadingTab4Label.setFont(new java.awt.Font("PT Sans Caption", 2, 13)); // NOI18N
-        subHeadingTab4Label.setForeground(new java.awt.Color(153, 204, 0));
-        subHeadingTab4Label.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        subHeadingTab4Label.setText("TRACKING MAINTENANCE RECORDS AND REPAIR TICKET");
-        repairLogsPanel.add(subHeadingTab4Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 70, -1, -1));
-
-        addNewLogBtn.setBackground(new java.awt.Color(51, 255, 255));
-        addNewLogBtn.setFont(new java.awt.Font("Krungthep", 1, 18)); // NOI18N
-        addNewLogBtn.setText("+ NEW LOG");
-        addNewLogBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        addNewLogBtn.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                addNewLogBtnActionPerformed(evt);
-            }
-        });
-        repairLogsPanel.add(addNewLogBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 50, 120, 36));
-
-        totalLogPanel.setBackground(new java.awt.Color(86, 95, 100));
-        totalLogPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-
-        totalLogTF.setBackground(new java.awt.Color(86, 95, 100));
-        totalLogTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
-        totalLogTF.setForeground(new java.awt.Color(51, 255, 51));
-        totalLogTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        totalLogTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-        totalLogTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                totalLogTFActionPerformed(evt);
-            }
-        });
-
-        totalLogLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
-        totalLogLabel.setForeground(new java.awt.Color(51, 255, 51));
-        totalLogLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        totalLogLabel.setText("TOTAL LOGS.");
-
-        javax.swing.GroupLayout totalLogPanelLayout = new javax.swing.GroupLayout(totalLogPanel);
-        totalLogPanel.setLayout(totalLogPanelLayout);
-        totalLogPanelLayout.setHorizontalGroup(
-            totalLogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, totalLogPanelLayout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
-                .addGroup(totalLogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(totalLogLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(totalLogTF))
-                .addGap(14, 14, 14))
-        );
-        totalLogPanelLayout.setVerticalGroup(
-            totalLogPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, totalLogPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(totalLogLabel)
-                .addGap(18, 18, 18)
-                .addComponent(totalLogTF, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-        );
-
-        repairLogsPanel.add(totalLogPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 120, -1, 120));
-
-        highPriorityPanel.setBackground(new java.awt.Color(86, 95, 100));
-        highPriorityPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-
-        highTF.setBackground(new java.awt.Color(86, 95, 100));
-        highTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
-        highTF.setForeground(new java.awt.Color(255, 51, 51));
-        highTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        highTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-        highTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                highTFActionPerformed(evt);
-            }
-        });
-
-        highPriorityLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
-        highPriorityLabel.setForeground(new java.awt.Color(255, 51, 51));
-        highPriorityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        highPriorityLabel.setText("HIGH PRIORITY");
-
-        javax.swing.GroupLayout highPriorityPanelLayout = new javax.swing.GroupLayout(highPriorityPanel);
-        highPriorityPanel.setLayout(highPriorityPanelLayout);
-        highPriorityPanelLayout.setHorizontalGroup(
-            highPriorityPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(highPriorityPanelLayout.createSequentialGroup()
-                .addGap(17, 17, 17)
-                .addGroup(highPriorityPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(highTF, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(highPriorityLabel))
-                .addContainerGap(16, Short.MAX_VALUE))
-        );
-        highPriorityPanelLayout.setVerticalGroup(
-            highPriorityPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, highPriorityPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(highPriorityLabel)
-                .addGap(18, 18, 18)
-                .addComponent(highTF, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-        );
-
-        repairLogsPanel.add(highPriorityPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 120, 150, 120));
-
-        progressPanel.setBackground(new java.awt.Color(86, 95, 100));
-        progressPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-
-        mediumTF.setBackground(new java.awt.Color(86, 95, 100));
-        mediumTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
-        mediumTF.setForeground(new java.awt.Color(255, 255, 0));
-        mediumTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        mediumTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-        mediumTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                mediumTFActionPerformed(evt);
-            }
-        });
-
-        mediumPriorityLabel.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
-        mediumPriorityLabel.setForeground(new java.awt.Color(255, 255, 0));
-        mediumPriorityLabel.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        mediumPriorityLabel.setText("MEDIUM PRIORITY");
-
-        javax.swing.GroupLayout progressPanelLayout = new javax.swing.GroupLayout(progressPanel);
-        progressPanel.setLayout(progressPanelLayout);
-        progressPanelLayout.setHorizontalGroup(
-            progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(progressPanelLayout.createSequentialGroup()
-                .addGroup(progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(progressPanelLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(mediumPriorityLabel))
-                    .addGroup(progressPanelLayout.createSequentialGroup()
-                        .addGap(16, 16, 16)
-                        .addComponent(mediumTF, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(8, Short.MAX_VALUE))
-        );
-        progressPanelLayout.setVerticalGroup(
-            progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, progressPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(mediumPriorityLabel)
-                .addGap(18, 18, 18)
-                .addComponent(mediumTF, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-        );
-
-        repairLogsPanel.add(progressPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 150, 120));
-
-        completedPanel.setBackground(new java.awt.Color(86, 95, 100));
-        completedPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
-
-        lowTF.setBackground(new java.awt.Color(86, 95, 100));
-        lowTF.setFont(new java.awt.Font("Krungthep", 0, 14)); // NOI18N
-        lowTF.setForeground(new java.awt.Color(255, 255, 255));
-        lowTF.setHorizontalAlignment(javax.swing.JTextField.CENTER);
-        lowTF.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
-        lowTF.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                lowTFActionPerformed(evt);
-            }
-        });
-
-        lowPriorityTable.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
-        lowPriorityTable.setForeground(new java.awt.Color(255, 255, 255));
-        lowPriorityTable.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lowPriorityTable.setText("LOW PRIORITY");
-
-        javax.swing.GroupLayout completedPanelLayout = new javax.swing.GroupLayout(completedPanel);
-        completedPanel.setLayout(completedPanelLayout);
-        completedPanelLayout.setHorizontalGroup(
-            completedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(completedPanelLayout.createSequentialGroup()
-                .addGap(22, 22, 22)
-                .addComponent(lowPriorityTable)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, completedPanelLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
-                .addComponent(lowTF, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-        );
-        completedPanelLayout.setVerticalGroup(
-            completedPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, completedPanelLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lowPriorityTable)
-                .addGap(18, 18, 18)
-                .addComponent(lowTF, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(14, 14, 14))
-        );
-
-        repairLogsPanel.add(completedPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 120, 150, 120));
-
-        repairLogTb.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "Machine Name", "Technician", "Description", "Notes", "Priority"
-            }
-        ));
-        jScrollPane1.setViewportView(repairLogTb);
-
-        repairLogsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 280, 730, 260));
-
-        addLogPanel.addTab("tab4", repairLogsPanel);
 
         addTechnicianPanel.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -1636,7 +1698,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private void techniciansBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_techniciansBtnActionPerformed
         // TODO add your handling code here:
         addLogPanel.setSelectedIndex(2);
-        main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTF,busyTF);
+        main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTechTF,busyTechTF);
     }//GEN-LAST:event_techniciansBtnActionPerformed
 
     private void addMachineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMachineBtnActionPerformed
@@ -1655,7 +1717,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void logsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logsBtnActionPerformed
         // TODO add your handling code here:
-        main_manager.loadLogPanel(repairLogmodel,totalLogTF,highTF,lowTF,mediumTF);
+        main_manager.loadLogPanel(repairLogmodel,waitingLogTF,highTF,lowTF,mediumTF);
         addLogPanel.setSelectedIndex(3);
 
         //System.out.println("Total Log TF: when click log " + Arrays.toString(logCount));
@@ -1687,7 +1749,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         technician.setBusy(true);
         RepairLog log = new RepairLog (machine,technician,note,issuesDesc,priorityLevel);
         main_manager.addRepairLog(log);
-        main_manager.loadLogPanel(repairLogmodel,totalLogTF,highTF,lowTF,mediumTF);
+        main_manager.loadLogPanel(repairLogmodel,waitingLogTF,highTF,lowTF,mediumTF);
 
         //clear the input field
         machinesCB.setSelectedIndex(0);
@@ -1736,7 +1798,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         specialityTF.setText("");
         experienceTF.setText("");
         certTF.setText("");
-        main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTF,busyTF);
+        main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTechTF,busyTechTF);
     }//GEN-LAST:event_confirmAddTechBtnActionPerformed
 
     private void certTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_certTFActionPerformed
@@ -1767,9 +1829,9 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_highTFActionPerformed
 
-    private void totalLogTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_totalLogTFActionPerformed
+    private void waitingLogTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_waitingLogTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_totalLogTFActionPerformed
+    }//GEN-LAST:event_waitingLogTFActionPerformed
 
     private void addNewLogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewLogBtnActionPerformed
         // TODO add your handling code here:
@@ -1780,9 +1842,9 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_totalTechTFActionPerformed
 
-    private void availableTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availableTFActionPerformed
+    private void availableTechTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_availableTechTFActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_availableTFActionPerformed
+    }//GEN-LAST:event_availableTechTFActionPerformed
 
     private void addTechBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addTechBtnActionPerformed
         // TODO add your handling code here:
@@ -1966,6 +2028,14 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     }//GEN-LAST:event_deleteDatabaseBtn1ActionPerformed
 
+    private void deleteTechBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTechBtnActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_deleteTechBtnActionPerformed
+
+    private void completedLogTFActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_completedLogTFActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_completedLogTFActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2013,19 +2083,21 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JPanel addTechnicianPanel;
     private javax.swing.JButton adminBtn;
     private javax.swing.JLabel arcadeLabel;
-    private javax.swing.JLabel availableLabel;
-    private javax.swing.JPanel availablePanel;
-    private javax.swing.JTextField availableTF;
+    private javax.swing.JLabel availableTechLabel;
+    private javax.swing.JPanel availableTechPanel;
+    private javax.swing.JTextField availableTechTF;
     private javax.swing.JButton backTab1Btn;
     private javax.swing.JButton backTab5Btn;
     private javax.swing.JButton backTab6Btn;
-    private javax.swing.JLabel busyLabel;
-    private javax.swing.JPanel busyPanel;
-    private javax.swing.JTextField busyTF;
+    private javax.swing.JLabel busyTechLabel;
+    private javax.swing.JPanel busyTechPanel;
+    private javax.swing.JTextField busyTechTF;
     private javax.swing.JPanel categoriesPanel;
     private javax.swing.JLabel categorySystemModuleLabel;
     private javax.swing.JLabel certLabel;
     private javax.swing.JTextField certTF;
+    private javax.swing.JLabel completedLogLabel;
+    private javax.swing.JTextField completedLogTF;
     private javax.swing.JPanel completedPanel;
     private javax.swing.JButton confirmAddTechBtn;
     private javax.swing.JButton confirmNewLogBtn;
@@ -2033,6 +2105,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JComboBox<String> databaseSelectCB;
     private javax.swing.JButton deleteDatabaseBtn;
     private javax.swing.JButton deleteDatabaseBtn1;
+    private javax.swing.JButton deleteTechBtn;
     private javax.swing.JButton editDatabaseBtn;
     private javax.swing.JButton exitBtn;
     private javax.swing.JLabel experienceLabel;
@@ -2055,13 +2128,11 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel issueDesLabel;
     private javax.swing.JTextField issueDescTF;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JScrollPane jScrollPane3;
-    private javax.swing.JTable jTable2;
-    private javax.swing.JTable jTable3;
     private javax.swing.JLabel layerHeaderTab2Label;
     private javax.swing.JPanel layerTab2Panel;
     private javax.swing.JPanel listPanel;
+    private javax.swing.JScrollPane listSP;
+    private javax.swing.JTable listTable;
     private javax.swing.JButton listsBtn;
     private javax.swing.JLabel logoIcon;
     private javax.swing.JPanel logoPanel;
@@ -2113,13 +2184,14 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel subHeadingTab1Label;
     private javax.swing.JLabel subHeadingTab3;
     private javax.swing.JLabel subHeadingTab4Label;
+    private javax.swing.JScrollPane techSP;
+    private javax.swing.JTable techTable;
     private javax.swing.JComboBox<String> technicianCB;
     private javax.swing.JLabel technicianLabel;
     private javax.swing.JButton techniciansBtn;
     private javax.swing.JPanel techniciansPanel;
-    private javax.swing.JLabel totalLogLabel;
     private javax.swing.JPanel totalLogPanel;
-    private javax.swing.JTextField totalLogTF;
+    private javax.swing.JPanel totalLogPanel1;
     private javax.swing.JLabel totalTechLabel;
     private javax.swing.JPanel totalTechPanel;
     private javax.swing.JTextField totalTechTF;
@@ -2131,6 +2203,8 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel typeLabel;
     private javax.swing.JLabel typeTab2Label;
     private javax.swing.JLabel versionTitle;
+    private javax.swing.JLabel waitingLogLabel;
+    private javax.swing.JTextField waitingLogTF;
     private javax.swing.JLabel wifiLogo;
     private javax.swing.JLabel yearLabel;
     private javax.swing.JTextField yearTF;
