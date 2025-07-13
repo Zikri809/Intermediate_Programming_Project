@@ -34,7 +34,7 @@ public class CabinetGame extends ArcadeMachine {
         
         }
         public void calculatePrice(){
-            double price = 10000 * Math.pow((1-0.8),LocalDate.now().getYear() -  super.getYEARMADE()  );
+            double price = 10000 * Math.pow((1-0.15),LocalDate.now().getYear() -  super.getYEARMADE()  );
             super.setPrice(price);
         }
         public String toString(){

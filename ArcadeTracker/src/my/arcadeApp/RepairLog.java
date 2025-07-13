@@ -4,6 +4,7 @@ import java.time.LocalDate;
 
 public class RepairLog {
 
+    private int id;
     private ArcadeMachine machine;
     private Technician technician;
     private LocalDate repairDate;
@@ -12,7 +13,7 @@ public class RepairLog {
     private String priority;
     private boolean isCompleted;
 
-    public RepairLog(ArcadeMachine machine , Technician technician , String notes, String description, String priority) {
+    public RepairLog(int id ,ArcadeMachine machine , Technician technician , String notes, String description, String priority) {
         this.machine = machine;
         this.technician = technician;
         this.notes = notes;
@@ -20,6 +21,7 @@ public class RepairLog {
         this.description = description;
         this.priority = priority;
         this.isCompleted = false;
+        this.id = id;
     }
 
     public ArcadeMachine getMachine (){
@@ -43,6 +45,9 @@ public class RepairLog {
     public boolean getIsCompleted() {
         return isCompleted;
     }
+    public int getId() {
+        return id;
+    }
 
 
     public void setTechnician(Technician technician) {
@@ -65,5 +70,8 @@ public class RepairLog {
     }
     public void setIsCompleted(boolean isCompleted) {
         this.isCompleted = isCompleted;
+    }
+    public void setId(int id) {
+        this.id = id;
     }
 }

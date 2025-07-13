@@ -36,6 +36,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         listTable.setModel(MachineDatabaseTbModel);//machine table
         //log table
         repairLogTb.setModel(repairLogmodel);
+        repairLogCb.setModel(repairLogCbModel);
         //LOG MODEL
         machineNameModel = new DefaultComboBoxModel<>();
         databaseSelectCB.setModel(machineNameModel);
@@ -48,11 +49,12 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     
     DefaultComboBoxModel<String> machineName_Model = new DefaultComboBoxModel<>();
     DefaultComboBoxModel<String> technicianName_Model = new DefaultComboBoxModel<>();
+    DefaultComboBoxModel<String> repairLogCbModel = new DefaultComboBoxModel<>();
 
-    String [] MachineTableHeader = {"Id","Name", "Year", "Working"};//machine table
+    String [] MachineTableHeader = {"Id","Name", "Year", "Working","Price"};//machine table
     DefaultTableModel MachineDatabaseTbModel = new DefaultTableModel(MachineTableHeader,0);//machine table
     //log table
-    String [] logTableHeader = {"Machine Name","Technician", "Description", "Notes", "Priority"};
+    String [] logTableHeader = {"ID","Machine Name","Technician", "Description", "Notes", "Priority", "Completed"};
     DefaultTableModel repairLogmodel = new DefaultTableModel(logTableHeader,0);
     //log table
     String[] technicianTableHeader = {"ID", "Name", "Status"};
@@ -60,6 +62,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     int id = 0;
     int technicianID = 0;
+    int logId = 0;
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -175,6 +178,8 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         totalLogPanel1 = new javax.swing.JPanel();
         completedLogTF = new javax.swing.JTextField();
         completedLogLabel = new javax.swing.JLabel();
+        repairLogCb = new javax.swing.JComboBox<>();
+        markAsCompletedbtn = new javax.swing.JButton();
         addTechnicianPanel = new javax.swing.JPanel();
         addTechLayerPanel = new javax.swing.JPanel();
         headerLabel = new javax.swing.JLabel();
@@ -1135,7 +1140,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        repairLogsPanel.add(totalLogPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 110, -1, 120));
+        repairLogsPanel.add(totalLogPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, 120));
 
         highPriorityPanel.setBackground(new java.awt.Color(86, 95, 100));
         highPriorityPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -1165,7 +1170,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 .addGroup(highPriorityPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(highTF, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(highPriorityLabel))
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         highPriorityPanelLayout.setVerticalGroup(
             highPriorityPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1177,7 +1182,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        repairLogsPanel.add(highPriorityPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 150, 120));
+        repairLogsPanel.add(highPriorityPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 150, 120));
 
         progressPanel.setBackground(new java.awt.Color(86, 95, 100));
         progressPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -1210,7 +1215,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                     .addGroup(progressPanelLayout.createSequentialGroup()
                         .addGap(16, 16, 16)
                         .addComponent(mediumTF, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(8, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         progressPanelLayout.setVerticalGroup(
             progressPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1222,7 +1227,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        repairLogsPanel.add(progressPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 150, 120));
+        repairLogsPanel.add(progressPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 150, 120));
 
         completedPanel.setBackground(new java.awt.Color(86, 95, 100));
         completedPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -1280,7 +1285,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(repairLogTb);
 
-        repairLogsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, 740, 260));
+        repairLogsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 740, 230));
 
         totalLogPanel1.setBackground(new java.awt.Color(86, 95, 100));
         totalLogPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -1323,6 +1328,27 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         );
 
         repairLogsPanel.add(totalLogPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 120));
+
+        repairLogCb.setBackground(new java.awt.Color(86, 95, 100));
+        repairLogCb.setEditable(true);
+        repairLogCb.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+        repairLogCb.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                repairLogCbActionPerformed(evt);
+            }
+        });
+        repairLogsPanel.add(repairLogCb, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 500, -1));
+
+        markAsCompletedbtn.setBackground(new java.awt.Color(0, 153, 0));
+        markAsCompletedbtn.setFont(new java.awt.Font("Krungthep", 1, 18)); // NOI18N
+        markAsCompletedbtn.setText("Mark As Completed");
+        markAsCompletedbtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        markAsCompletedbtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                markAsCompletedbtnActionPerformed(evt);
+            }
+        });
+        repairLogsPanel.add(markAsCompletedbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 190, -1));
 
         addLogPanel.addTab("tab4", repairLogsPanel);
 
@@ -1717,7 +1743,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void logsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logsBtnActionPerformed
         // TODO add your handling code here:
-        main_manager.loadLogPanel(repairLogmodel,waitingLogTF,highTF,lowTF,mediumTF);
+        main_manager.loadLogPanel(repairLogmodel,completedLogTF,waitingLogTF,highTF,lowTF,mediumTF,repairLogCbModel);
         addLogPanel.setSelectedIndex(3);
 
         //System.out.println("Total Log TF: when click log " + Arrays.toString(logCount));
@@ -1747,9 +1773,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         machine.setIsWorking(false);
         Technician technician = main_manager.findTechnicianInList(technicianName);
         technician.setBusy(true);
-        RepairLog log = new RepairLog (machine,technician,note,issuesDesc,priorityLevel);
+        RepairLog log = new RepairLog (logId,machine,technician,note,issuesDesc,priorityLevel);
         main_manager.addRepairLog(log);
-        main_manager.loadLogPanel(repairLogmodel,waitingLogTF,highTF,lowTF,mediumTF);
+        main_manager.loadLogPanel(repairLogmodel,completedLogTF,waitingLogTF,highTF,lowTF,mediumTF,repairLogCbModel);
+        logId++;
 
         //clear the input field
         machinesCB.setSelectedIndex(0);
@@ -2036,6 +2063,22 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_completedLogTFActionPerformed
 
+    private void markAsCompletedbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markAsCompletedbtnActionPerformed
+        // TODO add your handling code here:
+        String selected = (String)  repairLogCb.getSelectedItem();
+        int selectedId = Integer.parseInt(selected.split("-")[0].trim());
+        RepairLog log =  main_manager.findRepairLogInList(selectedId);
+        log.setIsCompleted(true);
+        log.getTechnician().setBusy(false);
+        log.getMachine().setIsWorking(true);
+        main_manager.loadLogPanel(repairLogmodel,completedLogTF,waitingLogTF,highTF,lowTF,mediumTF,repairLogCbModel);
+
+    }//GEN-LAST:event_markAsCompletedbtnActionPerformed
+
+    private void repairLogCbActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_repairLogCbActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_repairLogCbActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -2149,6 +2192,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel manufacturerLabel;
     private javax.swing.JTextField manufacturerTF;
     private javax.swing.JLabel manufacturerTab2Label;
+    private javax.swing.JButton markAsCompletedbtn;
     private javax.swing.JLabel mediumPriorityLabel;
     private javax.swing.JTextField mediumTF;
     private javax.swing.JLabel nameLabel;
@@ -2172,6 +2216,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel qtyLabel;
     private javax.swing.JButton registerBtn;
     private javax.swing.JLabel repairLabel;
+    private javax.swing.JComboBox<String> repairLogCb;
     private javax.swing.JTable repairLogTb;
     private javax.swing.JPanel repairLogsPanel;
     private javax.swing.JLabel requireLabel;

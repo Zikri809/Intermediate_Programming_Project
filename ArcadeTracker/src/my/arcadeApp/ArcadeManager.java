@@ -44,12 +44,9 @@ public class ArcadeManager {
             }
         }
     }
-    public void logRepair(int machineID, int technicianID, LocalDate date, String notes,String description, String priority){
-        ArcadeMachine machine = findMachineInList(machineID);
-        Technician technician = findTechnicianInList(technicianID);
-        repairLogList.add(new RepairLog(machine,technician, notes, description, priority));
-    }
+
     public void addRepairLog(RepairLog repairLog){
+        System.out.println("New repair log has been added");
         repairLogList.add(repairLog);
     }
     public List<ArcadeMachine> getMachineList(){
@@ -102,21 +99,29 @@ public class ArcadeManager {
         }
         return null;
     }
+    public RepairLog findRepairLogInList(int logId){
+        for (int i = 0; i <repairLogList.size(); i++){
+            if (repairLogList.get(i).getId()== logId){
+                return repairLogList.get(i);
+            }
+        }
+        return null;
+    }
     public int[] getPrioritylogCount(){
         int lowcount = 0;
         int mediumcount = 0;
         int highcount = 0;
         for (int i = 0; i <repairLogList.size(); i++){
             System.out.println("search looping start");
-            if(repairLogList.get(i).getPriority().equals("Low Priority")){
+            if(repairLogList.get(i).getPriority().equals("Low Priority") && !repairLogList.get(i).getIsCompleted()){
                 lowcount++;
                 System.out.println("found 1 low");
             }
-            else if(repairLogList.get(i).getPriority().equals("Medium Priority")){
+            else if(repairLogList.get(i).getPriority().equals("Medium Priority") && !repairLogList.get(i).getIsCompleted()){
                 mediumcount++;
                 System.out.println("found 1 mdeium");
             }
-            else if(repairLogList.get(i).getPriority().equals("High Priority")){
+            else if(repairLogList.get(i).getPriority().equals("High Priority") && !repairLogList.get(i).getIsCompleted()){
                 highcount++;
                 System.out.println("found 1 high");
             }
@@ -125,7 +130,8 @@ public class ArcadeManager {
             }
         }
         //0-low 1-med 2-high
-        int [] logcount = {lowcount,mediumcount,highcount};
+        int total = lowcount + mediumcount + highcount;
+        int [] logcount = {total,lowcount,mediumcount,highcount};
         return logcount;
     }
     public int[] getOperationalCount(){
@@ -158,20 +164,40 @@ public class ArcadeManager {
         }
         return new int[]{total,available,busy};
     }
-    public void loadLogPanel(DefaultTableModel TbModel, javax.swing.JTextField totalLogTF, javax.swing.JTextField highTF, javax.swing.JTextField lowTF, javax.swing.JTextField mediumTF){
+    private int getCompleted(){
+        int total = 0;
+        for(int i = 0;i<repairLogList.size();i++){
+            if(repairLogList.get(i).getIsCompleted()){
+                total++;
+            }
+        }
+        return total;
+    }
+    public void loadLogPanel(DefaultTableModel TbModel, javax.swing.JTextField completedLogTF, javax.swing.JTextField waitingLogTF, javax.swing.JTextField highTF, javax.swing.JTextField lowTF, javax.swing.JTextField mediumTF,DefaultComboBoxModel<String> repairLogCb ){
         if (repairLogList == null) return;
-        totalLogTF.setText(String.valueOf(repairLogList.size()));
+        //this 2 ensures that the previous addition is removed thus preventing any duplicates as this is bind to 2 button
+        TbModel.setRowCount(0);
+        repairLogCb.removeAllElements();
+
         int [] logCount = getPrioritylogCount();
-        highTF.setText(String.valueOf(logCount[2]));
-        lowTF.setText(String.valueOf(logCount[0]));
-        mediumTF.setText(String.valueOf(logCount[1]));
+        waitingLogTF.setText(String.valueOf(logCount[0]));
+        highTF.setText(String.valueOf(logCount[3]));
+        lowTF.setText(String.valueOf(logCount[1]));
+        mediumTF.setText(String.valueOf(logCount[2]));
+
+        completedLogTF.setText(String.valueOf(getCompleted()));
 
         //log table
         for (int i =0; i<repairLogList.size(); i++){
             RepairLog log = repairLogList.get(i);
-            String [] stringarr = {log.getMachine().getNAME(), log.getTechnician().getNAME(),log.getDescription(), log.getNotes(), log.getPriority() };
+            String [] stringarr = {String.valueOf(log.getId()),log.getMachine().getNAME(), log.getTechnician().getNAME(),log.getDescription(), log.getNotes(), log.getPriority(), log.getIsCompleted() ? "Yes" : "No" };
             TbModel.addRow(stringarr);
         }
+        //load the comboBox
+        for (int i =0; i<repairLogList.size(); i++){
+            repairLogCb.addElement(repairLogList.get(i).getId()+" - "+repairLogList.get(i).getMachine().getNAME());
+        }
+
     }
     public void loadMachinePanel(DefaultTableModel MachineDatabaseTbModel, javax.swing.JTextField totalUnitTF, javax.swing.JTextField operationalTF, javax.swing.JTextField needRepairTF, DefaultComboBoxModel<String> machineNameModel){
         //load the table
@@ -182,7 +208,8 @@ public class ArcadeManager {
                     machine.getID(),
                     machine.getNAME(),
                     machine.getYEARMADE(),
-                    machine.getIsWorking() ? "Yes" : "No"
+                    machine.getIsWorking() ? "Yes" : "No",
+                    String.format("RM %.2f",machine.getPrice()),
             });
         }
         //load the text field

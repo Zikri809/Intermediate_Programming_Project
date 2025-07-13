@@ -83,7 +83,7 @@ public class ArcadeMachine {
                     return this.price;
                 }
                 public void calculatePrice(){
-                 this.price = 5000 * Math.pow((1-0.8),LocalDate.now().getYear() - this.yearMade   );
+                 this.price = 5000 * Math.pow((1-0.15),LocalDate.now().getYear() - this.yearMade   );
                 }
                 public String toString(){
 
