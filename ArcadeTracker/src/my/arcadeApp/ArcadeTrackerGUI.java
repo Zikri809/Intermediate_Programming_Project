@@ -157,6 +157,8 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         busyTechLabel = new javax.swing.JLabel();
         techSP = new javax.swing.JScrollPane();
         techTable = new javax.swing.JTable();
+        techCB = new javax.swing.JComboBox<>();
+        editTechBtn = new javax.swing.JButton();
         repairLogsPanel = new javax.swing.JPanel();
         headerTab4Label = new javax.swing.JLabel();
         subHeadingTab4Label = new javax.swing.JLabel();
@@ -501,6 +503,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
         databaseSelectCB.setBackground(new java.awt.Color(86, 95, 100));
         databaseSelectCB.setEditable(true);
+        databaseSelectCB.setForeground(new java.awt.Color(51, 255, 255));
         databaseSelectCB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
 
         listTable.setModel(new javax.swing.table.DefaultTableModel(
@@ -921,7 +924,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         headerTab3Label.setText("TECHNICIAN MANAGEMENT");
         techniciansPanel.add(headerTab3Label, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 30, -1, 36));
 
-        addTechBtn.setBackground(new java.awt.Color(51, 255, 255));
+        addTechBtn.setBackground(new java.awt.Color(51, 255, 51));
         addTechBtn.setFont(new java.awt.Font("Krungthep", 1, 18)); // NOI18N
         addTechBtn.setText("+ ADD");
         addTechBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
@@ -930,7 +933,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 addTechBtnActionPerformed(evt);
             }
         });
-        techniciansPanel.add(addTechBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(620, 40, 140, 36));
+        techniciansPanel.add(addTechBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(640, 40, 100, 36));
 
         deleteTechBtn.setBackground(new java.awt.Color(255, 51, 51));
         deleteTechBtn.setFont(new java.awt.Font("Krungthep", 1, 18)); // NOI18N
@@ -941,7 +944,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 deleteTechBtnActionPerformed(evt);
             }
         });
-        techniciansPanel.add(deleteTechBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 40, 140, 36));
+        techniciansPanel.add(deleteTechBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 40, 100, 36));
 
         iconTab3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/my/arcadeApp/springIcon.png"))); // NOI18N
         iconTab3.setText("jLabel24");
@@ -1071,7 +1074,18 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         techSP.setViewportView(techTable);
         techTable.getColumnModel().getSelectionModel().setSelectionMode(javax.swing.ListSelectionModel.SINGLE_SELECTION);
 
-        techniciansPanel.add(techSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 270, 610, 260));
+        techniciansPanel.add(techSP, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 320, 610, 210));
+
+        techCB.setBackground(new java.awt.Color(86, 95, 100));
+        techCB.setForeground(new java.awt.Color(51, 255, 255));
+        techCB.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED, new java.awt.Color(51, 255, 255), new java.awt.Color(51, 255, 255), null, null));
+        techniciansPanel.add(techCB, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 260, 210, 40));
+
+        editTechBtn.setBackground(new java.awt.Color(51, 255, 255));
+        editTechBtn.setFont(new java.awt.Font("Krungthep", 0, 18)); // NOI18N
+        editTechBtn.setText("EDIT");
+        editTechBtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        techniciansPanel.add(editTechBtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 260, 90, 40));
 
         addLogPanel.addTab("tab3", techniciansPanel);
 
@@ -1285,7 +1299,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(repairLogTb);
 
-        repairLogsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, 740, 230));
+        repairLogsPanel.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 330, 740, 230));
 
         totalLogPanel1.setBackground(new java.awt.Color(86, 95, 100));
         totalLogPanel1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -1337,10 +1351,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 repairLogCbActionPerformed(evt);
             }
         });
-        repairLogsPanel.add(repairLogCb, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 270, 500, -1));
+        repairLogsPanel.add(repairLogCb, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 260, 380, 40));
 
-        markAsCompletedbtn.setBackground(new java.awt.Color(0, 153, 0));
-        markAsCompletedbtn.setFont(new java.awt.Font("Krungthep", 1, 18)); // NOI18N
+        markAsCompletedbtn.setBackground(new java.awt.Color(0, 255, 0));
+        markAsCompletedbtn.setFont(new java.awt.Font("Krungthep", 1, 14)); // NOI18N
         markAsCompletedbtn.setText("Mark As Completed");
         markAsCompletedbtn.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         markAsCompletedbtn.addActionListener(new java.awt.event.ActionListener() {
@@ -1348,7 +1362,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 markAsCompletedbtnActionPerformed(evt);
             }
         });
-        repairLogsPanel.add(markAsCompletedbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 190, -1));
+        repairLogsPanel.add(markAsCompletedbtn, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 260, 170, 40));
 
         addLogPanel.addTab("tab4", repairLogsPanel);
 
@@ -2150,6 +2164,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JButton deleteDatabaseBtn1;
     private javax.swing.JButton deleteTechBtn;
     private javax.swing.JButton editDatabaseBtn;
+    private javax.swing.JButton editTechBtn;
     private javax.swing.JButton exitBtn;
     private javax.swing.JLabel experienceLabel;
     private javax.swing.JTextField experienceTF;
@@ -2229,6 +2244,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private javax.swing.JLabel subHeadingTab1Label;
     private javax.swing.JLabel subHeadingTab3;
     private javax.swing.JLabel subHeadingTab4Label;
+    private javax.swing.JComboBox<String> techCB;
     private javax.swing.JScrollPane techSP;
     private javax.swing.JTable techTable;
     private javax.swing.JComboBox<String> technicianCB;
