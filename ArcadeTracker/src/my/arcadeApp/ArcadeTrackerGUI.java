@@ -38,10 +38,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         repairLogTb.setModel(repairLogmodel);
         repairLogCb.setModel(repairLogCbModel);
         //LOG MODEL
-        machineName_Model = new DefaultComboBoxModel<>();
+        //machineName_Model = new DefaultComboBoxModel<>();
         databaseSelectCB.setModel(machineName_Model);
         
-        technicianName_Model = new DefaultComboBoxModel<>();
+        //technicianName_Model = new DefaultComboBoxModel<>();
         techCB.setModel(technicianName_Model);//making sure techCB show technician name 
         
         techTable.setModel(technicianTBModel); 
