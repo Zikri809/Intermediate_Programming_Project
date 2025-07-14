@@ -10,12 +10,12 @@ public class ArcadeManager {
 
     //the <> specifies the type of element going to be inside the list
     // used as it is flexible compared to array
-    //the length can increase dynamically as more object is added
+    //the length can increase dynamically as more object is added, polymorphism used
     private List<ArcadeMachine> machinesList = new ArrayList<>();
     private List<Technician> technicianList = new ArrayList<>();
     private List<RepairLog> repairLogList = new ArrayList<>();
 
-
+    //add or remove the object from the array list
     public void addMachine(ArcadeMachine machine){
         machinesList.add(machine);
     }
@@ -28,27 +28,11 @@ public class ArcadeManager {
     public void removeTechnician(Technician technician){
         technicianList.remove(technician);
     }
-    public void updateMachineStatus ( int machineID , boolean isWorking){
-        //we iterate through the list and find the object that has the
-        //required id then we changes the its working status
-        ArcadeMachine updateMachine = findMachineInList(machineID);
-        updateMachine.setIsWorking(isWorking);
-
-    }
-    public void assignTechnician( int machineID, int technicianId){
-
-        for (int i = 0; i <repairLogList.size(); i++){
-            if(repairLogList.get(i).getMachine().getID() == machineID ){
-                Technician technician = findTechnicianInList(technicianId);
-                repairLogList.get(i).setTechnician(technician);
-            }
-        }
-    }
-
     public void addRepairLog(RepairLog repairLog){
-        System.out.println("New repair log has been added");
         repairLogList.add(repairLog);
     }
+
+    //returns the array list
     public List<ArcadeMachine> getMachineList(){
         return machinesList;
 
@@ -59,6 +43,9 @@ public class ArcadeManager {
     public List<RepairLog> getRepairLogList(){
         return repairLogList;
     }
+
+    //find the object in the list by the paams id or name
+    //use method overloading
     public ArcadeMachine findMachineInList(int machineId){
         for (int i = 0; i <machinesList.size(); i++){
             if(machinesList.get(i).getID() == machineId){
@@ -107,29 +94,24 @@ public class ArcadeManager {
         }
         return null;
     }
+
+    //returns an array of values with each index are noted by the meaning
     public int[] getPrioritylogCount(){
         int lowcount = 0;
         int mediumcount = 0;
         int highcount = 0;
         for (int i = 0; i <repairLogList.size(); i++){
-            System.out.println("search looping start");
             if(repairLogList.get(i).getPriority().equals("Low Priority") && !repairLogList.get(i).getIsCompleted()){
                 lowcount++;
-                System.out.println("found 1 low");
             }
             else if(repairLogList.get(i).getPriority().equals("Medium Priority") && !repairLogList.get(i).getIsCompleted()){
                 mediumcount++;
-                System.out.println("found 1 medium");
             }
             else if(repairLogList.get(i).getPriority().equals("High Priority") && !repairLogList.get(i).getIsCompleted()){
                 highcount++;
-                System.out.println("found 1 high");
-            }
-            else{
-                System.out.println("not found");
             }
         }
-        //0-low 1-med 2-high
+        //0-total 1-low 2-mde 3-high
         int total = lowcount + mediumcount + highcount;
         int [] logcount = {total,lowcount,mediumcount,highcount};
         return logcount;
@@ -164,6 +146,8 @@ public class ArcadeManager {
         }
         return new int[]{total,available,busy};
     }
+
+    //get num of log completed in the list
     private int getCompleted(){
         int total = 0;
         for(int i = 0;i<repairLogList.size();i++){
@@ -173,6 +157,8 @@ public class ArcadeManager {
         }
         return total;
     }
+
+    //methods below uses encapsulation as the refreshing logic is hidden under a class
     public void loadLogPanel(DefaultTableModel TbModel, javax.swing.JTextField completedLogTF, javax.swing.JTextField waitingLogTF, javax.swing.JTextField highTF, javax.swing.JTextField lowTF, javax.swing.JTextField mediumTF,DefaultComboBoxModel<String> repairLogCb ){
         if (repairLogList == null) return;
         //this 2 ensures that the previous addition is removed thus preventing any duplicates as this is bind to 2 button
@@ -241,9 +227,11 @@ public class ArcadeManager {
         busyTF.setText(String.valueOf(technicianCount[2]));
 
     }
+
+    //checking the variable types
     public boolean isInteger(String value){
         try{
-            int valueOfString = Integer.parseInt(value);
+            Integer.parseInt(value);
             return true;
         }
         catch (NumberFormatException e){

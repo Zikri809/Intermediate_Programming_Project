@@ -38,23 +38,25 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         repairLogTb.setModel(repairLogmodel);
         repairLogCb.setModel(repairLogCbModel);
         //LOG MODEL
-        //machineName_Model = new DefaultComboBoxModel<>();
+
         databaseSelectCB.setModel(machineName_Model);
         
-        //technicianName_Model = new DefaultComboBoxModel<>();
+
         techCB.setModel(technicianName_Model);//making sure techCB show technician name 
         
         techTable.setModel(technicianTBModel); 
 
-        main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTechTF,busyTechTF,technicianName_Model);
+        main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTechTF,busyTechTF,technicianName_Model);//load the initial data to the page
         main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineName_Model);//load data to machine table
     }
-    
+    //ComboBox model that allows for the dynamic data in the combobox by only adding it to the specified model
     DefaultComboBoxModel<String> machineName_Model = new DefaultComboBoxModel<>();
     DefaultComboBoxModel<String> technicianName_Model = new DefaultComboBoxModel<>();
     DefaultComboBoxModel<String> repairLogCbModel = new DefaultComboBoxModel<>();
 
+    //table header
     String [] MachineTableHeader = {"Id","Name", "Year", "Working","Price"};//machine table
+    //initialising the table model used by the table component
     DefaultTableModel MachineDatabaseTbModel = new DefaultTableModel(MachineTableHeader,0);//machine table
     //log table
     String [] logTableHeader = {"ID","Machine Name","Technician", "Description", "Notes", "Priority", "Completed"};
@@ -63,6 +65,8 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     String[] technicianTableHeader = {"ID", "Name", "Status"};
     DefaultTableModel technicianTBModel = new DefaultTableModel(technicianTableHeader, 0);
 
+    //initialising the id variable with 0
+    //this value wont increment unless a repective entry of theirs are added
     int id = 0;
     int technicianID = 0;
     int logId = 0;
@@ -1736,7 +1740,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void listsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_listsBtnActionPerformed
         // TODO add your handling code here:
-        
+        //moves user to list panel that contain lists of machines and page is loaded with fresh data
         addLogPanel.setSelectedIndex(0);
         main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineName_Model);//load data to machine table
 
@@ -1745,12 +1749,14 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void techniciansBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_techniciansBtnActionPerformed
         // TODO add your handling code here:
+        //redirect user to technician page and loaded the necessary data to it for fresh data
         addLogPanel.setSelectedIndex(2);
         main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTechTF,busyTechTF,technicianName_Model);
     }//GEN-LAST:event_techniciansBtnActionPerformed
 
     private void addMachineBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addMachineBtnActionPerformed
         // TODO add your handling code here:
+        //changes panel to add machine panel
         addLogPanel.setSelectedIndex(1);
     }//GEN-LAST:event_addMachineBtnActionPerformed
 
@@ -1760,11 +1766,13 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void exitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exitBtnActionPerformed
         // TODO add your handling code here:
+        //exits the system thus terminating it
         System.exit(0);
     }//GEN-LAST:event_exitBtnActionPerformed
 
     private void logsBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_logsBtnActionPerformed
         // TODO add your handling code here:
+        //redirects user to log panel and load the fresh data for it
         main_manager.loadLogPanel(repairLogmodel,completedLogTF,waitingLogTF,highTF,lowTF,mediumTF,repairLogCbModel);
         addLogPanel.setSelectedIndex(3);
 
@@ -1775,6 +1783,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void resetTab6BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetTab6BtnActionPerformed
         // TODO add your handling code here:
+        //revert the state of components to its dafault state
         machinesCB.setSelectedIndex(0);
         technicianCB.setSelectedIndex(0);
         priorityCB.setSelectedIndex(0);
@@ -1784,20 +1793,30 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void confirmNewLogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmNewLogBtnActionPerformed
         // TODO add your handling code here:
-        //ArcadeMachine machine , Technician technician , String notes
+        //get the necessary data from the gui components
         String machineName = (String) machinesCB.getSelectedItem();
         String technicianName =(String) technicianCB.getSelectedItem();
         String priorityLevel = (String) priorityCB.getSelectedItem();
         String issuesDesc = issueDescTF.getText();
         String note =  notesTF.getText();
         //System.out.println(priorityLevel);
+        //search for the object availability in the list
         ArcadeMachine machine = main_manager.findMachineInList(machineName);
-        machine.setIsWorking(false);
         Technician technician = main_manager.findTechnicianInList(technicianName);
+        //if the machine needed are not found on the list then the method will return a null
+        //thus existing the function when it met the if conditions
+        if (machine == null || technician == null) return;
+        //changes the working state of the machine to false since it is added to the log
+        machine.setIsWorking(false);
+
+        //changes the technician status to busy since it is assigned to repair the machine
         technician.setBusy(true);
+        //creating a new log object
         RepairLog log = new RepairLog (logId,machine,technician,note,issuesDesc,priorityLevel);
         main_manager.addRepairLog(log);
+        //reload the the log panel page to ensure latest data
         main_manager.loadLogPanel(repairLogmodel,completedLogTF,waitingLogTF,highTF,lowTF,mediumTF,repairLogCbModel);
+        //increment the id to ensure each got its own unique id
         logId++;
 
         //clear the input field
@@ -1811,11 +1830,13 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void backTab5BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTab5BtnActionPerformed
         // TODO add your handling code here:
+        //back redirects
         addLogPanel.setSelectedIndex(2);
     }//GEN-LAST:event_backTab5BtnActionPerformed
 
     private void resetTab5BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_resetTab5BtnActionPerformed
         // TODO add your handling code here:
+        //clear the gui components to its default state
         nameTF.setText("");
         specialityTF.setText("");
         experienceTF.setText("");
@@ -1825,28 +1846,35 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private void confirmAddTechBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_confirmAddTechBtnActionPerformed
         // TODO add your handling code here:
         //int ID, String NAME, String SPECIALTY
+        //get the data form the gui components
         String name = nameTF.getText();
         String specialty = specialityTF.getText();
         double experience;
         String certification = certTF.getText();
 
-        //input validation
-        if(name==null) return;
-        if(specialty==null) return;
-        if(certification==null) return;
+        //input validation, exit the function if any of the required field is empty string
+        if(name.equals("")) return;
+        if(specialty.equals("")) return;
+        if(certification.equals("")) return;
         if(!main_manager.isDouble(experienceTF.getText())) return;
         //this wont execute if the upper if's are satisfied
         experience = Double.parseDouble(experienceTF.getText());
 
-
+        //a new technician is created
         Technician tech1 = new Technician(technicianID,name,specialty,experience,certification);
+        //the technician is added to the technicianList
         main_manager.addTechnician(tech1);
+        //added the technician name to the combo box in add log panel
         technicianName_Model.addElement(name);
+        //increment the id so unique for each
         technicianID++;
+
+        //reset the components to indicate a successful operation
         nameTF.setText("");
         specialityTF.setText("");
         experienceTF.setText("");
         certTF.setText("");
+        //reload the technician page with latest data
         main_manager.loadTechnicainPanel(technicianTBModel,totalTechTF,availableTechTF,busyTechTF,technicianName_Model);
     }//GEN-LAST:event_confirmAddTechBtnActionPerformed
 
@@ -1921,38 +1949,49 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         // TODO add your handling code here:
         // edit database button
         String selectedName = (String) databaseSelectCB.getSelectedItem();
-            if (selectedName == null)return;
-            
+        //ensures that the selected is not null to prevent future execution error
+        if (selectedName == null)return;
+
+        //find the machine in the list based on the name
         ArcadeMachine selectedMachine = main_manager.findMachineInList(selectedName);
-            if(selectedMachine == null)return;
-            
-            machineNameTF.setText(selectedMachine.getNAME());
-            yearTF.setText(String.valueOf(selectedMachine.getYEARMADE()));
-            manufacturerTF.setText(selectedMachine.getManufacturer());
-            //typeCB.setSelected(selectedMachine.());
-            
-            if (selectedMachine instanceof CabinetGame){
-                typeCB.setSelectedItem("Arcade Cabinet");
-                screenTypeTF.setText(((CabinetGame)selectedMachine).getSCREENTYPE());
-                numFlippersTF.setText("");
-            }else if(selectedMachine instanceof PinballMachine){
-                typeCB.setSelectedItem("Pinball Machine");
-                numFlippersTF.setText(String.valueOf(((PinballMachine)selectedMachine).getFlippersNum()));
-                screenTypeTF.setText("");
-            }
-            
+        //exits the function if the is none in the list
+        if(selectedMachine == null)return;
+
+        //get the data from the gui components
+        machineNameTF.setText(selectedMachine.getNAME());
+        yearTF.setText(String.valueOf(selectedMachine.getYEARMADE()));
+        manufacturerTF.setText(selectedMachine.getManufacturer());
+        //typeCB.setSelected(selectedMachine.());
+
+        // check to if the machine selected belongs to which class by using the instance of
+        if (selectedMachine instanceof CabinetGame){
+            //set the necessary gui state to enable user editing the object info
+            typeCB.setSelectedItem("Arcade Cabinet");
+            screenTypeTF.setText(((CabinetGame)selectedMachine).getSCREENTYPE());
+            numFlippersTF.setText("");
+        }else if(selectedMachine instanceof PinballMachine){
+            //set the necessary gui state to enable user editing the object info
+            typeCB.setSelectedItem("Pinball Machine");
+            numFlippersTF.setText(String.valueOf(((PinballMachine)selectedMachine).getFlippersNum()));
+            screenTypeTF.setText("");
+        }
+        //redirect user to the add machine panel
         addLogPanel.setSelectedIndex(1);
     }//GEN-LAST:event_editDatabaseBtnActionPerformed
 
     private void deleteDatabaseBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDatabaseBtnActionPerformed
         // TODO add your handling code here:
-        //this is for the button in the add machine
+        //this is for the button in the add machine page
+        //get the data from the ui components
         String machineName = machineNameTF.getText();
+        //find the object in the list by name, if not available then return null
         ArcadeMachine selectedMachine = main_manager.findMachineInList(machineName);
-        if(selectedMachine == null)return; //prevent any error if user accidentall click on the delte when the record aint there
+        if(selectedMachine == null)return; //prevent any error if user accidentally click on the delete when the record aint there
+        //remove the machine from the machine list
         main_manager.removeMachine(selectedMachine);
+        //reload the machine page with latest data
         main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineName_Model);//load data to machine table
-        //reset the condition
+        //reset the gui components to indicate success operation
         machineNameTF.setText("");
         manufacturerTF.setText("");
         screenTypeTF.setText("");
@@ -1968,6 +2007,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private void registerBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_registerBtnActionPerformed
         
         // TODO add your handling code here:
+        //get the necessary data from the ui
         String machineName = machineNameTF.getText();
         String manufacturer = manufacturerTF.getText();
         String machineType = (String)typeCB.getSelectedItem();
@@ -1975,9 +2015,9 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
         //input validation
         //the return just helps us to exit the function
-        if(machineType == null)return;
-        if(manufacturer == null)return;
-        if(machineName == null)return;
+        if(machineType.equals(""))return;
+        if(manufacturer.equals(""))return;
+        if(machineName.equals(""))return;
         if(main_manager.isInteger(yearTF.getText())){
             year = Integer.parseInt(yearTF.getText());
         }
@@ -1986,17 +2026,18 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         }
 
         if (machineType.equals("Arcade Cabinet")){
-            //int ID, String NAME, int YEARMADE, boolean IsWorking, String SCREENTYPE, String MANUFACTURER
             String screentype = screenTypeTF.getText();
-            //if using edit
+            //checking for edit function if the machine object is not present in the list then null returned
             if(main_manager.findMachineInList(machineName) == null){
+                //registration of new machine
                 ArcadeMachine arcadeCabinet = new CabinetGame(id,machineName,year,true ,screentype,manufacturer);
                 main_manager.addMachine(arcadeCabinet);
                 machineName_Model.addElement(machineName);
                 id++;
             }
             else{
-                //the return type will be in arcademachine class but we casted down to be able to access the setter screentype method
+                //edit the existing machine
+                //the return type will be in arcademachine class but we cast down to be able to access the setter screentype method
                 CabinetGame toEditMachine = (CabinetGame) main_manager.findMachineInList(machineName);
                 toEditMachine.setNAME(machineName);
                 toEditMachine.setYEARMADE(year);
@@ -2006,16 +2047,18 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
         }
         else{
-            //int ID, String NAME, int YEARMADE, boolean IsWorking, int FlippersNum,String MANUFACTURER
+
             int numflipper = Integer.parseInt(numFlippersTF.getText());
             //check if the machine with that name already present in the machine list
             if(main_manager.findMachineInList(machineName) == null){
+                //if not then a new machine will be registered
                 ArcadeMachine pinballMachine = new PinballMachine(id,machineName,year,true ,numflipper,manufacturer);
                 main_manager.addMachine(pinballMachine);
                 machineName_Model.addElement(machineName);
                 id++;
             }
             else{
+                //if present then will edit the data of the existing machine
                 PinballMachine toEditMachine = (PinballMachine) main_manager.findMachineInList(machineName);
                 toEditMachine.setNAME(machineName);
                 toEditMachine.setYEARMADE(year);
@@ -2026,8 +2069,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             
             
         }
+        //reload the data for the machine panel page
         main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineName_Model);//load data to machine table
-        
+
+        //reset the fields to indicate successful operation
         machineNameTF.setText("");
         manufacturerTF.setText("");
         screenTypeTF.setText("");
@@ -2038,11 +2083,13 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void backTab6BtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backTab6BtnActionPerformed
         // TODO add your handling code here:
+        //redirect user back
         addLogPanel.setSelectedIndex(3);
     }//GEN-LAST:event_backTab6BtnActionPerformed
 
     private void typeCBActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_typeCBActionPerformed
         // TODO add your handling code here:
+        //change the visibility of the components based on the machine selected in the combobox
         if(typeCB.getSelectedItem() == "Arcade Cabinet"){
             screenTypeTF.setVisible(true);
             screenTypeTab2Label.setVisible(true);}
@@ -2070,33 +2117,38 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
     private void deleteDatabaseBtn1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteDatabaseBtn1ActionPerformed
         // TODO add your handling code here:
         String machineName = (String) databaseSelectCB.getSelectedItem();
-
+        //prevent any null in the string from continue execution
         if (machineName !=null ){
+            //find the machine in the list
             ArcadeMachine selectedMachine = main_manager.findMachineInList(machineName);
         
         if (selectedMachine != null){
+            //if the machine is present then delete it
             main_manager.removeMachine(selectedMachine);
-        
+
+            //resets the combo box in the add log page to prevent dupes
             machineName_Model.removeAllElements();
-            
+            //load the name of machine in the combo box in add log panel
             for (ArcadeMachine machine : main_manager.getMachineList()){
               machineName_Model.addElement(machine.getNAME());
            }
-               
+            //reload the machine panel with the latest data
             main_manager.loadMachinePanel(MachineDatabaseTbModel,totalUnitTF,operationalTF,needRepairTF,machineName_Model);//load data to machine table
-        }else{
-            }
+        }
         }
     }//GEN-LAST:event_deleteDatabaseBtn1ActionPerformed
 
     private void deleteTechBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteTechBtnActionPerformed
         // TODO add your handling code here:
+        //get the data from the ui component
         String technicianName = (String) techCB.getSelectedItem();
-        
+        //ensures that the string is not null before proceed
         if (technicianName != null){
+            //find the object
             Technician techToDelete = main_manager.findTechnicianInList(technicianName);
         
         if (techToDelete != null){
+            //remove the object
             main_manager.removeTechnician(techToDelete);
             
             //updateCB
@@ -2104,11 +2156,10 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
             for (Technician tech : main_manager.getTechnicianList()){
                 technicianName_Model.addElement(tech.getNAME());
             }
-            
+            //reload the technnician panel
             main_manager.loadTechnicainPanel(technicianTBModel, totalTechTF, availableTechTF, busyTechTF, technicianName_Model);
             
-        }else{           
-            }
+        }
         }
     }//GEN-LAST:event_deleteTechBtnActionPerformed
 
@@ -2118,12 +2169,18 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void markAsCompletedbtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_markAsCompletedbtnActionPerformed
         // TODO add your handling code here:
+        //get data from ui component
         String selected = (String)  repairLogCb.getSelectedItem();
+        //get the id from string by using split and trim
+        //split returns array of string splitted based on the delimiter
+        //trim removes any spacing before first chara and after last cahrac
         int selectedId = Integer.parseInt(selected.split("-")[0].trim());
         RepairLog log =  main_manager.findRepairLogInList(selectedId);
+        //changes the attributes back
         log.setIsCompleted(true);
         log.getTechnician().setBusy(false);
         log.getMachine().setIsWorking(true);
+        //reload the log page
         main_manager.loadLogPanel(repairLogmodel,completedLogTF,waitingLogTF,highTF,lowTF,mediumTF,repairLogCbModel);
 
     }//GEN-LAST:event_markAsCompletedbtnActionPerformed
@@ -2134,18 +2191,19 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void editTechBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_editTechBtnActionPerformed
         // TODO add your handling code here:
+        //get the data from the combobox
         String technicianName = (String) techCB.getSelectedItem();
-            if (technicianName == null)return;
-        
+        if (technicianName == null)return;
+        //find the technician in the list, if not present null returned
         Technician selectedTechnician = main_manager.findTechnicianInList(technicianName);
-            if (selectedTechnician == null)return; 
-            
-            nameTF.setText(selectedTechnician.getNAME());
-            specialityTF.setText(selectedTechnician.getSPECIALTY());
-            experienceTF.setText(String.valueOf(selectedTechnician.getEXPERIENCE()));
-            certTF.setText(selectedTechnician.getCERTIFICATION());        
+        if (selectedTechnician == null)return;
+        //restore the data from the technician object to the gui components
+        nameTF.setText(selectedTechnician.getNAME());
+        specialityTF.setText(selectedTechnician.getSPECIALTY());
+        experienceTF.setText(String.valueOf(selectedTechnician.getEXPERIENCE()));
+        certTF.setText(selectedTechnician.getCERTIFICATION());
         editTech=selectedTechnician;
-        
+        //redirects user to add technician panel
         addLogPanel.setSelectedIndex(4);
     }//GEN-LAST:event_editTechBtnActionPerformed
 
