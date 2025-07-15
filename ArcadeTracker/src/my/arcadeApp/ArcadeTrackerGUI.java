@@ -555,16 +555,15 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                                 .addGap(84, 84, 84)
                                 .addComponent(needRepairPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(listPanelLayout.createSequentialGroup()
-                                .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listPanelLayout.createSequentialGroup()
-                                        .addComponent(editDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(35, 35, 35))
+                                .addGroup(listPanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listPanelLayout.createSequentialGroup()
                                         .addComponent(totalUnitPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                                         .addGap(339, 339, 339))
                                     .addGroup(listPanelLayout.createSequentialGroup()
                                         .addComponent(databaseSelectCB, javax.swing.GroupLayout.PREFERRED_SIZE, 293, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                        .addComponent(editDatabaseBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(30, 30, 30)))
                                 .addComponent(deleteDatabaseBtn1, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, listPanelLayout.createSequentialGroup()
@@ -1166,7 +1165,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        repairLogsPanel.add(totalLogPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 110, -1, 120));
+        repairLogsPanel.add(totalLogPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, -1, 120));
 
         highPriorityPanel.setBackground(new java.awt.Color(86, 95, 100));
         highPriorityPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -1208,7 +1207,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        repairLogsPanel.add(highPriorityPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 110, 150, 120));
+        repairLogsPanel.add(highPriorityPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 110, 150, 120));
 
         progressPanel.setBackground(new java.awt.Color(86, 95, 100));
         progressPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -1253,7 +1252,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        repairLogsPanel.add(progressPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 110, 150, 120));
+        repairLogsPanel.add(progressPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 110, 150, 120));
 
         completedPanel.setBackground(new java.awt.Color(86, 95, 100));
         completedPanel.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED));
@@ -1337,7 +1336,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         totalLogPanel1Layout.setHorizontalGroup(
             totalLogPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, totalLogPanel1Layout.createSequentialGroup()
-                .addContainerGap(16, Short.MAX_VALUE)
+                .addContainerGap(19, Short.MAX_VALUE)
                 .addGroup(totalLogPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(completedLogLabel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(completedLogTF))
@@ -1353,7 +1352,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 .addGap(14, 14, 14))
         );
 
-        repairLogsPanel.add(totalLogPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 110, -1, 120));
+        repairLogsPanel.add(totalLogPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 110, 120, 120));
 
         repairLogCb.setBackground(new java.awt.Color(86, 95, 100));
         repairLogCb.setEditable(true);
