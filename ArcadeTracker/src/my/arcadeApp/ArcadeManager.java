@@ -185,6 +185,16 @@ public class ArcadeManager {
         }
 
     }
+    public void loadAddLOgPanel(DefaultComboBoxModel<String> machineNameModel , DefaultComboBoxModel<String> technicianNameModel ){
+        machineNameModel.removeAllElements();
+        technicianNameModel.removeAllElements();
+        for(int i =0 ; i<machinesList.size(); i++){
+            machineNameModel.addElement(machinesList.get(i).getNAME());
+        }
+        for(int i =0 ; i<technicianList.size(); i++){
+            technicianNameModel.addElement(technicianList.get(i).getNAME());
+        }
+    }
     public void loadMachinePanel(DefaultTableModel MachineDatabaseTbModel, javax.swing.JTextField totalUnitTF, javax.swing.JTextField operationalTF, javax.swing.JTextField needRepairTF, DefaultComboBoxModel<String> machineNameModel){
         //load the table
         MachineDatabaseTbModel.setRowCount(0); // clear old rows

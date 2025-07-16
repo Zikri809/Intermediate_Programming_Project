@@ -1859,14 +1859,27 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
         //this wont execute if the upper if's are satisfied
         experience = Double.parseDouble(experienceTF.getText());
 
-        //a new technician is created
-        Technician tech1 = new Technician(technicianID,name,specialty,experience,certification);
-        //the technician is added to the technicianList
-        main_manager.addTechnician(tech1);
-        //added the technician name to the combo box in add log panel
-        technicianName_Model.addElement(name);
-        //increment the id so unique for each
-        technicianID++;
+        if(main_manager.findMachineInList(name) == null) {
+            ;
+            //a new technician is created
+            Technician tech1 = new Technician(technicianID, name, specialty, experience, certification);
+            //the technician is added to the technicianList
+            main_manager.addTechnician(tech1);
+            //added the technician name to the combo box in add log panel
+            technicianName_Model.addElement(name);
+            //increment the id so unique for each
+            technicianID++;
+        }
+        else{
+            Technician techToEdit = main_manager.findTechnicianInList(name);
+            techToEdit.setNAME(name);
+            techToEdit.setSPECIALTY(specialty);
+            techToEdit.setEXPERIENCE(experience);
+            techToEdit.setCERTIFICATION(certification);
+
+        }
+
+
 
         //reset the components to indicate a successful operation
         nameTF.setText("");
@@ -1911,6 +1924,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
 
     private void addNewLogBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_addNewLogBtnActionPerformed
         // TODO add your handling code here:
+        main_manager.loadAddLOgPanel(machineName_Model, technicianName_Model);
         addLogPanel.setSelectedIndex(5);
     }//GEN-LAST:event_addNewLogBtnActionPerformed
 
@@ -2042,6 +2056,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 toEditMachine.setYEARMADE(year);
                 toEditMachine.setManufacturer(manufacturer);
                 toEditMachine.setSCREENTYPE(screentype);
+                toEditMachine.calculatePrice();
             }
 
         }
@@ -2063,6 +2078,7 @@ public class ArcadeTrackerGUI extends javax.swing.JFrame {
                 toEditMachine.setYEARMADE(year);
                 toEditMachine.setManufacturer(manufacturer);
                 toEditMachine.setFlippersNum(numflipper);
+                toEditMachine.calculatePrice();
             }
 
             
